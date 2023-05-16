@@ -1,0 +1,132 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+package "DynamoDBModels" {
+    class member {
+    - zipCode : String
+    - id : String
+    - email : String
+    - active : Boolean
+    - listings : Set<String>
+    }
+
+    class item {
+    - id : String
+    - title : String
+    - description : String
+    - size : String
+    - type : String
+    - exchanged : Boolean
+    - images : Set<String>
+}
+
+}
+package "DAO" {
+    class itemDao {
+    - dynamoDBMapper
+    - metricsPublisher
+    + getItem()
+    + saveItem()
+    }
+
+    class memberDao {
+    - dynamoDBMapper
+    - metricsPublisher
+    + saveMember()
+    + getMember()
+    }
+}
+
+package "Activities" {
+
+    class getItemActivity {
+    + handleRequest()
+    }
+
+    class updateItemActivity {
+    + handleRequest()
+    }
+
+    class createItemActivity() {
+    + handleRequest()
+    }
+
+    class deleteItemActivity() {
+    + handleRequest()
+    }
+
+    class getMemberActivity() {
+    + handleRequest()
+    }
+
+    class updateMemberActivity() {
+    + handleRequest()
+    }
+
+    class createMemberActivity() {
+    + handleRequest()
+    }
+
+    class searchItemsActivity() {
+    + handleRequest()
+    }
+}
+
+package "Lambda" {
+
+    package "LambdaRequest" {
+
+note "All of these classes will have a builder and the variables will be final" as N1
+    class getItemRequest{
+    - Final id : String
+    }
+        class updateItemRequest{
+         - FINAL (all item instance var EXCEPT id  & email allowed.  *All FINAL*)
+        }
+
+        class createItemRequest{
+        - final id : String (member's id)
+        - FINAL (all item instance var EXCEPT id & email allowed. *ALL FINAL* id and email will be assigned in activty)
+        }
+
+        class deleteItemRequest{
+        - final id : String
+        }
+
+        class getMemberItemsRequest{
+        - final id : String
+        }
+
+        class updateMemberRequest{
+        - FINAL (all fields except id allowed. *ALL FINAL*)
+        }
+
+        class createMemberRequest{
+        - Final (all fields except id allowed. id will be assigned in Activity. *All Final*)
+        }
+
+        class searchItemsRequest {
+        - final criteria : String
+        }
+    }
+
+
+    package "LambdaResult" {
+        class getItemResult{}
+        class updateItemResult{}
+        class createItemResult{}
+        class deleteItemResult{}
+        class getMemberItemsResult{}
+        class updateMemberResult{}
+        class createMemberResult{}
+    }
+
+    class "AuthenticatedLambdaRequest" {}
+
+    class "LambdaRequest" {}
+
+    class LambdaActivityRunner {}
+
+}
+
+@enduml
