@@ -1,4 +1,4 @@
-package com.nashss.se.yourprojectname;
+package com.nashss.se.exchange;
 
 public class Main {
     public static void main(String[] args) {
