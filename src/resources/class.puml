@@ -38,37 +38,42 @@ package "DAO" {
 }
 
 package "Activities" {
+note "GetItemActivity: this class is used to return a single item or a list of items belonging to a member" as N2
 
-    class getItemActivity {
+    class GetItemActivity {
     + handleRequest()
     }
 
-    class updateItemActivity {
+    class UpdateItemActivity {
     + handleRequest()
     }
 
-    class createItemActivity() {
+    class CreateItemActivity {
     + handleRequest()
     }
 
-    class deleteItemActivity() {
+    class DeleteItemActivity {
     + handleRequest()
     }
 
-    class getMemberActivity() {
+    class GetMemberActivity {
     + handleRequest()
     }
 
-    class updateMemberActivity() {
+    class UpdateMemberActivity {
     + handleRequest()
     }
 
-    class createMemberActivity() {
+    class CreateMemberActivity {
     + handleRequest()
     }
 
-    class searchItemsActivity() {
+    class SearchItemsActivity {
     + handleRequest()
+    }
+
+    class AddItemToMemberListingActivity {
+    + handleRequest
     }
 }
 
@@ -77,56 +82,171 @@ package "Lambda" {
     package "LambdaRequest" {
 
 note "All of these classes will have a builder and the variables will be final" as N1
-    class getItemRequest{
-    - Final id : String
-    }
-        class updateItemRequest{
-         - FINAL (all item instance var EXCEPT id  & email allowed.  *All FINAL*)
+        class getItemRequest{
+        - Final itemId : String
         }
 
-        class createItemRequest{
-        - final id : String (member's id)
+        class UpdateItemRequest {
+         - FINAL *All FINAL*
+        }
+
+        class CreateItemRequest {
+        - final itemId : String (member's id)
         - FINAL (all item instance var EXCEPT id & email allowed. *ALL FINAL* id and email will be assigned in activty)
         }
 
-        class deleteItemRequest{
-        - final id : String
+        class DeleteItemRequest {
+        - final itemId : String
         }
 
-        class getMemberItemsRequest{
-        - final id : String
+        class GetMemberItemsRequest {
+        - final memberId : String
         }
 
-        class updateMemberRequest{
+        class UpdateMemberRequest {
         - FINAL (all fields except id allowed. *ALL FINAL*)
         }
 
-        class createMemberRequest{
+        class CreateMemberRequest {
         - Final (all fields except id allowed. id will be assigned in Activity. *All Final*)
         }
 
-        class searchItemsRequest {
+        class SearchItemsRequest {
         - final criteria : String
         }
+
+        class AddItemToMemberListingRequest {
+        - final itemId : String
+        - final memberId: String
+        }
+
+        class "AuthenticatedLambdaRequest" {}
+
+        class "LambdaRequest" {}
     }
 
 
     package "LambdaResult" {
-        class getItemResult{}
-        class updateItemResult{}
-        class createItemResult{}
-        class deleteItemResult{}
-        class getMemberItemsResult{}
-        class updateMemberResult{}
-        class createMemberResult{}
+note "All of these classes will have a builder and the variables will be final" as N3
+        class GetItemResult {
+        - final ItemModel
+        - final itemId
+        + getItem() : List<Item>
+        _________
+        + override toString()
+        }
+
+        class UpdateItemResult {
+        - final MemberModel
+        + getMemberItem() : Item
+        ________
+        + override toString()
+        }
+
+        class CreateItemResult {
+        - final ItemModel
+        + getItem() : ItemModel
+        _______
+        + override toString()
+        }
+
+        class DeleteItemResult {
+        - final ItemModel
+        + getItem() : ItemModel
+        ________
+        + override toString()
+        }
+
+        class GetMemberItemsResult {
+        - final List<ItemModel>
+        + getItemsList() : List<ItemModel>
+        }
+
+        class UpdateMemberResult {
+        - final MemberModel
+        + getMember() : MemberModel
+        ______________
+        + override toString()
+        }
+
+        class CreateMemberResult{
+        - final MemberModel
+        + getMember() : MemberModel
+        _______________
+        + override toString()
+        }
+
+        class AddItemToMemberListingResult {
+        - final List<ItemModel>
+        + getItemList() : List<ItemModel>
+        --------------
+        + override toString()
+        }
+
+        class SearchItemsResult {
+        - final List<MemberModel>
+        + getListings() : List<ItemModel>
+        }
+    }
+    class LambdaActivityRunner {}
+}
+
+package "Models" {
+    class ItemModel{
+    - final (all instance var)
+    + getters() (all instance var)
+    + override equals()
+    + override hashCode()
+    ________________
+    + Builder all instance var
     }
 
-    class "AuthenticatedLambdaRequest" {}
-
-    class "LambdaRequest" {}
-
-    class LambdaActivityRunner {}
-
+    class MemberModel {
+     - final (all instance var)
+     + getters() (all instance var)
+     + override equals()
+     + override hashCode()
+     ________________
+     + Builder all instance var
+     }
 }
+
+package "Lambdas" {
+    class getItemLambda {
+    + handleRequest(UNAUTHENTICATED) : LambdaResponse
+    }
+
+    class UpdateItemLambda {
+    + handleRequest(AUTHENTICATED) : LambdaResponse
+    }
+
+    class CreateItemLambda {
+    + handleRequest(AUTHENTICATED) : LambdaResponse
+    }
+
+    class DeleteItemLambda {
+    + handleRequest(AUTHENTICATED) : LambdaResponse
+    }
+
+    class AddItemToMemberListingsLambda {
+    + handleRequest(AUTHENTICATED) : LambdaResponse
+    }
+
+    class GetMemberListingsLambda {
+    + handleRequest(AUTHENTICATED) : LambdaResponse
+    }
+
+    class UpdateMemberItemsLambda {
+    + handleRequest(AUTHENTICATED) : LambdaResponse
+    }
+
+    class CreateMemberLambda{
+    + handleRequest(AUTHENTICATED) : LambdaResponse
+    }
+
+    class SearchItemsLambda {
+    + handleRequest(UNAUTHENTICATED) : LambdaResponse
+    }
+    }
 
 @enduml

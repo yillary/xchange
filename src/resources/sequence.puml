@@ -1,10 +1,42 @@
 @startuml
-'https://plantuml.com/sequence-diagram
+'participant Participant as Foo
+'actor       Actor       as Foo1
+'boundary    Boundary    as Foo2
+'control     Control     as Foo3
+'entity      Entity      as Foo4
+'database    Database    as Foo5
+'collections Collections as Foo6
+'queue       Queue       as Foo7
+'Foo -> Foo1 : To actor
+'Foo -> Foo2 : To boundary
+'Foo -> Foo3 : To control
+'Foo -> Foo4 : To entity
+'Foo -> Foo5 : To database
+'Foo -> Foo6 : To collections
+'Foo -> Foo7: To queue
 
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
+participant user
+participant Lambda as Foot1
+participant LambdaRequest as Foot2
+participant ActivityRunner as Foot5
+participant Activity as Foot3
+participant Dao as Foot8
+database DynamoDB as Foot4
 
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: Another authentication Response
+
+
+user -> Foot1 : handleRequest()
+Foot1 -> Foot2 : builder()
+Foot2 --> Foot1 : Request
+Foot1 -> Foot5 : runActivity()
+Foot5 -> Foot3 : handleRequest()
+Foot3 -> Foot8 : performAction()
+Foot8 -> Foot4 : performAction()
+Foot4 --> Foot8 : result
+Foot8 --> Foot3 : result
+Foot3 --> Foot5 : builder()
+Foot5 --> Foot3 : result
+Foot3 --> Foot1 : result
+
 
 @enduml
