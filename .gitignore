@@ -8,7 +8,7 @@
 /.settings
 /.project
 /eclipse-bin/
-/.idea
+/.idea/*
 /annotation-generated-src
 /annotation-generated-tst
 /SAMToolkit.devenv
