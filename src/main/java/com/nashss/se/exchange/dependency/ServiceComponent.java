@@ -10,6 +10,10 @@ import javax.inject.Singleton;
 //@Component()
 public interface ServiceComponent {
 
-
-
+    /**
+     * Provides the relevantActivity
+     * @return SearchItemsActivity
+     */
+//    SearchItemsActivity providesSearchActivity();
+//TODO: ^^ UNCOMMENT OUT THIS METHOD SO IT WORKS WHEN ACTIVITY IS MADE.
 }
