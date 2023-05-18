@@ -1,9 +1,13 @@
 package com.nashss.se.exchange.dynamodb.models;
 
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
+
 import java.util.Objects;
 import java.util.Set;
 
-@DynamoDbTable(tableName = "items")
+@DynamoDBTable(tableName = "items")
 public class Item {
     private String itemId;
     private String title;
