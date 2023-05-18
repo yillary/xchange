@@ -1,5 +1,7 @@
 package com.nashss.se.exchange.dependency;
 
+import dagger.Component;
+
 import javax.inject.Singleton;
 
 
@@ -7,7 +9,7 @@ import javax.inject.Singleton;
  * Dagger component for providing dependency injection in the exchange service.
  */
 @Singleton
-//@Component()
+@Component()
 public interface ServiceComponent {
 
     /**
