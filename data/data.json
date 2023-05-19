@@ -16,7 +16,7 @@
             "S": "Top"
           },
           "exchanged": {
-            "Bool": "false"
+            "BOOL": false
           },
           "images": {
             "SS": [
@@ -43,7 +43,7 @@
             "S": "Bottoms"
           },
           "exchanged": {
-            "Bool": "false"
+            "BOOL": false
           },
           "images": {
             "SS": [
@@ -70,7 +70,7 @@
             "S": "Pants"
           },
           "exchanged": {
-            "Bool": "false"
+            "BOOL": false
           },
           "images": {
             "SS": [
@@ -97,7 +97,7 @@
             "S": "Outerwear"
           },
           "exchanged": {
-            "Bool": "true"
+            "BOOL": true
           },
           "images": {
             "SS": [
@@ -124,7 +124,7 @@
             "S": "Shoes"
           },
           "exchanged": {
-            "Bool": "false"
+            "BOOL": false
           },
           "images": {
             "SS": [
