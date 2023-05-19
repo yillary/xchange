@@ -35,7 +35,8 @@ public class LambdaActivityRunner<TRequest, TResult> {
     private ServiceComponent getService() {
         log.info("getService");
         if (service == null) {
-            service = DaggerServiceComponent.create();
+            //TODO: AFTER I MAKE THE ITEMS DAO, AND IT'S INCORPORATED IN THE DAGGER DEPENDENCY THEN THIS SHOULD WORK.
+//            service = DaggerServiceComponent.create();
         }
         return service;
     }
