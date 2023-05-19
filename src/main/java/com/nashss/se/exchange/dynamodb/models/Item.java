@@ -15,16 +15,14 @@ public class Item {
     private String type;
     private Boolean exchanged;
     private Set<String> images;
-    private String email;
 
-    public Item(String itemId, String title, String description, String type, Boolean exchanged, Set<String> images, String email) {
+    public Item(String itemId, String title, String description, String type, Boolean exchanged, Set<String> images) {
         this.itemId = itemId;
         this.title = title;
         this.description = description;
         this.type = type;
         this.exchanged = exchanged;
         this.images = images;
-        this.email = email;
     }
 
     @DynamoDBHashKey(attributeName = "item_Id")
@@ -81,15 +79,6 @@ public class Item {
         this.images = images;
     }
 
-    @DynamoDBAttribute(attributeName = "email")
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
 
     @Override
     public String toString() {
@@ -100,7 +89,6 @@ public class Item {
                 ", type='" + type + '\'' +
                 ", exchanged=" + exchanged +
                 ", images=" + images +
-                ", email='" + email + '\'' +
                 '}';
     }
 
@@ -110,12 +98,12 @@ public class Item {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Item item = (Item) o;
-        return Objects.equals(itemId, item.itemId) && Objects.equals(title, item.title) && Objects.equals(description, item.description) && Objects.equals(type, item.type) && Objects.equals(exchanged, item.exchanged) && Objects.equals(images, item.images) && Objects.equals(email, item.email);
+        return Objects.equals(itemId, item.itemId) && Objects.equals(title, item.title) && Objects.equals(description, item.description) && Objects.equals(type, item.type) && Objects.equals(exchanged, item.exchanged) && Objects.equals(images, item.images);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(itemId, title, description, type, exchanged, images, email);
+        return Objects.hash(itemId, title, description, type, exchanged, images);
     }
 
 
