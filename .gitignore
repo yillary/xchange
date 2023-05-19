@@ -17,12 +17,12 @@
 .aws-sam
 
 # Ignore Gradle project-specific cache directory
-.gradle
+.gradle/*
 
 # Ignore Gradle build output directory
-build
+build/*
 logs
 node_modules
 
-.env*
+sample.env*
 bin
