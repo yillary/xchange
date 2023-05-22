@@ -1,28 +1,30 @@
 package com.nashss.se.exchange.dynamodb.models;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
+import com.amazonaws.services.dynamodbv2.datamodeling.*;
 
 import java.util.Objects;
 import java.util.Set;
 
 @DynamoDBTable(tableName = "items")
 public class Item {
+    public static final String ZIPCODE_TYPE_INDEX = "SearchByTypeZip";
+
     private String itemId;
     private String title;
     private String description;
     private String type;
     private Boolean exchanged;
     private Set<String> images;
+    private String zipCode;
 
-    public Item(String itemId, String title, String description, String type, Boolean exchanged, Set<String> images) {
+    public Item(String itemId, String title, String description, String type, Boolean exchanged, Set<String> images, String zipCode) {
         this.itemId = itemId;
         this.title = title;
         this.description = description;
         this.type = type;
         this.exchanged = exchanged;
         this.images = images;
+        this.zipCode = zipCode;
     }
 
     @DynamoDBHashKey(attributeName = "item_Id")
@@ -52,6 +54,7 @@ public class Item {
         this.description = description;
     }
 
+    @DynamoDBIndexRangeKey(globalSecondaryIndexName = ZIPCODE_TYPE_INDEX, attributeName = "type")
     @DynamoDBAttribute(attributeName = "type")
     public String getType() {
         return type;
@@ -79,32 +82,24 @@ public class Item {
         this.images = images;
     }
 
+    @DynamoDBIndexHashKey(globalSecondaryIndexName = ZIPCODE_TYPE_INDEX, attributeName = "zip_Code")
+    @DynamoDBAttribute(attributeName = "zip_Code")
+    public String getZipCode() { return zipCode; }
 
-    @Override
-    public String toString() {
-        return "Item{" +
-                "itemId='" + itemId + '\'' +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", type='" + type + '\'' +
-                ", exchanged=" + exchanged +
-                ", images=" + images +
-                '}';
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
     }
-
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Item item = (Item) o;
-        return Objects.equals(itemId, item.itemId) && Objects.equals(title, item.title) && Objects.equals(description, item.description) && Objects.equals(type, item.type) && Objects.equals(exchanged, item.exchanged) && Objects.equals(images, item.images);
+        return Objects.equals(itemId, item.itemId) && Objects.equals(title, item.title) && Objects.equals(description, item.description) && Objects.equals(type, item.type) && Objects.equals(exchanged, item.exchanged) && Objects.equals(images, item.images) && Objects.equals(zipCode, item.zipCode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(itemId, title, description, type, exchanged, images);
+        return Objects.hash(itemId, title, description, type, exchanged, images, zipCode);
     }
-
-
 }

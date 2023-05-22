@@ -16,6 +16,6 @@ public interface ServiceComponent {
      * Provides the relevantActivity
      * @return SearchItemsActivity
      */
-//    SearchItemsActivity providesSearchActivity();
+//    GetItemsActivity providesGetItemsActivity();
 //TODO: ^^ UNCOMMENT OUT THIS METHOD SO IT WORKS WHEN ACTIVITY IS MADE.
 }
