@@ -1,5 +1,6 @@
 package com.nashss.se.exchange.lambda;
 
+import com.nashss.se.exchange.dependency.DaggerServiceComponent;
 import com.nashss.se.exchange.dependency.ServiceComponent;
 
 import org.apache.logging.log4j.LogManager;
@@ -35,8 +36,7 @@ public class LambdaActivityRunner<TRequest, TResult> {
     private ServiceComponent getService() {
         log.info("getService");
         if (service == null) {
-            //TODO: AFTER I MAKE THE ITEMS DAO, AND IT'S INCORPORATED IN THE DAGGER DEPENDENCY THEN THIS SHOULD WORK.
-//            service = DaggerServiceComponent.create();
+            service = DaggerServiceComponent.create();
         }
         return service;
     }
