@@ -5,19 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1cd763d9-942e-4ae1-86f4-2efa782b1ebe" name="Changes" comment="initial commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nashss/se/exchange/exceptions/ItemNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nashss/se/exchange/exceptions/MemberNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/aws.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_18_23,_10_00_AM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_18_23__10_00_AM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/design-document.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nashss/se/exchange/dynamodb/models/ItemDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nashss/se/exchange/dynamodb/models/ItemDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nashss/se/exchange/lambda/LambdaActivityRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nashss/se/exchange/lambda/LambdaActivityRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/nashss/se/exchange/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/build/classes/java/main/com/nashss/se/exchange/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/nashss/se/exchange/Models/ItemModel$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/build/classes/java/main/com/nashss/se/exchange/Models/ItemModel$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/nashss/se/exchange/Models/ItemModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/build/classes/java/main/com/nashss/se/exchange/Models/ItemModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/nashss/se/exchange/dependency/ServiceComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/build/classes/java/main/com/nashss/se/exchange/dependency/ServiceComponent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/nashss/se/exchange/dynamodb/models/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/build/classes/java/main/com/nashss/se/exchange/dynamodb/models/Item.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/xchange-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/build/libs/xchange-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/build/tmp/jar/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nashss/se/exchange/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nashss/se/exchange/Models/ItemModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/Models/ItemModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nashss/se/exchange/dependency/DaoModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/dependency/DaoModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nashss/se/exchange/dependency/MetricsModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/dependency/MetricsModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nashss/se/exchange/dependency/ServiceComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/dependency/ServiceComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nashss/se/exchange/dynamodb/models/DynamoDbClientProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/dynamodb/models/DynamoDbClientProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nashss/se/exchange/dynamodb/models/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/dynamodb/models/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nashss/se/exchange/dynamodb/models/ItemDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/dynamodb/models/ItemDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nashss/se/exchange/exceptions/ItemNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/exceptions/ItemNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nashss/se/exchange/exceptions/MemberNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/exceptions/MemberNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nashss/se/exchange/lambda/LambdaActivityRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/lambda/LambdaActivityRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nashss/se/exchange/lambda/LambdaRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/lambda/LambdaRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nashss/se/exchange/lambda/LambdaResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/lambda/LambdaResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nashss/se/exchange/metrics/MetricsConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/metrics/MetricsConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nashss/se/exchange/metrics/MetricsPublisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/metrics/MetricsPublisher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/NullUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/utils/NullUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/class.puml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/class.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/sequence.puml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sequence.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/SampleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/src/test/SampleTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,16 +90,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultPlantUmlFileTemplate&quot;: &quot;UML Sequence&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-11&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;AndroidSdkUpdater&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultPlantUmlFileTemplate": "UML Sequence",
+    "jdk.selected.JAVA_MODULE": "corretto-11",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "AndroidSdkUpdater"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/xchangeServiceLambda" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/main" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="SampleTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="xchange.test" />

@@ -267,11 +267,26 @@ Resources:
       AttributeDefinitions:
         - AttributeName: "item_Id"
           AttributeType: "S"
+        - AttributeName: "zip_Code"
+          AttributeType: "S"
+        - AttributeName: "type"
+          AttributeType: "S"
       KeySchema:
         - AttributeName: "item_Id"
           KeyType: "HASH"
       BillingMode: "PAY_PER_REQUEST"
       TableName: "items"
+      GlobalSecondaryIndexes:
+        - IndexName: "SearchByTypeZip"
+        KeySchema:
+          - AttributeName: "zip_Code"
+            KeyType: "HASH"
+          - AttributeName: "type"
+            KeyType: "RANGE"
+          Projection:
+            ProjectionType: "INCLUDE"
+            NonKeyAttributes:
+              - "color"
 
 #-----------------------------------------------------
 # The outputs defined below will be printed
