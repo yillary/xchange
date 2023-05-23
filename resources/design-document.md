@@ -9,15 +9,15 @@ ___________
 
 **Visitor:** *someone who is visiting the site, isn't logged in*
 
--[x] Make an account
--[x] Members have a dashboard to see all their listings simultaneously
--[x] Members can create a listing
--[x] Members can update listings' fields
--[x] Members can mark listing as exchanged from the dashboard
--[x] Visitors can search listings by category
--[x] Visitors can search listings by zip code and category and keywords in description
--[x] Visitors can view a single item listing
--[x] Visitors can email owner of item
+- Make an account
+- Members have a dashboard to see all their listings simultaneously
+- Members can create a listing
+- Members can update listings' fields
+- Members can mark listing as exchanged from the dashboard
+- Visitors can search listings by type
+- Visitors can search listings by zip code and type and keywords in description
+- Visitors can view a single item listing
+- Visitors can email owner of item
 
 ## Stretch Goals
 - Integrate Maps to location page. 
