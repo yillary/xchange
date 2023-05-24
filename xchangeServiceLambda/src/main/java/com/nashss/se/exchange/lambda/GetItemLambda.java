@@ -25,6 +25,5 @@ public class GetItemLambda
                         serviceComponent.providesGetItemActivity().handleRequest(request)
         );
 
-
     }
 }

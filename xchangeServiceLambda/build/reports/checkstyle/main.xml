@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="8.17">
+<file name="/Users/hillarymartin/workspace/7unit/xchange/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/Main.java">
+<error line="1" severity="error" message="File does not end with a newline." source="com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheck"/>
+<error line="4" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+</file>
+<file name="/Users/hillarymartin/workspace/7unit/xchange/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/Models/ItemModel.java">
+<error line="16" severity="error" message="Line is longer than 120 characters (found 138)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="57" severity="error" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+<error line="58" severity="error" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+<error line="60" severity="error" message="Line is longer than 120 characters (found 328)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+</file>
+<file name="/Users/hillarymartin/workspace/7unit/xchange/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/activity/GetItemActivity.java">
+<error line="4" severity="error" message="&apos;com.nashss.se.exchange.Models.ItemModel&apos; should be separated from previous import group by one line." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="10" severity="error" message="&apos;org.apache.logging.log4j.LogManager&apos; should be separated from previous import group by one line." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="20" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="21" column="28" severity="error" message="&apos;(&apos; is preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.MethodParamPadCheck"/>
+<error line="25" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+</file>
+<file name="/Users/hillarymartin/workspace/7unit/xchange/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/activity/requests/GetItemRequest.java">
+</file>
+<file name="/Users/hillarymartin/workspace/7unit/xchange/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/activity/results/GetItemResult.java">
+</file>
+<file name="/Users/hillarymartin/workspace/7unit/xchange/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/converters/ModelConverter.java">
+<error line="8" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+</file>
+<file name="/Users/hillarymartin/workspace/7unit/xchange/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/dependency/DaoModule.java">
+<error line="1" severity="error" message="File does not end with a newline." source="com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheck"/>
+<error line="5" severity="error" message="Import statement for &apos;com.nashss.se.exchange.dynamodb.models.DynamoDbClientProvider&apos; is in the wrong order. Should be in the &apos;SAME_PACKAGE&apos; group, expecting group &apos;STANDARD_JAVA_PACKAGE&apos; on this line." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+</file>
+<file name="/Users/hillarymartin/workspace/7unit/xchange/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/dependency/MetricsModule.java">
+</file>
+<file name="/Users/hillarymartin/workspace/7unit/xchange/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/dependency/ServiceComponent.java">
+<error line="4" severity="error" message="&apos;dagger.Component&apos; should be separated from previous import group by one line." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="16" severity="error" message="First sentence should end with a period." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheck"/>
+</file>
+<file name="/Users/hillarymartin/workspace/7unit/xchange/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/dynamodb/models/DynamoDbClientProvider.java">
+<error line="1" severity="error" message="File does not end with a newline." source="com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheck"/>
+<error line="4" severity="error" message="&apos;com.amazonaws.auth.DefaultAWSCredentialsProviderChain&apos; should be separated from previous import group by one line." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+</file>
+<file name="/Users/hillarymartin/workspace/7unit/xchange/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/dynamodb/models/Item.java">
+<error line="3" severity="error" message="Using the &apos;.*&apos; form of import should be avoided - com.amazonaws.services.dynamodbv2.datamodeling.*." source="com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck"/>
+<error line="10" severity="error" message="Comment has incorrect indentation level 0, expected is 4, indentation should be the same level as line 12." source="com.puppycrawl.tools.checkstyle.checks.indentation.CommentsIndentationCheck"/>
+<error line="48" severity="error" message="Comment has incorrect indentation level 0, expected is 4, indentation should be the same level as line 49." source="com.puppycrawl.tools.checkstyle.checks.indentation.CommentsIndentationCheck"/>
+<error line="79" column="32" severity="error" message="&apos;{&apos; at column 32 should have line break after." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="85" column="30" severity="error" message="&apos;{&apos; at column 30 should have line break after." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="85" column="30" severity="error" message="&apos;{&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="85" column="31" severity="error" message="&apos;return&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="85" column="43" severity="error" message="&apos;;&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
+<error line="85" column="44" severity="error" message="&apos;}&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="87" column="40" severity="error" message="&apos;{&apos; at column 40 should have line break after." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="87" column="40" severity="error" message="&apos;{&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="87" column="59" severity="error" message="&apos;;&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
+<error line="87" column="60" severity="error" message="&apos;}&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="91" severity="error" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+<error line="92" severity="error" message="&apos;if&apos; construct must use &apos;{}&apos;s." source="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
+<error line="94" severity="error" message="Line is longer than 120 characters (found 334)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+</file>
+<file name="/Users/hillarymartin/workspace/7unit/xchange/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/dynamodb/models/ItemDao.java">
+<error line="4" column="8" severity="error" message="Unused import - com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBQueryExpression." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
+<error line="5" column="8" severity="error" message="Unused import - com.amazonaws.services.dynamodbv2.datamodeling.PaginatedQueryList." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
+<error line="6" column="8" severity="error" message="Unused import - com.amazonaws.services.dynamodbv2.model.AttributeValue." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
+<error line="7" severity="error" message="Import statement for &apos;com.nashss.se.exchange.metrics.MetricsPublisher&apos; is in the wrong order. Should be in the &apos;SAME_PACKAGE&apos; group, expecting group &apos;STANDARD_JAVA_PACKAGE&apos; on this line." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="7" column="8" severity="error" message="Unused import - com.nashss.se.exchange.metrics.MetricsPublisher." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
+<error line="11" severity="error" message="Wrong lexicographical order for &apos;java.util.ArrayList&apos; import. Should be before &apos;javax.inject.Singleton&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="11" column="8" severity="error" message="Unused import - java.util.ArrayList." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
+<error line="12" severity="error" message="Wrong lexicographical order for &apos;java.util.HashMap&apos; import. Should be before &apos;javax.inject.Singleton&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="12" column="8" severity="error" message="Unused import - java.util.HashMap." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
+<error line="13" severity="error" message="Wrong lexicographical order for &apos;java.util.List&apos; import. Should be before &apos;javax.inject.Singleton&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="13" column="8" severity="error" message="Unused import - java.util.List." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
+<error line="14" severity="error" message="Wrong lexicographical order for &apos;java.util.Map&apos; import. Should be before &apos;javax.inject.Singleton&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="14" column="8" severity="error" message="Unused import - java.util.Map." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
+<error line="22" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="27" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="33" column="9" severity="error" message="&apos;if&apos; is not followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
+<error line="45" severity="error" message="Comment has incorrect indentation level 0, expected is 4, indentation should be the same level as line 49." source="com.puppycrawl.tools.checkstyle.checks.indentation.CommentsIndentationCheck"/>
+<error line="49" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="50" column="26" severity="error" message="&apos;)&apos; is preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheck"/>
+<error line="50" column="27" severity="error" message="&apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+<error line="95" severity="error" message="Comment has incorrect indentation level 0, expected is 4, indentation should be the same level as line 62." source="com.puppycrawl.tools.checkstyle.checks.indentation.CommentsIndentationCheck"/>
+</file>
+<file name="/Users/hillarymartin/workspace/7unit/xchange/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/exceptions/ItemNotFoundException.java">
+<error line="3" column="60" severity="error" message="&apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+</file>
+<file name="/Users/hillarymartin/workspace/7unit/xchange/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/exceptions/MemberNotFoundException.java">
+<error line="3" column="62" severity="error" message="&apos;{&apos; is not preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
+</file>
+<file name="/Users/hillarymartin/workspace/7unit/xchange/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/lambda/GetItemLambda.java">
+<error line="5" severity="error" message="Import statement for &apos;com.nashss.se.exchange.activity.requests.GetItemRequest&apos; is in the wrong order. Should be in the &apos;SAME_PACKAGE&apos; group, expecting not assigned imports on this line." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="6" severity="error" message="Import statement for &apos;com.nashss.se.exchange.activity.results.GetItemResult&apos; is in the wrong order. Should be in the &apos;SAME_PACKAGE&apos; group, expecting not assigned imports on this line." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
+<error line="20" severity="error" message="&apos;lambda arguments&apos; has incorrect indentation level 16, expected level should be 12." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+<error line="24" severity="error" message="&apos;lambda arguments&apos; has incorrect indentation level 16, expected level should be 12." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
+</file>
+<file name="/Users/hillarymartin/workspace/7unit/xchange/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/lambda/LambdaActivityRunner.java">
+<error line="1" severity="error" message="File does not end with a newline." source="com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheck"/>
+</file>
+<file name="/Users/hillarymartin/workspace/7unit/xchange/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/lambda/LambdaRequest.java">
+</file>
+<file name="/Users/hillarymartin/workspace/7unit/xchange/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/lambda/LambdaResponse.java">
+</file>
+<file name="/Users/hillarymartin/workspace/7unit/xchange/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/metrics/MetricsConstants.java">
+<error line="1" severity="error" message="File does not end with a newline." source="com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheck"/>
+</file>
+<file name="/Users/hillarymartin/workspace/7unit/xchange/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/metrics/MetricsPublisher.java">
+</file>
+<file name="/Users/hillarymartin/workspace/7unit/xchange/xchangeServiceLambda/src/main/java/utils/NullUtils.java">
+</file>
+</checkstyle>
