@@ -4,7 +4,7 @@
       "PutRequest": {
         "Item": {
           "item_Id": {
-            "S": "To001"
+            "S": "to001"
           },
           "title": {
             "S": "Woah T-Shirt"
@@ -23,114 +23,12 @@
               "01",
               "02"
             ]
-          }
-        }
-      }
-    },
-    {
-      "PutRequest": {
-        "Item": {
-          "item_Id": {
-            "S": "Bo001"
           },
-          "title": {
-            "S": "Bell-bottoms"
+          "email": {
+            "S": "aperson@gmail.com"
           },
-          "description": {
-            "S": "These bottoms are a total vibe. They're in pretty good condition. Size 6"
-          },
-          "type": {
-            "S": "Bottoms"
-          },
-          "exchanged": {
-            "BOOL": false
-          },
-          "images": {
-            "SS": [
-              "01",
-              "03"
-            ]
-          }
-        }
-      }
-    },
-    {
-      "PutRequest": {
-        "Item": {
-          "item_Id": {
-            "S": ""
-          },
-          "title": {
-            "S": "Bell-bottoms"
-          },
-          "description": {
-            "S": "These bottoms are a total vibe. They're in pretty good condition. Size 6"
-          },
-          "type": {
-            "S": "Pants"
-          },
-          "exchanged": {
-            "BOOL": false
-          },
-          "images": {
-            "SS": [
-              "02",
-              "04"
-            ]
-          }
-        }
-      }
-    },
-    {
-      "PutRequest": {
-        "Item": {
-          "item_Id": {
-            "S": "Out001"
-          },
-          "title": {
-            "S": "Rain Jacket"
-          },
-          "description": {
-            "S": "This is a navy rain jacket I got last year. It's still in good shape. Hardly used. Size M"
-          },
-          "type": {
-            "S": "Outerwear"
-          },
-          "exchanged": {
-            "BOOL": true
-          },
-          "images": {
-            "SS": [
-              "04",
-              "06"
-            ]
-          }
-        }
-      }
-    },
-    {
-      "PutRequest": {
-        "Item": {
-          "item_Id": {
-            "S": "Sh001"
-          },
-          "title": {
-            "S": "Sneaks"
-          },
-          "description": {
-            "S": "Nike tenny-runners. They got a lot of use. Prob ok to work in the yard with. Size 8"
-          },
-          "type": {
-            "S": "Shoes"
-          },
-          "exchanged": {
-            "BOOL": false
-          },
-          "images": {
-            "SS": [
-              "05",
-              "07"
-            ]
+          "zip_Code": {
+            "S": "98045"
           }
         }
       }
