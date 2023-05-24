@@ -1,17 +1,9 @@
-package com.nashss.se.exchange.dynamodb.models;
+package com.nashss.se.exchange.dynamodb;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBQueryExpression;
-import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedQueryList;
-import com.amazonaws.services.dynamodbv2.model.AttributeValue;
-import com.nashss.se.exchange.metrics.MetricsPublisher;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 //import static com.nashss.se.exchange.dynamodb.models.Item.ZIPCODE_TYPE_INDEX;
 

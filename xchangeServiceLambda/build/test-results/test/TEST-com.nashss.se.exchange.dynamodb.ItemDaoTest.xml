@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.nashss.se.exchange.dynamodb.ItemDaoTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-05-24T17:37:55" hostname="Hillarys-MBP.hsd1.wa.comcast.net" time="3.136">
+<testsuite name="com.nashss.se.exchange.dynamodb.ItemDaoTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-05-24T18:21:57" hostname="Hillarys-MBP.hsd1.wa.comcast.net" time="3.736">
   <properties/>
-  <testcase name="saveItem_givenValidItem_returnsTrue()" classname="com.nashss.se.exchange.dynamodb.ItemDaoTest" time="2.644"/>
-  <testcase name="getItem_existingItem_loadsItem()" classname="com.nashss.se.exchange.dynamodb.ItemDaoTest" time="0.456"/>
+  <testcase name="saveItem_givenValidItem_returnsTrue()" classname="com.nashss.se.exchange.dynamodb.ItemDaoTest" time="3.314"/>
+  <testcase name="getItem_existingItem_loadsItem()" classname="com.nashss.se.exchange.dynamodb.ItemDaoTest" time="0.389"/>
   <system-out><![CDATA[Item is: Item{itemId='ID001', title='Awesome Shirt', description='This is a super awesome shirt pink, M', type='Top', exchanged=false, images=[img2, img1], zipCode='98045', email='this@gmail.com'}
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>

@@ -1,4 +1,4 @@
-package com.nashss.se.exchange.dynamodb.models;
+package com.nashss.se.exchange.dynamodb;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
 
@@ -82,6 +82,7 @@ public class Item {
         this.zipCode = zipCode;
     }
 
+    @DynamoDBAttribute(attributeName = "email")
     public String getEmail() {return email;}
 
     public void setEmail(String email) {this.email = email;}

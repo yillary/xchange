@@ -2,8 +2,8 @@ package com.nashss.se.exchange.dependency;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.nashss.se.exchange.activity.GetItemActivity;
-import com.nashss.se.exchange.dynamodb.models.ItemDao;
-import com.nashss.se.exchange.dynamodb.models.ItemDao_Factory;
+import com.nashss.se.exchange.dynamodb.ItemDao;
+import com.nashss.se.exchange.dynamodb.ItemDao_Factory;
 import dagger.internal.DaggerGenerated;
 import dagger.internal.DoubleCheck;
 import dagger.internal.Preconditions;

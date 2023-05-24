@@ -1,6 +1,6 @@
 package com.nashss.se.exchange.activity;
 
-import com.nashss.se.exchange.dynamodb.models.ItemDao;
+import com.nashss.se.exchange.dynamodb.ItemDao;
 import dagger.internal.DaggerGenerated;
 import dagger.internal.Factory;
 import dagger.internal.QualifierMetadata;
