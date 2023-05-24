@@ -11,9 +11,10 @@ public class ItemModel {
     private final Boolean exchanged;
     private final Set<String> images;
     private final String email;
+    private final String zipCode;
 
 
-    private ItemModel(String itemId, String title, String description, String type, Boolean exchanged, Set<String> images, String email) {
+    private ItemModel(String itemId, String title, String description, String type, Boolean exchanged, Set<String> images, String email, String zipCode) {
         this.itemId = itemId;
         this.title = title;
         this.description = description;
@@ -21,6 +22,7 @@ public class ItemModel {
         this.exchanged = exchanged;
         this.images = images;
         this.email = email;
+        this.zipCode = zipCode;
     }
 
     public String getItemId() {
@@ -51,6 +53,10 @@ public class ItemModel {
         return email;
     }
 
+    public String getZipCode() {
+        return zipCode;
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -78,6 +84,7 @@ public class ItemModel {
         private Boolean exchanged;
         private Set<String> images;
         private String email;
+        private String zipCode;
 
         public Builder withItemId(String itemId) {
             this.itemId = itemId;
@@ -114,8 +121,13 @@ public class ItemModel {
             return this;
         }
 
+        public Builder withZipCode(String zipCode) {
+            this.zipCode = zipCode;
+            return this;
+        }
+
         public ItemModel build() {
-            return new ItemModel(itemId, title, description, type, exchanged, images, email);
+            return new ItemModel(itemId, title, description, type, exchanged, images, email, zipCode);
         }
     }
 }
