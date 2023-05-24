@@ -47,6 +47,7 @@ public class ItemDaoTest {
         item.setExchanged(false);
         item.setImages(images);
         item.setZipCode("98045");
+        item.setEmail("this@gmail.com");
 
         //GIVEN
         when(dynamoDBMapper.load(Item.class, itemId)).thenReturn(item);

@@ -28,7 +28,7 @@ public class GetItemResult {
     public static class Builder {
         private ItemModel item;
 
-        public Builder withPlaylist(ItemModel item){
+        public Builder withItem(ItemModel item){
             this.item = item;
             return this;
         }

@@ -16,6 +16,7 @@ public class Item {
     private Boolean exchanged;
     private Set<String> images;
     private String zipCode;
+    private String email;
 
     @DynamoDBHashKey(attributeName = "item_Id")
     public String getItemId() {
@@ -81,17 +82,21 @@ public class Item {
         this.zipCode = zipCode;
     }
 
+    public String getEmail() {return email;}
+
+    public void setEmail(String email) {this.email = email;}
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Item item = (Item) o;
-        return Objects.equals(itemId, item.itemId) && Objects.equals(title, item.title) && Objects.equals(description, item.description) && Objects.equals(type, item.type) && Objects.equals(exchanged, item.exchanged) && Objects.equals(images, item.images) && Objects.equals(zipCode, item.zipCode);
+        return Objects.equals(itemId, item.itemId) && Objects.equals(title, item.title) && Objects.equals(description, item.description) && Objects.equals(type, item.type) && Objects.equals(exchanged, item.exchanged) && Objects.equals(images, item.images) && Objects.equals(zipCode, item.zipCode) && Objects.equals(email, item.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(itemId, title, description, type, exchanged, images, zipCode);
+        return Objects.hash(itemId, title, description, type, exchanged, images, zipCode, email);
     }
 
     @Override
@@ -104,6 +109,7 @@ public class Item {
                 ", exchanged=" + exchanged +
                 ", images=" + images +
                 ", zipCode='" + zipCode + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
 }
