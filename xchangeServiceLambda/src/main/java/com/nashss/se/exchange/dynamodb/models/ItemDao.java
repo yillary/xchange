@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.nashss.se.exchange.dynamodb.models.Item.ZIPCODE_TYPE_INDEX;
+//import static com.nashss.se.exchange.dynamodb.models.Item.ZIPCODE_TYPE_INDEX;
 
 @Singleton
 public class ItemDao {
@@ -29,6 +29,7 @@ public class ItemDao {
             throw new IllegalArgumentException("itemId cannot be null");
         }
         Item item = mapper.load(Item.class, itemId);
+
         if(item == null) {
             throw new IllegalArgumentException("Could not find item");
         }
@@ -72,24 +73,24 @@ public class ItemDao {
      * @param type type to search for RangeKey
      * @return list of items that match the zipCode and type
      */
-    public List<Item> searchItems(String zipCode, String type) {
-        Map<String, AttributeValue> valueMap = new HashMap<>();
-        valueMap.put(":type", new AttributeValue().withS(type));
-        valueMap.put(":zip_Code", new AttributeValue().withS(zipCode));
-        DynamoDBQueryExpression<Item> queryExpression = new DynamoDBQueryExpression<Item>()
-                .withIndexName(ZIPCODE_TYPE_INDEX)
-                .withConsistentRead(false)
-                .withKeyConditionExpression("type = :type and zipCode = :zip_Code")
-//                .withLimit()
-                .withExpressionAttributeValues(valueMap);
-
-        //searchResults will only have items that have zip and type, no other information.
-        PaginatedQueryList<Item> searchResults = mapper.query(Item.class, queryExpression);
-        //fullyLoadedInfo gets all attributes of each item in searchResults
-        List<Item> fullyLoadedInfo = new ArrayList<>();
-        for(Item item : searchResults) {
-            fullyLoadedInfo.add(mapper.load(item));
-        }
-        return fullyLoadedInfo;
-    }
+//    public List<Item> searchItems(String zipCode, String type) {
+//        Map<String, AttributeValue> valueMap = new HashMap<>();
+//        valueMap.put(":type", new AttributeValue().withS(type));
+//        valueMap.put(":zip_Code", new AttributeValue().withS(zipCode));
+//        DynamoDBQueryExpression<Item> queryExpression = new DynamoDBQueryExpression<Item>()
+//                .withIndexName(ZIPCODE_TYPE_INDEX)
+//                .withConsistentRead(false)
+//                .withKeyConditionExpression("type = :type and zipCode = :zip_Code")
+////                .withLimit()
+//                .withExpressionAttributeValues(valueMap);
+//
+//        //searchResults will only have items that have zip and type, no other information.
+//        PaginatedQueryList<Item> searchResults = mapper.query(Item.class, queryExpression);
+//        //fullyLoadedInfo gets all attributes of each item in searchResults
+//        List<Item> fullyLoadedInfo = new ArrayList<>();
+//        for(Item item : searchResults) {
+//            fullyLoadedInfo.add(mapper.load(item));
+//        }
+//        return fullyLoadedInfo;
+//    }
 }

@@ -7,7 +7,7 @@ import java.util.Set;
 
 @DynamoDBTable(tableName = "items")
 public class Item {
-    public static final String ZIPCODE_TYPE_INDEX = "SearchByTypeZip";
+//    public static final String ZIPCODE_TYPE_INDEX = "SearchByTypeZip";
 
     private String itemId;
     private String title;
@@ -16,16 +16,6 @@ public class Item {
     private Boolean exchanged;
     private Set<String> images;
     private String zipCode;
-
-    public Item(String itemId, String title, String description, String type, Boolean exchanged, Set<String> images, String zipCode) {
-        this.itemId = itemId;
-        this.title = title;
-        this.description = description;
-        this.type = type;
-        this.exchanged = exchanged;
-        this.images = images;
-        this.zipCode = zipCode;
-    }
 
     @DynamoDBHashKey(attributeName = "item_Id")
     public String getItemId() {
@@ -54,7 +44,7 @@ public class Item {
         this.description = description;
     }
 
-    @DynamoDBIndexRangeKey(globalSecondaryIndexName = ZIPCODE_TYPE_INDEX, attributeName = "type")
+//    @DynamoDBIndexRangeKey(globalSecondaryIndexName = ZIPCODE_TYPE_INDEX, attributeName = "type")
     @DynamoDBAttribute(attributeName = "type")
     public String getType() {
         return type;
@@ -64,7 +54,8 @@ public class Item {
         this.type = type;
     }
 
-    @DynamoDBAttribute(attributeName = "is_Exchanged")
+    @DynamoDBTyped(DynamoDBMapperFieldModel.DynamoDBAttributeType.BOOL)
+    @DynamoDBAttribute(attributeName = "exchanged")
     public Boolean getExchanged() {
         return exchanged;
     }
@@ -82,7 +73,7 @@ public class Item {
         this.images = images;
     }
 
-    @DynamoDBIndexHashKey(globalSecondaryIndexName = ZIPCODE_TYPE_INDEX, attributeName = "zip_Code")
+    //@DynamoDBIndexHashKey(globalSecondaryIndexName = ZIPCODE_TYPE_INDEX, attributeName = "zip_Code")
     @DynamoDBAttribute(attributeName = "zip_Code")
     public String getZipCode() { return zipCode; }
 
@@ -101,5 +92,18 @@ public class Item {
     @Override
     public int hashCode() {
         return Objects.hash(itemId, title, description, type, exchanged, images, zipCode);
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "itemId='" + itemId + '\'' +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", type='" + type + '\'' +
+                ", exchanged=" + exchanged +
+                ", images=" + images +
+                ", zipCode='" + zipCode + '\'' +
+                '}';
     }
 }

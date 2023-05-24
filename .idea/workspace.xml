@@ -5,10 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1cd763d9-942e-4ae1-86f4-2efa782b1ebe" name="Changes" comment="initial commit">
-      <change afterPath="$PROJECT_DIR$/xchangeServiceLambda/src/test/java/com/nashss/se/exchange/dynamodb/ItemDaoTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/activity/GetItemActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/activity/requests/GetItemRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/activity/results/GetItemResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/lambda/GetItemLambda.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/design-document.md" beforeDir="false" afterPath="$PROJECT_DIR$/resources/design-document.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xchangeServiceLambda/src/test/SampleTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/template.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xchangeServiceLambda/build/classes/java/main/com/nashss/se/exchange/dependency/ServiceComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/build/classes/java/main/com/nashss/se/exchange/dependency/ServiceComponent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xchangeServiceLambda/build/classes/java/main/com/nashss/se/exchange/dynamodb/models/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/build/classes/java/main/com/nashss/se/exchange/dynamodb/models/Item.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xchangeServiceLambda/build/classes/java/main/com/nashss/se/exchange/dynamodb/models/ItemDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/build/classes/java/main/com/nashss/se/exchange/dynamodb/models/ItemDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/dynamodb/models/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/dynamodb/models/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/dynamodb/models/ItemDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/dynamodb/models/ItemDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xchangeServiceLambda/src/test/java/com/nashss/se/exchange/dynamodb/ItemDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/src/test/java/com/nashss/se/exchange/dynamodb/ItemDaoTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +90,23 @@
       <recent name="$PROJECT_DIR$/src/main" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.ItemDaoTest.getItem_existingItem_loadsItem">
+    <configuration name="ItemDaoTest.getItem_existingItem_loadsItem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="xchange.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.nashss.se.exchange.dynamodb.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.nashss.se.exchange.dynamodb" />
+      <option name="MAIN_CLASS_NAME" value="com.nashss.se.exchange.dynamodb.ItemDaoTest" />
+      <option name="METHOD_NAME" value="getItem_existingItem_loadsItem" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SampleTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="xchange.test" />
       <option name="PACKAGE_NAME" value="" />
@@ -94,6 +119,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ItemDaoTest.getItem_existingItem_loadsItem" />
         <item itemvalue="JUnit.SampleTest.test" />
       </list>
     </recent_temporary>

@@ -248,18 +248,17 @@ Resources:
   #-----------------------------------------------------
   # DynamoDB Configuration
   #-----------------------------------------------------
-
-#  PlaylistsTable:
-#    Type: AWS::DynamoDB::Table
-#    Properties:
-#      AttributeDefinitions:
-#        - AttributeName: "id"
-#          AttributeType: "S"
-#      KeySchema:
-#        - AttributeName: "id"
-#          KeyType: "HASH"
-#      BillingMode: "PAY_PER_REQUEST"
-#      TableName: "playlists"
+  PlaylistsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      AttributeDefinitions:
+        - AttributeName: "id"
+          AttributeType: "S"
+      KeySchema:
+        - AttributeName: "id"
+          KeyType: "HASH"
+      BillingMode: "PAY_PER_REQUEST"
+      TableName: "playlists"
 
   ItemsTable:
     Type: AWS::DynamoDB::Table
@@ -267,26 +266,46 @@ Resources:
       AttributeDefinitions:
         - AttributeName: "item_Id"
           AttributeType: "S"
-        - AttributeName: "zip_Code"
-          AttributeType: "S"
-        - AttributeName: "type"
-          AttributeType: "S"
+        - AttributeName: "exchanged"
+          AttributeType: "BOOL"
       KeySchema:
         - AttributeName: "item_Id"
           KeyType: "HASH"
-      BillingMode: "PAY_PER_REQUEST"
+        - AttributeName: "exchanged"
+          KeyType: "RANGE"
       TableName: "items"
-      GlobalSecondaryIndexes:
-        - IndexName: "SearchByTypeZip"
-        KeySchema:
-          - AttributeName: "zip_Code"
-            KeyType: "HASH"
-          - AttributeName: "type"
-            KeyType: "RANGE"
-          Projection:
-            ProjectionType: "INCLUDE"
-            NonKeyAttributes:
-              - "color"
+      BillingMode: PAY_PER_REQUEST
+
+
+
+#  ItemsTable:
+#    Type: AWS::DynamoDB::Table
+#    Properties:
+#      AttributeDefinitions:
+#        - AttributeName: "item_Id"
+#          AttributeType: "S"
+#        - AttributeName: "exchanged"
+#          AttributeType: "Bool"
+#        - AttributeName: "zip_Code"
+#          AttributeType: "S"
+#        - AttributeName: "type"
+#          AttributeType: "S"
+#      KeySchema:
+#        - AttributeName: "item_Id"
+#          KeyType: "HASH"
+#        - AttributeName: "exchanged"
+#          KeyType: "RANGE"
+#      BillingMode: "PAY_PER_REQUEST"
+#      TableName: "items"
+#      GlobalSecondaryIndexes:
+#        - IndexName: "SearchByTypeZip"
+#          KeySchema:
+#          - AttributeName: "zip_Code"
+#            KeyType: "HASH"
+#          - AttributeName: "type"
+#            KeyType: "RANGE"
+#          Projection:
+#            ProjectionType: "ALL"
 
 #-----------------------------------------------------
 # The outputs defined below will be printed

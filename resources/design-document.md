@@ -36,15 +36,15 @@ ___________
 | zip_Code  | String      |
 
 ### items Table
-| Attribute   | Description |
-|-------------|-------------|
-| item_Id     | String, key |
-| title       | String      | 
-| description | String      |
-| type        | String      |
-| exchanged   | Boolean     | 
-| images      | String Set  |
-| zip_Code    | String      |
+| Attribute   | Description       |
+|-------------|-------------------|
+| item_Id     | String, partition |
+| title       | String            | 
+| description | String            |
+| type        | String            |
+| exchanged   | Boolean           | 
+| images      | String Set        |
+| zip_Code    | String            |
 
 
 ### search_by_type_zip GSI
