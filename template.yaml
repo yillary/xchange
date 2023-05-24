@@ -201,21 +201,21 @@ Resources:
                   - logs:PutLogEvents
                   - cloudwatch:PutMetricData
                 Resource: '*'
-        - PolicyName: 'AccessPlaylistsTable'
+        - PolicyName: 'AccessItemsTable'
           PolicyDocument:
             Version: '2012-10-17'
             Statement:
               - Effect: Allow
                 Action: dynamodb:*
-                Resource: !Sub "arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/playlists"
-
-        - PolicyName: 'AccessAlbumTracksTable'
-          PolicyDocument:
-            Version: '2012-10-17'
-            Statement:
-              - Effect: Allow
-                Action: dynamodb:*
-                Resource: !Sub "arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/album_tracks"
+                Resource: !Sub "arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/items"
+#
+#        - PolicyName: 'AccessAlbumTracksTable'
+#          PolicyDocument:
+#            Version: '2012-10-17'
+#            Statement:
+#              - Effect: Allow
+#                Action: dynamodb:*
+#                Resource: !Sub "arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/album_tracks"
 
   #-----------------------------------------------------
   # Lambda Functions Configuration
@@ -253,13 +253,9 @@ Resources:
       AttributeDefinitions:
         - AttributeName: "item_Id"
           AttributeType: "S"
-        - AttributeName: "exchanged"
-          AttributeType: "BOOL"
       KeySchema:
         - AttributeName: "item_Id"
           KeyType: "HASH"
-        - AttributeName: "exchanged"
-          KeyType: "RANGE"
       TableName: "items"
       BillingMode: PAY_PER_REQUEST
 

@@ -5,40 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1cd763d9-942e-4ae1-86f4-2efa782b1ebe" name="Changes" comment="initial commit">
-      <change afterPath="$PROJECT_DIR$/checkstyle/checkstyle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/checkstyle/foundations/suppressions.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/checkstyle/selfservice/suppressions.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/checkstyle/suppressions.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/checkstyle/unit1/suppressions.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/checkstyle/unit2/suppressions.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/checkstyle/unit3/suppressions.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/checkstyle/unit4/suppressions.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/checkstyle/unit5/suppressions.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/checkstyle/unit6/suppressions.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/events/get_item.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/samconfig.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/api/authenticator.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/api/musicPlaylistClient.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/components/header.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/pages/createPlaylist.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/pages/searchPlaylists.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/pages/viewPlaylist.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/util/DataStore.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/util/bindingClass.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/static_assets/createPlaylist.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/static_assets/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/static_assets/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/static_assets/playlist.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/webpack.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/template.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/template.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/sample.env" beforeDir="false" afterPath="$PROJECT_DIR$/web/sample.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/sample.env.local" beforeDir="false" afterPath="$PROJECT_DIR$/web/sample.env.local" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/sample.env.remote" beforeDir="false" afterPath="$PROJECT_DIR$/web/sample.env.remote" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xchangeServiceLambda/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/lambda/GetItemLambda.java" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/lambda/GetItemLambda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xchangeServiceLambda/build/jacoco/test.exec" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/build/jacoco/test.exec" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
