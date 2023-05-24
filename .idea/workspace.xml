@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1cd763d9-942e-4ae1-86f4-2efa782b1ebe" name="Changes" comment="initial commit">
-      <change afterPath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/converters/ModelConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/activity/GetItemActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/activity/GetItemActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/dynamodb/models/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/dynamodb/models/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xchangeServiceLambda/src/test/java/com/nashss/se/exchange/dynamodb/ItemDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/src/test/java/com/nashss/se/exchange/dynamodb/ItemDaoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/lambda/GetItemLambda.java" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/lambda/GetItemLambda.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
