@@ -26,4 +26,5 @@ logs
 node_modules
 
 sample.env*
+.env*
 bin
