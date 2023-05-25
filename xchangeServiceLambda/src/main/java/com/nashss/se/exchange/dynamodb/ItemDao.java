@@ -7,10 +7,7 @@ import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static com.nashss.se.exchange.dynamodb.Item.ZIPCODE_TYPE_INDEX;
 
@@ -69,20 +66,23 @@ public class ItemDao {
     }
 
     /**
-     * Retrieves a list of clothing items based on zipcode and type. You can adjust the number of results as needed.
+     * Retrieves a list of clothing items based on zipcode and type. If no zipCode is provided, it will return results
+     * no matter what combination of zipCode, type, or criteria are null. If no results are found given provided
+     * parameters, an empty list will be returned.
      * @param zipCode zipcode to search for HashKey
      * @param type type to search for RangeKey
      * @return list of items that match the zipCode and type
      */
-    public List<Item> searchItems(String zipCode, String type) {
+    public List<Item> searchItems(String zipCode, String type, String[] criteria) {
         Map<String, AttributeValue> valueMap = new HashMap<>();
         valueMap.put(":type", new AttributeValue().withS(type));
         valueMap.put(":zip_Code", new AttributeValue().withS(zipCode));
+        valueMap.put(":exchanged", new AttributeValue().withBOOL(false));
         DynamoDBQueryExpression<Item> queryExpression = new DynamoDBQueryExpression<Item>()
                 .withIndexName(ZIPCODE_TYPE_INDEX)
                 .withConsistentRead(false)
                 .withKeyConditionExpression("type = :type and zipCode = :zip_Code")
-//                .withLimit()
+//                .withLimit(25)
                 .withExpressionAttributeValues(valueMap);
 
         //searchResults will only have items that have zip and type, no other information.
@@ -92,6 +92,24 @@ public class ItemDao {
         for(Item item : searchResults) {
             fullyLoadedInfo.add(mapper.load(item));
         }
-        return fullyLoadedInfo;
+        if (criteria == null) {
+            return fullyLoadedInfo;
+        }
+        List<Item> criteriaResults = this.searchDescription(fullyLoadedInfo, criteria);
+
+        return criteriaResults;
+    }
+
+    private List<Item> searchDescription(List<Item> preliminarySearchResults, String[] criteria) {
+       List<Item> results = new ArrayList<>();
+        for(Item item : preliminarySearchResults) {
+            String description = item.getDescription();
+            for(String word : criteria){
+                if (description.contains(word)) {
+                    results.add(item);
+                }
+            }
+        }
+        return results;
     }
 }
