@@ -1,8 +1,9 @@
 :root {
     /* css variables: https://developer.mozilla.org/en-US/docs/Web/CSS/var */
-    --primary-color: #5D5E5E;
-    --secondary-color: #ffffff;
-    --tertiary-color: #F5881F;
+    --primary-color: #553566;
+    --secondary-color: #faefe6;
+    --tertiary-color: #d46bca;
+    --quaternary-color: #fd883d
     --error-color: #EE3A23;
 }
 
@@ -50,8 +51,8 @@
 .card {
     color: var(--primary-color);
     background-color: var(--secondary-color);
-    margin: 20px;
-    padding: 10px 20px;
+    margin: 0px;
+    padding: 50px 30px;
 }
 
 .error {
@@ -103,6 +104,34 @@
 .song .album {
     flex: 80%;
 }
+
+
+
+
+
+
+
+
+
+.grid {
+  --col: 9.5rem;
+  --row: 8rem;
+  --gap: 2rem;
+
+  display: grid;
+  grid-template-columns: repeat(3, var(--col));
+  grid-template-rows: repeat(4, var(--row));
+  grid-gap: var(--gap);
+}
+
+
+
+
+
+
+
+
+
 
 /*
 Flexbox on a lists removes the numbers. We use a counter here to add them back.

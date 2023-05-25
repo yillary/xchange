@@ -1,9 +1,15 @@
 package com.nashss.se.exchange.dynamodb;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
+import com.amazonaws.services.dynamodbv2.datamodeling.ScanResultPage;
+import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 //import static com.nashss.se.exchange.dynamodb.models.Item.ZIPCODE_TYPE_INDEX;
 
@@ -26,6 +32,19 @@ public class ItemDao {
             throw new IllegalArgumentException("Could not find item");
         }
         return item;
+    }
+
+    public List<Item> getItems(Item previousEndItem) {
+        DynamoDBScanExpression scanExpression = new DynamoDBScanExpression()
+                .withLimit(15);
+
+        if(previousEndItem != null) {
+            Map<String, AttributeValue> startKeyMap = new HashMap<>();
+            startKeyMap.put("itemId", new AttributeValue().withS(previousEndItem.getItemId()));
+            scanExpression.setExclusiveStartKey(startKeyMap);
+        }
+        ScanResultPage<Item> orderPage = mapper.scanPage(Item.class, scanExpression);
+        return orderPage.getResults();
     }
 
 
