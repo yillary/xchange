@@ -7,7 +7,7 @@ import java.util.Set;
 
 @DynamoDBTable(tableName = "items")
 public class Item {
-//    public static final String ZIPCODE_TYPE_INDEX = "SearchByTypeZip";
+    public static final String ZIPCODE_TYPE_INDEX = "SearchByTypeZip";
 
     private String itemId;
     private String title;
@@ -45,7 +45,7 @@ public class Item {
         this.description = description;
     }
 
-//    @DynamoDBIndexRangeKey(globalSecondaryIndexName = ZIPCODE_TYPE_INDEX, attributeName = "type")
+    @DynamoDBIndexRangeKey(globalSecondaryIndexName = ZIPCODE_TYPE_INDEX, attributeName = "type")
     @DynamoDBAttribute(attributeName = "type")
     public String getType() {
         return type;
@@ -74,7 +74,7 @@ public class Item {
         this.images = images;
     }
 
-    //@DynamoDBIndexHashKey(globalSecondaryIndexName = ZIPCODE_TYPE_INDEX, attributeName = "zip_Code")
+    @DynamoDBIndexHashKey(globalSecondaryIndexName = ZIPCODE_TYPE_INDEX, attributeName = "zip_Code")
     @DynamoDBAttribute(attributeName = "zip_Code")
     public String getZipCode() { return zipCode; }
 
