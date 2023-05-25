@@ -66,7 +66,7 @@ public class ItemDao {
     }
 
     /**
-     * Retrieves a list of clothing items based on zipcode and type. If no zipCode is provided, it will return results
+     * Retrieves a list of clothing items based on zipcode and type. It will return results
      * no matter what combination of zipCode, type, or criteria are null. If no results are found given provided
      * parameters, an empty list will be returned.
      * @param zipCode zipcode to search for HashKey

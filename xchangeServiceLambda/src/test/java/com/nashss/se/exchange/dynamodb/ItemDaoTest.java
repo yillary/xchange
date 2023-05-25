@@ -59,26 +59,26 @@ public class ItemDaoTest {
 
     @Test
     void saveItem_givenValidItem_returnsTrue() {
-//        //GIVEN
-//        Set<String> images = new HashSet<>();
-//        images.add("img1");
-//        images.add("img2");
-//        String itemId = "ID001";
-//
-//        Item item = new Item();
-//        item.setItemId(itemId);
-//        item.setTitle("Awesome Shirt");
-//        item.setDescription("This is a super awesome shirt pink, M");
-//        item.setType("Top");
-//        item.setExchanged(false);
-//        item.setImages(images);
-//        item.setZipCode("98045");
-//        //WHEN
-//        when(dynamoDBMapper.save(item)).thenReturn(true);
-//        Boolean result = itemDao.saveItem(item);
-//
-//        //THEN
-//        assertSame(true, result);
+        //GIVEN
+        Set<String> images = new HashSet<>();
+        images.add("img1");
+        images.add("img2");
+        String itemId = "ID001";
+
+        Item item = new Item();
+        item.setItemId(itemId);
+        item.setTitle("Awesome Shirt");
+        item.setDescription("This is a super awesome shirt pink, M");
+        item.setType("Top");
+        item.setExchanged(false);
+        item.setImages(images);
+        item.setZipCode("98045");
+
+        //WHEN
+        Boolean result = itemDao.saveItem(item);
+
+        //THEN
+        assertSame(true, result);
     }
 
 }
