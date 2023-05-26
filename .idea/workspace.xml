@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1cd763d9-942e-4ae1-86f4-2efa782b1ebe" name="Changes" comment="initial commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xchangeServiceLambda/build/classes/java/main/com/nashss/se/exchange/dynamodb/ItemDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/build/classes/java/main/com/nashss/se/exchange/dynamodb/ItemDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xchangeServiceLambda/build/classes/java/test/com/nashss/se/exchange/dynamodb/ItemDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/build/classes/java/test/com/nashss/se/exchange/dynamodb/ItemDaoTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/dynamodb/ItemDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/dynamodb/ItemDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xchangeServiceLambda/src/test/java/com/nashss/se/exchange/dynamodb/ItemDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/src/test/java/com/nashss/se/exchange/dynamodb/ItemDaoTest.java" afterDir="false" />
     </list>
@@ -84,7 +86,7 @@
       <recent name="$PROJECT_DIR$/src/main" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ItemDaoTest.saveItem_givenValidItem_returnsTrue">
+  <component name="RunManager" selected="JUnit.ItemDaoTest.searchItems_givenZipTypeAndCritera_returnsListItemsInSameZipCodeAndType">
     <configuration name="ItemDaoTest.getItem_existingItem_loadsItem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="xchange.test" />
       <extension name="coverage">
@@ -117,6 +119,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ItemDaoTest.searchItems_givenZipTypeAndCritera_returnsListItemsInSameZipCodeAndType" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="xchange.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.nashss.se.exchange.dynamodb.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.nashss.se.exchange.dynamodb" />
+      <option name="MAIN_CLASS_NAME" value="com.nashss.se.exchange.dynamodb.ItemDaoTest" />
+      <option name="METHOD_NAME" value="searchItems_givenZipTypeAndCritera_returnsListItemsInSameZipCodeAndType" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SampleTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="xchange.test" />
       <option name="PACKAGE_NAME" value="" />
@@ -129,6 +147,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ItemDaoTest.searchItems_givenZipTypeAndCritera_returnsListItemsInSameZipCodeAndType" />
         <item itemvalue="JUnit.ItemDaoTest.saveItem_givenValidItem_returnsTrue" />
         <item itemvalue="JUnit.ItemDaoTest.getItem_existingItem_loadsItem" />
         <item itemvalue="JUnit.SampleTest.test" />
@@ -168,5 +187,16 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
     <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/dynamodb/ItemDao.java</url>
+          <line>88</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

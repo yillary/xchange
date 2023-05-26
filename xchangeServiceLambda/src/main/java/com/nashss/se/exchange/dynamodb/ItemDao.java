@@ -103,7 +103,7 @@ public class ItemDao {
     private List<Item> searchDescription(List<Item> preliminarySearchResults, String[] criteria) {
        List<Item> results = new ArrayList<>();
         for(Item item : preliminarySearchResults) {
-            String description = item.getDescription();
+            String description = item.getDescription().toLowerCase();
             for(String word : criteria){
                 if (description.contains(word)) {
                     results.add(item);
