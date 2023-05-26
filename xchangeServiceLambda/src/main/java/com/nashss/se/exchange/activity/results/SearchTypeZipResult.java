@@ -1,7 +1,6 @@
 package com.nashss.se.exchange.activity.results;
 
 import com.nashss.se.exchange.Models.ItemModel;
-import com.nashss.se.exchange.dynamodb.Item;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,5 +42,4 @@ public class SearchTypeZipResult {
         }
 
     }
-
 }
