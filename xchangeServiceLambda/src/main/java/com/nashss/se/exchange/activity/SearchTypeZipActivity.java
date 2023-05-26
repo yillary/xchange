@@ -1,9 +1,7 @@
 package com.nashss.se.exchange.activity;
 
 import com.nashss.se.exchange.Models.ItemModel;
-import com.nashss.se.exchange.activity.requests.GetItemRequest;
 import com.nashss.se.exchange.activity.requests.SearchTypeZipRequest;
-import com.nashss.se.exchange.activity.results.GetItemResult;
 import com.nashss.se.exchange.activity.results.SearchTypeZipResult;
 import com.nashss.se.exchange.converters.ModelConverter;
 import com.nashss.se.exchange.dynamodb.Item;

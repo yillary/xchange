@@ -26,6 +26,5 @@ public class SearchTypeZipLambda
                 (request, serviceComponent) ->
                         serviceComponent.providesSearchTypeZipActivity().handleRequest(request)
         );
-
     }
 }
