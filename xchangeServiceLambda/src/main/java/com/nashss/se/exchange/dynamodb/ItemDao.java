@@ -64,67 +64,67 @@ public class ItemDao {
         return true;
     }
 
-    /**
-     * Retrieves a list of clothing items based on zipcode and type. It will return results
-     * no matter what combination of zipCode, type, or criteria are null. If no results are found given provided
-     * parameters, an empty list will be returned.
-     * @param zipCode zipcode to search for HashKey
-     * @param type type to search for RangeKey
-     * @return list of items that match the zipCode and type
-     */
-    public List<Item> searchItems(String zipCode, String type, String[] criteria) {
-        System.out.println("ItemDao.searchItems searching criteria: " + zipCode + " " + type + " " + Arrays.toString(criteria));
-
-        Map<String, AttributeValue> valueMap = new HashMap<>();
-        valueMap.put(":type", new AttributeValue().withS(type));
-        valueMap.put(":zipCode", new AttributeValue().withS(zipCode));
-        DynamoDBQueryExpression<Item> queryExpression = new DynamoDBQueryExpression<Item>()
-                .withIndexName(ZIPCODE_TYPE_INDEX)
-                .withKeyConditionExpression("#itemType = :type and zip_Code = :zipCode")
-                .withExpressionAttributeNames(Collections.singletonMap("#itemType", "type"))
-                .withConsistentRead(false)
-                .withKeyConditionExpression("type = :type and zip_Code = :zipCode")
-//                .withLimit(25)
-                .withExpressionAttributeValues(valueMap);
-
-
-        System.out.println("hello from ItemDao. You got this far");
-        //searchResults will only have items that have zip and type, no other information.
-        PaginatedQueryList<Item> searchResults = null;
-        try {
-            searchResults = mapper.query(Item.class, queryExpression);
-        } catch(AmazonDynamoDBException e ) {
-            System.out.println("error is thrown when querying db: " + e.getMessage());
-        }
-        System.out.println("ItemDao after initial query" );
-        System.out.println("ItemDao.searchItems(). searchResults: " + searchResults.toString());
-        //fullyLoadedInfo gets all attributes of each item in searchResults
-        List<Item> fullyLoadedInfo = new ArrayList<>();
-        for(Item item : searchResults) {
-            System.out.println("ItemDao.searchItems() loading results ...");
-            fullyLoadedInfo.add(mapper.load(item));
-        }
-        if (criteria == null) {
-            return fullyLoadedInfo;
-        }
-
-        System.out.println("ItemDao.searchItems() loaded search results: " + fullyLoadedInfo.toString());
-        List<Item> criteriaResults = this.searchDescription(fullyLoadedInfo, criteria);
-
-        return criteriaResults;
-    }
-
-    private List<Item> searchDescription(List<Item> preliminarySearchResults, String[] criteria) {
-        System.out.println("ItemDao.searchDescription() ");
-       List<Item> results = new ArrayList<>();
-        for(Item item : preliminarySearchResults) {
-            String description = item.getDescription().toLowerCase();
-            for(String word : criteria){
-                if (description.contains(word)) {
-                    results.add(item);
-                }
-            }
-        }
-        return results;
-    }
+//    /**
+//     * Retrieves a list of clothing items based on zipcode and type. It will return results
+//     * no matter what combination of zipCode, type, or criteria are null. If no results are found given provided
+//     * parameters, an empty list will be returned.
+//     * @param zipCode zipcode to search for HashKey
+//     * @param type type to search for RangeKey
+//     * @return list of items that match the zipCode and type
+//     */
+//    public List<Item> searchItems(String zipCode, String type, String[] criteria) {
+//        System.out.println("ItemDao.searchItems searching criteria: " + zipCode + " " + type + " " + Arrays.toString(criteria));
+//
+//        Map<String, AttributeValue> valueMap = new HashMap<>();
+//        valueMap.put(":type", new AttributeValue().withS(type));
+//        valueMap.put(":zipCode", new AttributeValue().withS(zipCode));
+//        DynamoDBQueryExpression<Item> queryExpression = new DynamoDBQueryExpression<Item>()
+//                .withIndexName(ZIPCODE_TYPE_INDEX)
+//                .withKeyConditionExpression("#itemType = :type and zip_Code = :zipCode")
+//                .withExpressionAttributeNames(Collections.singletonMap("#itemType", "type"))
+//                .withConsistentRead(false)
+//                .withKeyConditionExpression("type = :type and zip_Code = :zipCode")
+////                .withLimit(25)
+//                .withExpressionAttributeValues(valueMap);
+//
+//
+//        System.out.println("hello from ItemDao. You got this far");
+//        //searchResults will only have items that have zip and type, no other information.
+//        PaginatedQueryList<Item> searchResults = null;
+//        try {
+//            searchResults = mapper.query(Item.class, queryExpression);
+//        } catch(AmazonDynamoDBException e ) {
+//            System.out.println("error is thrown when querying db: " + e.getMessage());
+//        }
+//        System.out.println("ItemDao after initial query" );
+//        System.out.println("ItemDao.searchItems(). searchResults: " + searchResults.toString());
+//        //fullyLoadedInfo gets all attributes of each item in searchResults
+//        List<Item> fullyLoadedInfo = new ArrayList<>();
+//        for(Item item : searchResults) {
+//            System.out.println("ItemDao.searchItems() loading results ...");
+//            fullyLoadedInfo.add(mapper.load(item));
+//        }
+//        if (criteria == null) {
+//            return fullyLoadedInfo;
+//        }
+//
+//        System.out.println("ItemDao.searchItems() loaded search results: " + fullyLoadedInfo.toString());
+//        List<Item> criteriaResults = this.searchDescription(fullyLoadedInfo, criteria);
+//
+//        return criteriaResults;
+//    }
+//
+//    private List<Item> searchDescription(List<Item> preliminarySearchResults, String[] criteria) {
+//        System.out.println("ItemDao.searchDescription() ");
+//       List<Item> results = new ArrayList<>();
+//        for(Item item : preliminarySearchResults) {
+//            String description = item.getDescription().toLowerCase();
+//            for(String word : criteria){
+//                if (description.contains(word)) {
+//                    results.add(item);
+//                }
+//            }
+//        }
+//        return results;
+//    }
 }

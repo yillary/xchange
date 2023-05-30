@@ -1,7 +1,7 @@
 package com.nashss.se.exchange.dependency;
 
 import com.nashss.se.exchange.activity.GetItemActivity;
-import com.nashss.se.exchange.activity.SearchTypeZipActivity;
+//import com.nashss.se.exchange.activity.SearchTypeZipActivity;
 import dagger.Component;
 
 import javax.inject.Singleton;
@@ -24,6 +24,6 @@ public interface ServiceComponent {
      * Provides the relevantActivity
      * @return SearchItemsActivity
      */
-    SearchTypeZipActivity providesSearchTypeZipActivity();
+//    SearchTypeZipActivity providesSearchTypeZipActivity();
 
 }
