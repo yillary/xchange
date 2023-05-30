@@ -3,7 +3,7 @@
     {
       "PutRequest": {
         "Item": {
-          "item_Id": {
+          "itemId": {
             "S": "to001"
           },
           "title": {
@@ -12,7 +12,7 @@
           "description": {
             "S": "This is a totally cool tShirt that looks super cute with jeans. Size L"
           },
-          "type": {
+          "itemType": {
             "S": "Top"
           },
           "exchanged": {
@@ -27,7 +27,7 @@
           "email": {
             "S": "aperson@gmail.com"
           },
-          "zip_Code": {
+          "zipCode": {
             "S": "98045"
           }
         }
@@ -36,7 +36,7 @@
     {
       "PutRequest": {
         "Item": {
-          "item_Id": {
+          "itemId": {
             "S": "Bottom001"
           },
           "title": {
@@ -45,7 +45,7 @@
           "description": {
             "S": "Rips in the knees and acid wash. Size 4"
           },
-          "type": {
+          "itemType": {
             "S": "Bottom"
           },
           "exchanged": {
@@ -60,7 +60,7 @@
           "email": {
             "S": "anotherperson@gmail.com"
           },
-          "zip_Code": {
+          "zipCode": {
             "S": "98045"
           }
         }
@@ -69,7 +69,7 @@
     {
       "PutRequest": {
         "Item": {
-          "item_Id": {
+          "itemId": {
             "S": "Top002"
           },
           "title": {
@@ -78,7 +78,7 @@
           "description": {
             "S": "This is a totally cool tShirt with a graphic print. Size M"
           },
-          "type": {
+          "itemType": {
             "S": "Top"
           },
           "exchanged": {
@@ -93,7 +93,7 @@
           "email": {
             "S": "yetanotherperson@gmail.com"
           },
-          "zip_Code": {
+          "zipCode": {
             "S": "98045"
           }
         }
@@ -102,7 +102,7 @@
     {
       "PutRequest": {
         "Item": {
-          "item_Id": {
+          "itemId": {
             "S": "Top003"
           },
           "title": {
@@ -111,7 +111,7 @@
           "description": {
             "S": "lightweight, white, size XS"
           },
-          "type": {
+          "itemType": {
             "S": "Top"
           },
           "exchanged": {
@@ -126,7 +126,7 @@
           "email": {
             "S": "justanotherperson@gmail.com"
           },
-          "zip_Code": {
+          "zipCode": {
             "S": "40000"
           }
         }

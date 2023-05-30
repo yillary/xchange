@@ -9,6 +9,7 @@ import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.util.*;
+import java.util.stream.Collectors;
 
 import static com.nashss.se.exchange.dynamodb.Item.ZIPCODE_TYPE_INDEX;
 
@@ -76,14 +77,15 @@ public class ItemDao {
         System.out.println("ItemDao.searchItems searching criteria: " + zipCode + " " + type + " " + Arrays.toString(criteria));
 
         Map<String, AttributeValue> valueMap = new HashMap<>();
-        valueMap.put(":type", new AttributeValue().withS(type));
         valueMap.put(":zipCode", new AttributeValue().withS(zipCode));
+        valueMap.put(":itemType", new AttributeValue().withS(type));
         DynamoDBQueryExpression<Item> queryExpression = new DynamoDBQueryExpression<Item>()
                 .withIndexName(ZIPCODE_TYPE_INDEX)
-                .withKeyConditionExpression("#itemType = :type and zip_Code = :zipCode")
-                .withExpressionAttributeNames(Collections.singletonMap("#itemType", "type"))
+//                .withKeyConditionExpression("#itemType = :type and zip_Code = :zipCode")
+//                .withExpressionAttributeNames(Collections.singletonMap("#itemType", "type"))
                 .withConsistentRead(false)
-                .withKeyConditionExpression("type = :type and zip_Code = :zipCode")
+                .withKeyConditionExpression("zip_Code = :zipCode and itemType = :itemType")
+//                .withKeyConditionExpression("itemType = :itemType and zipCode = :zip_Code")
 //                .withLimit(25)
                 .withExpressionAttributeValues(valueMap);
 
@@ -96,8 +98,8 @@ public class ItemDao {
         } catch(AmazonDynamoDBException e ) {
             System.out.println("error is thrown when querying db: " + e.getMessage());
         }
-        System.out.println("ItemDao after initial query" );
-        System.out.println("ItemDao.searchItems(). searchResults: " + searchResults.toString());
+        System.out.println("ItemDao.searchItems(). searchResults: " + searchResults.stream().count());
+
         //fullyLoadedInfo gets all attributes of each item in searchResults
         List<Item> fullyLoadedInfo = new ArrayList<>();
         for(Item item : searchResults) {

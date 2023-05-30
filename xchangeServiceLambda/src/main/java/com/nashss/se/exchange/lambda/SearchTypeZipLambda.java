@@ -13,34 +13,35 @@ public class SearchTypeZipLambda
 
     private final Logger log = LogManager.getLogger();
 
-//    @Override
-//    public LambdaResponse handleRequest(LambdaRequest<SearchTypeZipRequest> input, Context context) {
-//        log.info("handleRequest");
-//        return super.runActivity(
-//                () -> input.fromPath(path ->
-//                        SearchTypeZipRequest.builder()
-//                                .withType(path.get("type"))
-//                                .withZipCode(path.get("zipCode"))
-//                                .withCriteria(path.get("criteria"))
-//                                .build()),
-//                (request, serviceComponent) ->
-//                        serviceComponent.providesSearchTypeZipActivity().handleRequest(request)
-//        );
-//    }
-
     @Override
     public LambdaResponse handleRequest(LambdaRequest<SearchTypeZipRequest> input, Context context) {
-        System.out.println("SearchTypeZipRequest.hanldeRequest() with input: " + input + " " + context);
-        log.info("SearchTypeZipLambda: received SearchTypeZipRequest");
+        log.info("handleRequest");
+        System.out.println("SearchTypeZipRequest.handleRequest() with input: " + input + " " + context);
         return super.runActivity(
-                () -> input.fromPathAndQuery((path, query) ->
+                () -> input.fromQuery(query ->
                         SearchTypeZipRequest.builder()
-                                .withZipCode(path.get("zipCode"))
-                                .withType(path.get("type"))
+                                .withType(query.get("type"))
+                                .withZipCode(query.get("zipCode"))
                                 .withCriteria(query.get("criteria"))
                                 .build()),
                 (request, serviceComponent) ->
                         serviceComponent.providesSearchTypeZipActivity().handleRequest(request)
         );
     }
+
+//    @Override
+//    public LambdaResponse handleRequest(LambdaRequest<SearchTypeZipRequest> input, Context context) {
+//        System.out.println("SearchTypeZipRequest.hanldeRequest() with input: " + input + " " + context);
+//        log.info("SearchTypeZipLambda: received SearchTypeZipRequest");
+//        return super.runActivity(
+//                () -> input.fromPathAndQuery((path, query) ->
+//                        SearchTypeZipRequest.builder()
+//                                .withZipCode(path.get("zipCode"))
+//                                .withType(path.get("type"))
+//                                .withCriteria(query.get("criteria"))
+//                                .build()),
+//                (request, serviceComponent) ->
+//                        serviceComponent.providesSearchTypeZipActivity().handleRequest(request)
+//        );
+//    }
 }

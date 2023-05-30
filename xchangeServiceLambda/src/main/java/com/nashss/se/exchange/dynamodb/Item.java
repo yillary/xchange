@@ -12,13 +12,13 @@ public class Item {
     private String itemId;
     private String title;
     private String description;
-    private String type;
+    private String itemType;
     private Boolean exchanged;
     private Set<String> images;
     private String zipCode;
     private String email;
 
-    @DynamoDBHashKey(attributeName = "item_Id")
+    @DynamoDBHashKey(attributeName = "itemId")
     public String getItemId() {
         return itemId;
     }
@@ -45,14 +45,14 @@ public class Item {
         this.description = description;
     }
 
-    @DynamoDBIndexRangeKey(globalSecondaryIndexName = ZIPCODE_TYPE_INDEX, attributeName = "type")
-    @DynamoDBAttribute(attributeName = "type")
-    public String getType() {
-        return type;
+    @DynamoDBIndexRangeKey(globalSecondaryIndexName = ZIPCODE_TYPE_INDEX, attributeName = "itemType")
+    @DynamoDBAttribute(attributeName = "itemType")
+    public String getItemType() {
+        return itemType;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setItemType(String itemType) {
+        this.itemType = itemType;
     }
 
     @DynamoDBTyped(DynamoDBMapperFieldModel.DynamoDBAttributeType.BOOL)
@@ -74,8 +74,8 @@ public class Item {
         this.images = images;
     }
 
-    @DynamoDBIndexHashKey(globalSecondaryIndexName = ZIPCODE_TYPE_INDEX, attributeName = "zip_Code")
-    @DynamoDBAttribute(attributeName = "zip_Code")
+    @DynamoDBIndexHashKey(globalSecondaryIndexName = ZIPCODE_TYPE_INDEX, attributeName = "zipCode")
+    @DynamoDBAttribute(attributeName = "zipCode")
     public String getZipCode() { return zipCode; }
 
     public void setZipCode(String zipCode) {
@@ -92,12 +92,12 @@ public class Item {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Item item = (Item) o;
-        return Objects.equals(itemId, item.itemId) && Objects.equals(title, item.title) && Objects.equals(description, item.description) && Objects.equals(type, item.type) && Objects.equals(exchanged, item.exchanged) && Objects.equals(images, item.images) && Objects.equals(zipCode, item.zipCode) && Objects.equals(email, item.email);
+        return Objects.equals(itemId, item.itemId) && Objects.equals(title, item.title) && Objects.equals(description, item.description) && Objects.equals(itemType, item.itemType) && Objects.equals(exchanged, item.exchanged) && Objects.equals(images, item.images) && Objects.equals(zipCode, item.zipCode) && Objects.equals(email, item.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(itemId, title, description, type, exchanged, images, zipCode, email);
+        return Objects.hash(itemId, title, description, itemType, exchanged, images, zipCode, email);
     }
 
     @Override
@@ -106,7 +106,7 @@ public class Item {
                 "itemId='" + itemId + '\'' +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
-                ", type='" + type + '\'' +
+                ", type='" + itemType + '\'' +
                 ", exchanged=" + exchanged +
                 ", images=" + images +
                 ", zipCode='" + zipCode + '\'' +

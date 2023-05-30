@@ -1,7 +1,6 @@
 package com.nashss.se.exchange.dynamodb;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBQueryExpression;
 import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedQueryList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,7 +11,6 @@ import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
@@ -46,7 +44,7 @@ public class ItemDaoTest {
         item.setItemId(itemId);
         item.setTitle("Awesome Shirt");
         item.setDescription("This is a super awesome shirt pink, M");
-        item.setType("Top");
+        item.setItemType("Top");
         item.setExchanged(false);
         item.setImages(images);
         item.setZipCode("98045");
@@ -74,7 +72,7 @@ public class ItemDaoTest {
         item.setItemId(itemId);
         item.setTitle("Awesome Shirt");
         item.setDescription("This is a super awesome shirt pink, M");
-        item.setType("Top");
+        item.setItemType("Top");
         item.setExchanged(false);
         item.setImages(images);
         item.setZipCode("98045");
