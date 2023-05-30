@@ -13,15 +13,31 @@ public class SearchTypeZipLambda
 
     private final Logger log = LogManager.getLogger();
 
+//    @Override
+//    public LambdaResponse handleRequest(LambdaRequest<SearchTypeZipRequest> input, Context context) {
+//        log.info("handleRequest");
+//        return super.runActivity(
+//                () -> input.fromPath(path ->
+//                        SearchTypeZipRequest.builder()
+//                                .withType(path.get("type"))
+//                                .withZipCode(path.get("zipCode"))
+//                                .withCriteria(path.get("criteria"))
+//                                .build()),
+//                (request, serviceComponent) ->
+//                        serviceComponent.providesSearchTypeZipActivity().handleRequest(request)
+//        );
+//    }
+
     @Override
     public LambdaResponse handleRequest(LambdaRequest<SearchTypeZipRequest> input, Context context) {
-        log.info("handleRequest");
+        System.out.println("SearchTypeZipRequest.hanldeRequest() with input: " + input + " " + context);
+        log.info("SearchTypeZipLambda: received SearchTypeZipRequest");
         return super.runActivity(
-                () -> input.fromPath(path ->
+                () -> input.fromPathAndQuery((path, query) ->
                         SearchTypeZipRequest.builder()
-                                .withType(path.get("type"))
                                 .withZipCode(path.get("zipCode"))
-                                .withCriteria(path.get("criteria"))
+                                .withType(path.get("type"))
+                                .withCriteria(query.get("criteria"))
                                 .build()),
                 (request, serviceComponent) ->
                         serviceComponent.providesSearchTypeZipActivity().handleRequest(request)

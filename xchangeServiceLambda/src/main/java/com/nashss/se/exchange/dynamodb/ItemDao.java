@@ -3,6 +3,7 @@ package com.nashss.se.exchange.dynamodb;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBQueryExpression;
 import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedQueryList;
+import com.amazonaws.services.dynamodbv2.model.AmazonDynamoDBException;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 
 import javax.inject.Inject;
@@ -10,8 +11,6 @@ import javax.inject.Singleton;
 import java.util.*;
 
 import static com.nashss.se.exchange.dynamodb.Item.ZIPCODE_TYPE_INDEX;
-
-//import static com.nashss.se.exchange.dynamodb.models.Item.ZIPCODE_TYPE_INDEX;
 
 @Singleton
 public class ItemDao {
@@ -24,7 +23,7 @@ public class ItemDao {
 
     public Item getItem(String itemId) {
         if (itemId == null) {
-            throw new IllegalArgumentException("itemId cannot be null");
+            throw new IllegalArgumentException("ItemDao.getItem(): itemId cannot be null");
         }
         Item item = mapper.load(Item.class, itemId);
 
@@ -74,33 +73,49 @@ public class ItemDao {
      * @return list of items that match the zipCode and type
      */
     public List<Item> searchItems(String zipCode, String type, String[] criteria) {
+        System.out.println("ItemDao.searchItems searching criteria: " + zipCode + " " + type + " " + Arrays.toString(criteria));
+
         Map<String, AttributeValue> valueMap = new HashMap<>();
         valueMap.put(":type", new AttributeValue().withS(type));
-        valueMap.put(":zip_Code", new AttributeValue().withS(zipCode));
-        valueMap.put(":exchanged", new AttributeValue().withBOOL(false));
+        valueMap.put(":zipCode", new AttributeValue().withS(zipCode));
         DynamoDBQueryExpression<Item> queryExpression = new DynamoDBQueryExpression<Item>()
                 .withIndexName(ZIPCODE_TYPE_INDEX)
+                .withKeyConditionExpression("#itemType = :type and zip_Code = :zipCode")
+                .withExpressionAttributeNames(Collections.singletonMap("#itemType", "type"))
                 .withConsistentRead(false)
-                .withKeyConditionExpression("type = :type and zipCode = :zip_Code")
+                .withKeyConditionExpression("type = :type and zip_Code = :zipCode")
 //                .withLimit(25)
                 .withExpressionAttributeValues(valueMap);
 
+
+        System.out.println("hello from ItemDao. You got this far");
         //searchResults will only have items that have zip and type, no other information.
-        PaginatedQueryList<Item> searchResults = mapper.query(Item.class, queryExpression);
+        PaginatedQueryList<Item> searchResults = null;
+        try {
+            searchResults = mapper.query(Item.class, queryExpression);
+        } catch(AmazonDynamoDBException e ) {
+            System.out.println("error is thrown when querying db: " + e.getMessage());
+        }
+        System.out.println("ItemDao after initial query" );
+        System.out.println("ItemDao.searchItems(). searchResults: " + searchResults.toString());
         //fullyLoadedInfo gets all attributes of each item in searchResults
         List<Item> fullyLoadedInfo = new ArrayList<>();
         for(Item item : searchResults) {
+            System.out.println("ItemDao.searchItems() loading results ...");
             fullyLoadedInfo.add(mapper.load(item));
         }
         if (criteria == null) {
             return fullyLoadedInfo;
         }
+
+        System.out.println("ItemDao.searchItems() loaded search results: " + fullyLoadedInfo.toString());
         List<Item> criteriaResults = this.searchDescription(fullyLoadedInfo, criteria);
 
         return criteriaResults;
     }
 
     private List<Item> searchDescription(List<Item> preliminarySearchResults, String[] criteria) {
+        System.out.println("ItemDao.searchDescription() ");
        List<Item> results = new ArrayList<>();
         for(Item item : preliminarySearchResults) {
             String description = item.getDescription().toLowerCase();
