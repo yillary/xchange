@@ -1,5 +1,8 @@
 package com.nashss.se.exchange.activity.requests;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+@JsonDeserialize(builder = SearchTypeZipRequest.Builder.class)
 public class SearchTypeZipRequest {
     private final String zipCode;
     private final String type;

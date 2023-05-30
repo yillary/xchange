@@ -23,7 +23,8 @@ public class GetItemActivity {
     }
 
     public GetItemResult handleRequest(final GetItemRequest getItemRequest) {
-        log.info("Recieved GetItemRequest {}", getItemRequest);
+        System.out.println("getItemRequest recieved in GetItemActivity" + getItemRequest.toString());
+        log.info("Received GetItemRequest {}", getItemRequest);
         String itemId = getItemRequest.getItemId();
         Item item  = itemDao.getItem(itemId);
         ItemModel itemModel = new ModelConverter().toItemModel(item);

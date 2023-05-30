@@ -1,5 +1,8 @@
 package com.nashss.se.exchange.activity.requests;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+@JsonDeserialize(builder = GetItemRequest.Builder.class)
 public class GetItemRequest {
     private final String itemId;
 
@@ -10,7 +13,6 @@ public class GetItemRequest {
     public String getItemId() {
         return this.itemId;
     }
-
 
     @Override
     public String toString() {

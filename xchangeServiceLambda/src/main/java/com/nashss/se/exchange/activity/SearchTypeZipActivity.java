@@ -24,6 +24,7 @@ public class SearchTypeZipActivity {
     }
 
     public SearchTypeZipResult handleRequest(final SearchTypeZipRequest searchTypeZipRequest) {
+        System.out.println("SearchTypeZipActivity.handleRequest() with searchTypeRequest: " + searchTypeZipRequest.toString());
         log.info("Received SearchTypeZipRequest {}", searchTypeZipRequest);
 
         String[] formattedCriteria = this.formatSearchCriteria(searchTypeZipRequest.getCriteria());
@@ -42,6 +43,7 @@ public class SearchTypeZipActivity {
     }
 
     private String[] formatSearchCriteria (String keywordCriteria) {
+        System.out.println("SearchTypeZipActivity.formatSearchCriteria()");
         String criteria = ifNull(keywordCriteria, "");
         String[] criteriaArray = criteria.isBlank() ? new String[0] : criteria.trim().toLowerCase().split("\\s");
 

@@ -61,6 +61,7 @@ public class LambdaRequest<T> extends APIGatewayProxyRequestEvent {
     public T fromPathAndQuery(BiFunction<Map<String, String>, Map<String, String>, T> converter) {
         Map<String, String> path = ifNull(super.getPathParameters(), Map.of());
         Map<String, String> query = ifNull(super.getQueryStringParameters(), Map.of());
+        System.out.println("LambdaRequest.fromPathAndQuery(), path: " + path + " " + query);
         return converter.apply(path, query);
     }
 }

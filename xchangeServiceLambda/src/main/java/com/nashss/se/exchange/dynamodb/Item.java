@@ -7,7 +7,7 @@ import java.util.Set;
 
 @DynamoDBTable(tableName = "items")
 public class Item {
-    public static final String ZIPCODE_TYPE_INDEX = "SearchByTypeZip";
+    public static final String ZIPCODE_TYPE_INDEX = "SearchByTypeZipIndex";
 
     private String itemId;
     private String title;

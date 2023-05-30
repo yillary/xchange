@@ -32,6 +32,105 @@
           }
         }
       }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "item_Id": {
+            "S": "Bottom001"
+          },
+          "title": {
+            "S": "Woah Pants"
+          },
+          "description": {
+            "S": "Rips in the knees and acid wash. Size 4"
+          },
+          "type": {
+            "S": "Bottom"
+          },
+          "exchanged": {
+            "BOOL": false
+          },
+          "images": {
+            "SS": [
+              "01",
+              "02"
+            ]
+          },
+          "email": {
+            "S": "anotherperson@gmail.com"
+          },
+          "zip_Code": {
+            "S": "98045"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "item_Id": {
+            "S": "Top002"
+          },
+          "title": {
+            "S": "Wowie T-Shirt"
+          },
+          "description": {
+            "S": "This is a totally cool tShirt with a graphic print. Size M"
+          },
+          "type": {
+            "S": "Top"
+          },
+          "exchanged": {
+            "BOOL": false
+          },
+          "images": {
+            "SS": [
+              "01",
+              "02"
+            ]
+          },
+          "email": {
+            "S": "yetanotherperson@gmail.com"
+          },
+          "zip_Code": {
+            "S": "98045"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "item_Id": {
+            "S": "Top003"
+          },
+          "title": {
+            "S": "Long-sleeved T-shirt"
+          },
+          "description": {
+            "S": "lightweight, white, size XS"
+          },
+          "type": {
+            "S": "Top"
+          },
+          "exchanged": {
+            "BOOL": false
+          },
+          "images": {
+            "SS": [
+              "01",
+              "02"
+            ]
+          },
+          "email": {
+            "S": "justanotherperson@gmail.com"
+          },
+          "zip_Code": {
+            "S": "40000"
+          }
+        }
+      }
     }
   ]
 }
