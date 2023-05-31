@@ -9,7 +9,6 @@ import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.util.*;
-import java.util.stream.Collectors;
 
 import static com.nashss.se.exchange.dynamodb.Item.ZIPCODE_TYPE_INDEX;
 
