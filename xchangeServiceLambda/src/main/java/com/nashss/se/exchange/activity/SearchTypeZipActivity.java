@@ -48,7 +48,7 @@ public class SearchTypeZipActivity {
         String[] criteriaArray = criteria.isBlank() ? new String[0] : criteria.trim().toLowerCase().split("\\s");
 
         Set<String> fillerWords = new HashSet<>(Arrays.asList(
-                "a", "an", "the", "in", "on", "at", "for", "to", "and", "or", "this", "these", "I", "can", "wear"
+                "a", "an", "the", "in", "on", "at", "for", "to", "and", "or", "this", "these", "i", "can", "wear"
         ));
         String[] filteredInput = Arrays.stream(criteriaArray)
                 .filter(word -> !fillerWords.contains(word))

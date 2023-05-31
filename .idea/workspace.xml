@@ -6,14 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="1cd763d9-942e-4ae1-86f4-2efa782b1ebe" name="Changes" comment="initial commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/template.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/template.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xchangeServiceLambda/build/jacoco/test.exec" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/build/jacoco/test.exec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/converters/ModelConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/converters/ModelConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/dynamodb/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/dynamodb/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/activity/SearchTypeZipActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/activity/SearchTypeZipActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/dynamodb/ItemDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/dynamodb/ItemDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/lambda/SearchTypeZipLambda.java" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/src/main/java/com/nashss/se/exchange/lambda/SearchTypeZipLambda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xchangeServiceLambda/src/test/java/com/nashss/se/exchange/dynamodb/ItemDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/xchangeServiceLambda/src/test/java/com/nashss/se/exchange/dynamodb/ItemDaoTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

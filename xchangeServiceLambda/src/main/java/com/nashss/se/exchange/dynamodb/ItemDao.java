@@ -84,13 +84,11 @@ public class ItemDao {
 //                .withKeyConditionExpression("#itemType = :type and zip_Code = :zipCode")
 //                .withExpressionAttributeNames(Collections.singletonMap("#itemType", "type"))
                 .withConsistentRead(false)
-                .withKeyConditionExpression("zip_Code = :zipCode and itemType = :itemType")
+                .withKeyConditionExpression("zipCode = :zipCode and itemType = :itemType")
 //                .withKeyConditionExpression("itemType = :itemType and zipCode = :zip_Code")
 //                .withLimit(25)
                 .withExpressionAttributeValues(valueMap);
 
-
-        System.out.println("hello from ItemDao. You got this far");
         //searchResults will only have items that have zip and type, no other information.
         PaginatedQueryList<Item> searchResults = null;
         try {
@@ -98,6 +96,7 @@ public class ItemDao {
         } catch(AmazonDynamoDBException e ) {
             System.out.println("error is thrown when querying db: " + e.getMessage());
         }
+
         System.out.println("ItemDao.searchItems(). searchResults: " + searchResults.stream().count());
 
         //fullyLoadedInfo gets all attributes of each item in searchResults
@@ -107,6 +106,7 @@ public class ItemDao {
             fullyLoadedInfo.add(mapper.load(item));
         }
         if (criteria == null) {
+            System.out.println("criteria is null.");
             return fullyLoadedInfo;
         }
 
@@ -119,12 +119,21 @@ public class ItemDao {
     private List<Item> searchDescription(List<Item> preliminarySearchResults, String[] criteria) {
         System.out.println("ItemDao.searchDescription() ");
        List<Item> results = new ArrayList<>();
+
         for(Item item : preliminarySearchResults) {
+            System.out.println("OUTER LOOP");
             String description = item.getDescription().toLowerCase();
+            boolean matchFound = false;
             for(String word : criteria){
+                System.out.println("INNER LOOP");
                 if (description.contains(word)) {
-                    results.add(item);
+                    matchFound = true;
+                    break;
                 }
+            }
+            if(matchFound = true && !results.contains(item)) {
+                System.out.println("IF CONDITION, SHOULD ADD TO RESULTS " + item);
+                results.add(item);
             }
         }
         return results;
