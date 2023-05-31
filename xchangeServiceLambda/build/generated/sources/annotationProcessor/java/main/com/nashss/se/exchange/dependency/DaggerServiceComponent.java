@@ -2,6 +2,7 @@ package com.nashss.se.exchange.dependency;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.nashss.se.exchange.activity.GetItemActivity;
+import com.nashss.se.exchange.activity.SearchTypeZipActivity;
 import com.nashss.se.exchange.dynamodb.ItemDao;
 import com.nashss.se.exchange.dynamodb.ItemDao_Factory;
 import dagger.internal.DaggerGenerated;
@@ -81,6 +82,11 @@ public final class DaggerServiceComponent {
     @Override
     public GetItemActivity providesGetItemActivity() {
       return new GetItemActivity(itemDaoProvider.get());
+    }
+
+    @Override
+    public SearchTypeZipActivity providesSearchTypeZipActivity() {
+      return new SearchTypeZipActivity(itemDaoProvider.get());
     }
   }
 }
