@@ -1,5 +1,6 @@
 package com.nashss.se.exchange.Models;
 
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -21,6 +22,7 @@ public class ItemModel {
         this.type = type;
         this.exchanged = exchanged;
         this.images = images;
+        this.formatImages(images);
         this.email = email;
         this.zipCode = zipCode;
     }
@@ -57,6 +59,18 @@ public class ItemModel {
         return zipCode;
     }
 
+    private Set<String> formatImages(Set<String> imageReferences) {
+        if(imageReferences == null) {
+            return new HashSet<>();
+        }
+        Set<String> imageUrls = new HashSet<>();
+        String s3Bucket = "https://nss-s3-c02-02-u5-project-hillarymartin.s3.us-east-2.amazonaws.com/";
+        for(String reference : imageReferences) {
+            String imageUrl = s3Bucket + reference;
+            imageUrls.add(imageUrl);
+        }
+        return imageUrls;
+    }
 
     @Override
     public boolean equals(Object o) {

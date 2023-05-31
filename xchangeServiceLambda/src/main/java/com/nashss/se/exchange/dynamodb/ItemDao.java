@@ -41,8 +41,6 @@ public class ItemDao {
 //        return null;
 //    }
 
-
-
     public Boolean deleteItem(Item item) {
         if (item == null ){
             throw new IllegalArgumentException("Item cannot be null");
