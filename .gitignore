@@ -15,6 +15,7 @@
 *.iml
 .aws-sam
 .idea/workspace.xml
+/.idea
 
 
 
