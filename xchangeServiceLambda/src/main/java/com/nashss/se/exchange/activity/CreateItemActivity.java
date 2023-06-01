@@ -57,44 +57,4 @@ public class CreateItemActivity {
                 .withPlaylist(playlistModel)
                 .build();
     }
-
-
 }
-
-
-
-//    public CreatePlaylistResult handleRequest(final CreatePlaylistRequest createPlaylistRequest) {
-//        log.info("Received CreatePlaylistRequest {}", createPlaylistRequest);
-//
-//        if (!MusicPlaylistServiceUtils.isValidString(createPlaylistRequest.getName())) {
-//            throw new InvalidAttributeValueException("Playlist name [" + createPlaylistRequest.getName() +
-//                    "] contains illegal characters");
-//        }
-//
-//        if (!MusicPlaylistServiceUtils.isValidString(createPlaylistRequest.getCustomerId())) {
-//            throw new InvalidAttributeValueException("Playlist customer ID [" + createPlaylistRequest.getCustomerId() +
-//                    "] contains illegal characters");
-//        }
-//
-//        Set<String> playlistTags = null;
-//        if (createPlaylistRequest.getTags() != null) {
-//            playlistTags = new HashSet<>(createPlaylistRequest.getTags());
-//        }
-//
-//        Playlist newPlaylist = new Playlist();
-//        newPlaylist.setId(MusicPlaylistServiceUtils.generatePlaylistId());
-//        newPlaylist.setName(createPlaylistRequest.getName());
-//        newPlaylist.setCustomerId(createPlaylistRequest.getCustomerId());
-//        newPlaylist.setCustomerName(createPlaylistRequest.getCustomerName());
-//        newPlaylist.setSongCount(0);
-//        newPlaylist.setTags(playlistTags);
-//        newPlaylist.setSongList(new ArrayList<>());
-//
-//        playlistDao.savePlaylist(newPlaylist);
-//
-//        PlaylistModel playlistModel = new ModelConverter().toPlaylistModel(newPlaylist);
-//        return CreatePlaylistResult.builder()
-//                .withPlaylist(playlistModel)
-//                .build();
-//    }
-//}
