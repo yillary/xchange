@@ -14,6 +14,8 @@
 /configuration/stack-exec
 *.iml
 .aws-sam
+.idea/workspace.xml
+
 
 
 # Ignore Gradle project-specific cache directory

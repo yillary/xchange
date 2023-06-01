@@ -48,7 +48,7 @@ class SearchPlaylists extends BindingClass {
 
         this.header.addHeaderToPage();
 
-        this.client = new MusicPlaylistClient();
+        this.client = new XchangeClient();
     }
 
     /**
