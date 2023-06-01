@@ -12,14 +12,16 @@ public class CreateItemRequest {
     private final Boolean exchanged;
     private final Set<String> images;
     private final String zipCode;
+    private final String email;
 
-    public CreateItemRequest(String title, String description, String type, Boolean exchanged, Set<String> images, String zipCode) {
+    public CreateItemRequest(String title, String description, String type, Boolean exchanged, Set<String> images, String zipCode, String email) {
         this.title = title;
         this.description = description;
         this.type = type;
         this.exchanged = exchanged;
         this.images = images;
         this.zipCode = zipCode;
+        this.email = email;
     }
 
     public String getTitle() {
@@ -46,6 +48,15 @@ public class CreateItemRequest {
         return zipCode;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+
+    //CHECKSTYLE:OFF:Builder
+    public static CreateItemRequest.Builder builder() {
+        return new CreateItemRequest.Builder();
+    }
 
     @Override
     public String toString() {
@@ -56,12 +67,8 @@ public class CreateItemRequest {
                 ", exchanged=" + exchanged +
                 ", images=" + images +
                 ", zipCode='" + zipCode + '\'' +
+                ", email='" + email + '\'' +
                 '}';
-    }
-
-    //CHECKSTYLE:OFF:Builder
-    public static CreateItemRequest.Builder builder() {
-        return new CreateItemRequest.Builder();
     }
 
     public static class Builder {
@@ -71,6 +78,7 @@ public class CreateItemRequest {
         private Boolean exchanged;
         private Set<String> images;
         private String zipCode;
+        private String email;
 
         public CreateItemRequest.Builder withTitle(String title) {
             this.title = title;
@@ -96,9 +104,12 @@ public class CreateItemRequest {
             this.zipCode = zipCode;
             return this;
         }
-
+        public CreateItemRequest.Builder withEmail(String email) {
+            this.email = email;
+            return this;
+        }
         public CreateItemRequest build() {
-            return new CreateItemRequest(title, description, type, exchanged, images, zipCode);
+            return new CreateItemRequest(title, description, type, exchanged, images, zipCode, email);
         }
     }
 }

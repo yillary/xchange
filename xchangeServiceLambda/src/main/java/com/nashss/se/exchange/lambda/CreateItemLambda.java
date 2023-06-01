@@ -30,6 +30,7 @@ public class CreateItemLambda
                             .withExchanged(unauthenticatedRequest.getExchanged())
                             .withImages(unauthenticatedRequest.getImages())
                             .withZipCode(unauthenticatedRequest.getZipCode())
+                            .withEmail(claims.get("email"))
                             .build());
         },
                 (request, serviceComponent) ->
