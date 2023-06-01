@@ -1,8 +1,10 @@
 package com.nashss.se.exchange.dependency;
 
+import com.nashss.se.exchange.activity.CreateItemActivity;
 import com.nashss.se.exchange.activity.GetItemActivity;
 import com.nashss.se.exchange.activity.SearchTypeZipActivity;
 import dagger.Component;
+import dagger.Provides;
 
 import javax.inject.Singleton;
 
@@ -25,5 +27,11 @@ public interface ServiceComponent {
      * @return SearchItemsActivity
      */
     SearchTypeZipActivity providesSearchTypeZipActivity();
+
+    /**
+     * Provides the relevantActivity
+     * @return CreateItemActivity
+     */
+    CreateItemActivity providesCreateItemActivity();
 
 }
