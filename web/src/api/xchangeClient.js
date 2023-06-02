@@ -111,16 +111,17 @@ export default class XchangeClient extends BindingClass {
      * @param errorCallback (Optional) A function to execute if the call fails.
      */
     handleError(error, errorCallback) {
-        console.error(error);
+      console.error(error);
 
-        const errorFromApi = error?.response?.data?.error_message;
-        if (errorFromApi) {
-            console.error(errorFromApi)
-            error.message = errorFromApi;
-        }
+      const errorFromApi = error?.response?.data?.error_message;
+      if (errorFromApi) {
+        console.error(errorFromApi);
+        error.message = errorFromApi;
+      }
 
-        if (errorCallback) {
-            errorCallback(error);
-        }
+      if (typeof errorCallback === 'function') {
+        errorCallback(error);
+      }
     }
+
 }
