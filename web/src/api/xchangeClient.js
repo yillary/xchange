@@ -10,12 +10,12 @@ import Authenticator from "./authenticator";
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Mix-ins
  * https://javascript.info/mixins
   */
-export default class MusicPlaylistClient extends BindingClass {
+export default class XchangeClient extends BindingClass {
 
     constructor(props = {}) {
         super();
 
-        const methodsToBind = ['clientLoaded', 'getIdentity', 'login', 'logout', 'getItem'];
+        const methodsToBind = ['clientLoaded', 'getIdentity', 'login', 'logout', 'getItem', 'search'];
         this.bindClassMethods(methodsToBind, this);
 
         this.authenticator = new Authenticator();;
@@ -72,102 +72,38 @@ export default class MusicPlaylistClient extends BindingClass {
     }
 
     /**
-     * Gets the playlist for the given ID.
-     * @param id Unique identifier for a playlist
+     * Gets the item for the given ID.
+     * @param id Unique identifier for an item
      * @param errorCallback (Optional) A function to execute if the call fails.
-     * @returns The playlist's metadata.
+     * @returns The item's metadata.
      */
     async getItem(id, errorCallback) {
         try {
-            const response = await this.axiosClient.get(`item/${id}`);
-            return response.data.playlist;
+            const response = await this.axiosClient.get(`items/${id}`);
+            return response.data.item;
         } catch (error) {
             this.handleError(error, errorCallback)
         }
     }
 
     /**
-     * Get the songs on a given playlist by the playlist's identifier.
-     * @param id Unique identifier for a playlist
-     * @param errorCallback (Optional) A function to execute if the call fails.
-     * @returns The list of songs on a playlist.
-     */
-//    async getPlaylistSongs(id, errorCallback) {
-//        try {
-//            const response = await this.axiosClient.get(`playlists/${id}/songs`);
-//            return response.data.songList;
-//        } catch (error) {
-//            this.handleError(error, errorCallback)
-//        }
-//    }
-
-    /**
-     * Create a new playlist owned by the current user.
-     * @param name The name of the playlist to create.
-     * @param tags Metadata tags to associate with a playlist.
-     * @param errorCallback (Optional) A function to execute if the call fails.
-     * @returns The playlist that has been created.
-     */
-//    async createPlaylist(name, tags, errorCallback) {
-//        try {
-//            const token = await this.getTokenOrThrow("Only authenticated users can create playlists.");
-//            const response = await this.axiosClient.post(`playlists`, {
-//                name: name,
-//                tags: tags
-//            }, {
-//                headers: {
-//                    Authorization: `Bearer ${token}`
-//                }
-//            });
-//            return response.data.playlist;
-//        } catch (error) {
-//            this.handleError(error, errorCallback)
-//        }
-//    }
-
-    /**
-     * Add a song to a playlist.
-     * @param id The id of the playlist to add a song to.
-     * @param asin The asin that uniquely identifies the album.
-     * @param trackNumber The track number of the song on the album.
-     * @returns The list of songs on a playlist.
-     */
-//    async addSongToPlaylist(id, asin, trackNumber, errorCallback) {
-//        try {
-//            const token = await this.getTokenOrThrow("Only authenticated users can add a song to a playlist.");
-//            const response = await this.axiosClient.post(`playlists/${id}/songs`, {
-//                id: id,
-//                asin: asin,
-//                trackNumber: trackNumber
-//            }, {
-//                headers: {
-//                    Authorization: `Bearer ${token}`
-//                }
-//            });
-//            return response.data.songList;
-//        } catch (error) {
-//            this.handleError(error, errorCallback)
-//        }
-//    }
-
-    /**
-     * Search for a soong.
+     * Search for an item.
      * @param criteria A string containing search criteria to pass to the API.
-     * @returns The playlists that match the search criteria.
+     * @returns The items that match the search criteria.
      */
-//    async search(criteria, errorCallback) {
-//        try {
-//            const queryParams = new URLSearchParams({ q: criteria })
-//            const queryString = queryParams.toString();
-//
-//            const response = await this.axiosClient.get(`playlists/search?${queryString}`);
-//
-//            return response.data.playlists;
-//        } catch (error) {
-//            this.handleError(error, errorCallback)
-//        }
-//
-//    }
+    async search(criteria, errorCallback) {
+        try {
+            const queryParams = new URLSearchParams({ q: criteria })
+            const queryString = queryParams.toString();
+
+            const response = await this.axiosClient.get(`items/search?${queryString}`);
+
+            return response.data.items;
+        } catch (error) {
+            this.handleError(error, errorCallback)
+        }
+
+    }
 
     /**
      * Helper method to log the error and run any error functions.

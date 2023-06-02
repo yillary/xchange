@@ -1,29 +1,24 @@
-## Default ignored files
-#/shelf/
-#/.idea/workspace.xml
-#.idea/
-.idea
 .DS_Store
+/build
 /.classpath
 /.settings
 /.project
 /eclipse-bin/
+/.idea
 /annotation-generated-src
 /annotation-generated-tst
 /SAMToolkit.devenv
 /configuration/stack-exec
 *.iml
 .aws-sam
-/.idea
 
 # Ignore Gradle project-specific cache directory
-.gradle/*
+.gradle
 
 # Ignore Gradle build output directory
 build
 logs
 node_modules
 
-sample.env*
 .env*
 bin
