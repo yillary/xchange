@@ -1,6 +1,7 @@
 package com.nashss.se.exchange.activity.requests;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
 @JsonDeserialize(builder = CreateMemberRequest.class)
 public class CreateMemberRequest {
@@ -13,17 +14,13 @@ public class CreateMemberRequest {
         this.memberId = memberId;
     }
 
+
     public String getZipCode() {
         return zipCode;
     }
 
     public String getMemberId() {
         return memberId;
-    }
-
-    //CHECKSTYLE:OFF:Builder
-    public static CreateMemberRequest.Builder builder() {
-        return new CreateMemberRequest.Builder();
     }
 
     @Override
@@ -34,6 +31,13 @@ public class CreateMemberRequest {
                 '}';
     }
 
+
+    //CHECKSTYLE:OFF:Builder
+    public static CreateMemberRequest.Builder builder() {
+        return new CreateMemberRequest.Builder();
+    }
+
+    @JsonPOJOBuilder
     public static class Builder {
         private String zipCode;
         private String memberId;

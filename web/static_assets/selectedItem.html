@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="assets/selectedItem.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/selectedItem.css">
+    <title>xchange</title>
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<header class="header" id="header"></header>
+<h1> Item Details Displayed</h1>
+<a href="index.html"> Back to Search</a>
+
+<!-- https://www.w3schools.com/howto/howto_js_tab_img_gallery.asp -->
+<!-- The grid: four columns -->
+<div class="row">
+    <div class="column">
+        <img src="img_nature.jpg" alt="Nature" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="img_snow.jpg" alt="Snow" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="img_mountains.jpg" alt="Mountains" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="img_lights.jpg" alt="Lights" onclick="myFunction(this);">
+    </div>
+</div>
+
+<!-- The expanding image container -->
+<div class="container">
+    <!-- Close the image -->
+    <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+
+    <!-- Expanded image -->
+    <img id="expandedImg" style="width:100%">
+
+    <!-- Image text -->
+    <div id="imgtext"></div>
+</div>
+
+</body>
+
+
+
+</html>

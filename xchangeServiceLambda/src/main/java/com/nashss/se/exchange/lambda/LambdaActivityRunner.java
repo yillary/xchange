@@ -25,6 +25,7 @@ public class LambdaActivityRunner<TRequest, TResult> {
         log.info("runActivity");
         try {
             TRequest request = requestSupplier.get();
+            log.info("request begun with this request: " + request.toString());
             ServiceComponent serviceComponent = getService();
             TResult result = handleRequest.apply(request, serviceComponent);
             return LambdaResponse.success(result);

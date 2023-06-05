@@ -48,9 +48,12 @@ public class CreateItemActivity {
         item.setItemType(createItemRequest.getType());
         item.setExchanged(false);
         item.setZipCode(createItemRequest.getZipCode());
-        item.setImages(XchangeServiceUtils.formatImages(createItemRequest.getImages()));
+        item.setEmail(createItemRequest.getEmail());
 
         itemDao.saveItem(item);
+        //save to s3 bucket images, s3 image save, responds with the address that the image is stored at. This becomes the url String that should
+        //be stored in the String set for images. http library to make a call to
+        //AWS S3 bucket configure it and it
 
         ItemModel itemModel = new ModelConverter().toItemModel(item);
         return CreateItemResult.builder()

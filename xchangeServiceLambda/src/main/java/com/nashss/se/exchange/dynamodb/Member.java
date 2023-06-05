@@ -1,5 +1,7 @@
 package com.nashss.se.exchange.dynamodb;
 
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 
 import java.util.Objects;
@@ -11,6 +13,7 @@ public class Member {
     private Set<String> listings;
     private String zipCode;
 
+    @DynamoDBHashKey(attributeName = "memberId")
     public String getMemberId() {
         return memberId;
     }
@@ -19,6 +22,7 @@ public class Member {
         this.memberId = memberId;
     }
 
+    @DynamoDBAttribute(attributeName = "listings")
     public Set<String> getListings() {
         return listings;
     }
@@ -27,6 +31,7 @@ public class Member {
         this.listings = listings;
     }
 
+    @DynamoDBAttribute(attributeName = "zipCode")
     public String getZipCode() {
         return zipCode;
     }

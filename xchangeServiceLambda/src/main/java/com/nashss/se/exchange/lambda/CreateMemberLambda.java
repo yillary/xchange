@@ -12,10 +12,10 @@ public class CreateMemberLambda
     public LambdaResponse handleRequest(AuthenticatedLambdaRequest<CreateMemberRequest> input, Context context) {
         return super.runActivity(
                 () -> {
-                    CreateMemberRequest unauthenticatedRequest = input.fromBody(CreateMemberRequest.class);
+                    CreateMemberRequest arg = input.fromBody(CreateMemberRequest.class);
                     return input.fromUserClaims(claims ->
                             CreateMemberRequest.builder()
-                                    .withZipCode(unauthenticatedRequest.getZipCode())
+                                    .withZipCode(arg.getZipCode())
                                     .withMemberId(claims.get("email"))
                                     .build());
                 },

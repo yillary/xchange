@@ -2,21 +2,21 @@
 <html>
 
 <head>
-    <script type="text/javascript" src="assets/viewListings.js"></script>
+    <script type="text/javascript" src="assets/searchListings.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <title>Home Page</title>
+    <script type="component" src="table.js"></script>
+    <title>xchange</title>
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-
 </head>
 
 <body class="background">
-<!--    <header class="header" id="header"></header>-->
+    <header class="header" id="header"></header>
     <div class="card">
         <h1>XCHANGE</h1>
-        <form class="card-content" id="search-playlists-form">
+        <form class="card-content" id="search-listings-form">
             <p class="form-field">
                 <input type="text" class="validated-field" id="search-criteria" placeholder="SEARCH" autofocus>
                 <input type="text" class="validated-field" id="search-zip-code" placeholder="ZIP CODE" autofocus>
@@ -25,127 +25,28 @@
         <p class="button-group">
             <a href="#" class="button" id="search-btn">SEARCH</a>
             <!-- MENU OF TYPES -->
-            <form>
-                <input type="radio" id="tops" name="type_selector" value="tops">
-                <label for="tops">TOPS</label><br>
-                <input type="radio" id="bottoms" name="type_selector" value="bottoms">
-                <label for="bottoms">BOTTOMS</label><br>
-                <input type="radio" id="outerwear" name="type_selector" value="outerwear">
-                <label for="outerwear">OUTERWEAR</label>
-                <input type="radio" id="accessories" name="type_selector" value="accessories">
-                <label for="accessories">ACCESSORIES</label>
-            </form>
+        <form>
+            <input type="radio" id="tops" name="type_selector" value="Top">
+            <label for="tops">TOPS</label><br>
+            <input type="radio" id="bottoms" name="type_selector" value="Bottom">
+            <label for="bottoms">BOTTOMS</label><br>
+            <input type="radio" id="outerwear" name="type_selector" value="Outerwear">
+            <label for="outerwear">OUTERWEAR</label>
+            <input type="radio" id="accessories" name="type_selector" value="Accessory">
+            <label for="accessories">ACCESSORIES</label>
+        </form>
         </p>
     </div>
+    <div id="table-container"></div>
+    </p>
+    <!-- Logic to provide an image gallery for the search results -->
+    <!--
     <div class="card-content" id='search-results-container'>
         <h5>RESULTS FOR <span id="search-criteria-display"></span></h5>
-        <div id="search-results-display">
-            <div class="responsive">
-                <div class="gallery">
-                    <a target="_blank" href="img_5terre.jpg">
-                        <img src="img_5terre.jpg" alt="Cinque Terre" width="600" height="400">
-                    </a>
-                    <div class="desc">Add a description of the image here</div>
-                </div>
-            </div>
-
-
-            <div class="responsive">
-                <div class="gallery">
-                    <a target="_blank" href="img_forest.jpg">
-                        <img src="img_forest.jpg" alt="Forest" width="600" height="400">
-                    </a>
-                    <div class="desc">Add a description of the image here</div>
-                </div>
-            </div>
-
-            <div class="responsive">
-                <div class="gallery">
-                    <a target="_blank" href="img_lights.jpg">
-                        <img src="img_lights.jpg" alt="Northern Lights" width="600" height="400">
-                    </a>
-                    <div class="desc">Add a description of the image here</div>
-                </div>
-            </div>
-
-            <div class="responsive">
-                <div class="gallery">
-                    <a target="_blank" href="img_mountains.jpg">
-                        <img src="img_mountains.jpg" alt="Mountains" width="600" height="400">
-                    </a>
-                    <div class="desc">Add a description of the image here</div>
-                </div>
-            </div>
-
-            <div class="responsive">
-                <div class="gallery">
-                    <a target="_blank" href="img_mountains.jpg">
-                        <img src="img_mountains.jpg" alt="Mountains" width="600" height="400">
-                    </a>
-                    <div class="desc">Add a description of the image here</div>
-                </div>
-            </div>
-
-            <div class="responsive">
-                <div class="gallery">
-                    <a target="_blank" href="img_mountains.jpg">
-                        <img src="img_mountains.jpg" alt="Mountains" width="600" height="400">
-                    </a>
-                    <div class="desc">Add a description of the image here</div>
-                </div>
-            </div>
-
-            <div class="responsive">
-                <div class="gallery">
-                    <a target="_blank" href="img_mountains.jpg">
-                        <img src="img_mountains.jpg" alt="Mountains" width="600" height="400">
-                    </a>
-                    <div class="desc">Add a description of the image here</div>
-                </div>
-            </div>
-
-            <div class="responsive">
-                <div class="gallery">
-                    <a target="_blank" href="img_mountains.jpg">
-                        <img src="img_mountains.jpg" alt="Mountains" width="600" height="400">
-                    </a>
-                    <div class="desc">Add a description of the image here</div>
-                </div>
-            </div>
-
-            <div class="responsive">
-                <div class="gallery">
-                    <a target="_blank" href="img_mountains.jpg">
-                        <img src="img_mountains.jpg" alt="Mountains" width="600" height="400">
-                    </a>
-                    <div class="desc">Add a description of the image here</div>
-                </div>
-            </div>
-
-            <div class="responsive">
-                <div class="gallery">
-                    <a target="_blank" href="img_mountains.jpg">
-                        <img src="img_mountains.jpg" alt="Mountains" width="600" height="400">
-                    </a>
-                    <div class="desc">Add a description of the image here</div>
-                </div>
-            </div>
-
-            <div class="clearfix"></div>
-
-            <div style="padding:50px;">
-                <p>This example use media queries to re-arrange the images on different screen sizes: for screens larger than 700px wide, it will show four images side by side, for screens smaller than 700px, it will show two images side by side. For screens smaller than 500px, the images will stack vertically (100%).</p>
-                <p>You will learn more about media queries and responsive web design later in our CSS Tutorial.</p>
-            </div>
-        </div>
+        <div id="search-results-display"></div>
     </div>
-
-
-
-
-
-
-
+    -->
 </body>
+
 
 </html>
