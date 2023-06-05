@@ -11,14 +11,6 @@ public class Member {
     private Set<String> listings;
     private String zipCode;
 
-
-    public Member(String memberId, Set<String> listings, String zipCode) {
-        this.memberId = memberId;
-        this.listings = listings;
-        this.zipCode = zipCode;
-    }
-
-
     public String getMemberId() {
         return memberId;
     }
