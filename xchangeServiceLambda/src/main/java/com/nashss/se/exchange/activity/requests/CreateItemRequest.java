@@ -9,15 +9,13 @@ public class CreateItemRequest {
     private final String title;
     private final String description;
     private final String type;
-    private final Set<String> images;
     private final String zipCode;
     private final String email;
 
-    public CreateItemRequest(String title, String description, String type, Set<String> images, String zipCode, String email) {
+    public CreateItemRequest(String title, String description, String type, String zipCode, String email) {
         this.title = title;
         this.description = description;
         this.type = type;
-        this.images = images;
         this.zipCode = zipCode;
         this.email = email;
     }
@@ -32,10 +30,6 @@ public class CreateItemRequest {
 
     public String getType() {
         return type;
-    }
-
-    public Set<String> getImages() {
-        return images;
     }
 
     public String getZipCode() {
@@ -58,7 +52,6 @@ public class CreateItemRequest {
                 "title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", type='" + type + '\'' +
-                ", images=" + images +
                 ", zipCode='" + zipCode + '\'' +
                 ", email='" + email + '\'' +
                 '}';
@@ -68,7 +61,6 @@ public class CreateItemRequest {
         private String title;
         private String description;
         private String type;
-        private Set<String> images;
         private String zipCode;
         private String email;
 
@@ -87,11 +79,6 @@ public class CreateItemRequest {
             return this;
         }
 
-        public CreateItemRequest.Builder withImages(Set<String> images) {
-            this.images = images;
-            return this;
-        }
-
         public CreateItemRequest.Builder withZipCode(String zipCode) {
             this.zipCode = zipCode;
             return this;
@@ -101,7 +88,7 @@ public class CreateItemRequest {
             return this;
         }
         public CreateItemRequest build() {
-            return new CreateItemRequest(title, description, type, images, zipCode, email);
+            return new CreateItemRequest(title, description, type, zipCode, email);
         }
     }
 }

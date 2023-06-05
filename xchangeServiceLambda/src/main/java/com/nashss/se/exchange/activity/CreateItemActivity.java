@@ -48,7 +48,6 @@ public class CreateItemActivity {
         item.setItemType(createItemRequest.getType());
         item.setExchanged(false);
         item.setZipCode(createItemRequest.getZipCode());
-        item.setImages(XchangeServiceUtils.formatImages(createItemRequest.getImages()));
         item.setEmail(createItemRequest.getEmail());
 
         itemDao.saveItem(item);

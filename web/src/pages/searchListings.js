@@ -2,6 +2,7 @@ import XchangeClient from '../api/xchangeClient';
 import Header from '../components/header';
 import BindingClass from "../util/bindingClass";
 import DataStore from "../util/DataStore";
+import Table from '../components/table';
 
 /*
 The code below this comment is equivalent to...
@@ -41,7 +42,7 @@ class SearchListings extends BindingClass {
         this.dataStore = new DataStore(EMPTY_DATASTORE_STATE);
         this.header = new Header(this.dataStore);
         this.dataStore.addChangeListener(this.displaySearchResults);
-        console.log("searchListings constructor");
+        this.table = new Table(this.dataStore);
     }
 
     /**
@@ -53,8 +54,8 @@ class SearchListings extends BindingClass {
         document.getElementById('search-btn').addEventListener('click', this.search.bind(this));
 
         this.header.addHeaderToPage();
-
         this.client = new XchangeClient();
+        this.table.addTableToPage();
     }
 
 

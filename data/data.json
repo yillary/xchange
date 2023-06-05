@@ -18,12 +18,6 @@
           "exchanged": {
             "BOOL": false
           },
-          "images": {
-            "SS": [
-              "01",
-              "02"
-            ]
-          },
           "email": {
             "S": "aperson@gmail.com"
           },
@@ -50,12 +44,6 @@
           },
           "exchanged": {
             "BOOL": false
-          },
-          "images": {
-            "SS": [
-              "01",
-              "02"
-            ]
           },
           "email": {
             "S": "anotherperson@gmail.com"
@@ -84,12 +72,6 @@
           "exchanged": {
             "BOOL": false
           },
-          "images": {
-            "SS": [
-              "01",
-              "02"
-            ]
-          },
           "email": {
             "S": "yetanotherperson@gmail.com"
           },
@@ -116,12 +98,6 @@
           },
           "exchanged": {
             "BOOL": false
-          },
-          "images": {
-            "SS": [
-              "01",
-              "02"
-            ]
           },
           "email": {
             "S": "justanotherperson@gmail.com"
