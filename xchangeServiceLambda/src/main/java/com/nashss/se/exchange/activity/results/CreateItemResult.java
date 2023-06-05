@@ -30,7 +30,7 @@ public class CreateItemResult {
     public static class Builder {
         private ItemModel itemModel;
 
-        public Builder withPlaylist(ItemModel itemModel) {
+        public Builder withItem(ItemModel itemModel) {
             this.itemModel = itemModel;
             return this;
         }

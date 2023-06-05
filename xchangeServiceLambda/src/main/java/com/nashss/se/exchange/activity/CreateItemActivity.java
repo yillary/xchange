@@ -52,9 +52,9 @@ public class CreateItemActivity {
 
         itemDao.saveItem(item);
 
-        ItemModel playlistModel = new ModelConverter().toItemModel(item);
+        ItemModel itemModel = new ModelConverter().toItemModel(item);
         return CreateItemResult.builder()
-                .withPlaylist(playlistModel)
+                .withItem(itemModel)
                 .build();
     }
 }
