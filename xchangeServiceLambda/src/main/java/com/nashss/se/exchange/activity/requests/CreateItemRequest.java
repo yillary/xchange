@@ -52,12 +52,6 @@ public class CreateItemRequest {
         return email;
     }
 
-
-    //CHECKSTYLE:OFF:Builder
-    public static CreateItemRequest.Builder builder() {
-        return new CreateItemRequest.Builder();
-    }
-
     @Override
     public String toString() {
         return "CreateItemRequest{" +
@@ -69,6 +63,11 @@ public class CreateItemRequest {
                 ", zipCode='" + zipCode + '\'' +
                 ", email='" + email + '\'' +
                 '}';
+    }
+
+    //CHECKSTYLE:OFF:Builder
+    public static CreateItemRequest.Builder builder() {
+        return new CreateItemRequest.Builder();
     }
 
     public static class Builder {
