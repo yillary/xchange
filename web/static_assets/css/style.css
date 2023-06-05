@@ -25,11 +25,12 @@
 }
 
 .button {
-  background-color: transparent;
-  color: var(--primary-color);
-  padding: 2px 6px 2px 6px;
+  background-color: var(--tertiary-color);
+  border: none;
+  color: var(--secondary-color);
+  padding: 6px 8px 4px 8px;
   text-align: center;
-  font-weight: normal;
+  font-weight: bold;
   text-decoration: none;
   cursor: pointer;
 }
