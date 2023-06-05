@@ -27,7 +27,7 @@ public class CreateMemberActivity {
     }
 
     public CreateMemberResult handleRequest(final CreateMemberRequest createMemberRequest) {
-        log.info("Recieved CreateMemberRequest, " + createMemberRequest);
+        log.info("Received CreateMemberRequest, " + createMemberRequest);
         if (createMemberRequest == null) {
             throw new IllegalArgumentException("Member cannot be null");
         }
