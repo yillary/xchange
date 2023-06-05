@@ -50,4 +50,33 @@ public class MemberModel {
                 ", zipCode='" + zipCode + '\'' +
                 '}';
     }
+
+    //CHECKSTYLE:OFF:Builder
+    public static MemberModel.Builder builder() {
+        return new MemberModel.Builder();
+    }
+
+    public static class Builder {
+        private String memberId;
+        private Set<String> listings;
+        private String zipCode;
+
+        public MemberModel.Builder withMemberId(String memberId) {
+            this.memberId = memberId;
+            return this;
+        }
+
+        public MemberModel.Builder withListings(Set<String> listings) {
+            this.listings = listings;
+            return this;
+        }
+
+        public MemberModel.Builder withZipCode(String zipCode) {
+            this.zipCode = zipCode;
+            return this;
+        }
+
+        public MemberModel build() {
+            return new MemberModel(memberId, listings, zipCode);
+        }
 }
