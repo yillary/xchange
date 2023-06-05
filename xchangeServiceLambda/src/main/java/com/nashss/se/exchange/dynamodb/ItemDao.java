@@ -34,12 +34,17 @@ public class ItemDao {
     }
 
 
-//    public List<Item> getMemberItems(String memberId) {
-//        //TODO IMPLEMENT
-//        //make a call to the member dao to get the Listings list
-//        //use this list to make a for loop and retrieve from the items table.
-//        return null;
-//    }
+    public List<Item> getMemberItems(Member member) {
+        if (member == null) {
+            throw new IllegalArgumentException("Member cannot be null");
+        }
+        Set<String> membersItemIds = member.getListings();
+        List<Item> result = new ArrayList<>();
+        for(String listingId : membersItemIds) {
+            result.add(mapper.load(Item.class, listingId));
+        }
+        return result;
+    }
 
     public Boolean deleteItem(Item item) {
         if (item == null ){
