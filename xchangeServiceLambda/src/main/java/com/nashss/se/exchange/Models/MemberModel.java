@@ -79,4 +79,5 @@ public class MemberModel {
         public MemberModel build() {
             return new MemberModel(memberId, listings, zipCode);
         }
+    }
 }

@@ -29,7 +29,7 @@ public class CreateMemberResult {
     public static class Builder {
         private MemberModel memberModel;
 
-        public CreateMemberResult.Builder with(MemberModel memberModel) {
+        public CreateMemberResult.Builder withMember(MemberModel memberModel) {
             this.memberModel = memberModel;
             return this;
         }
