@@ -4,44 +4,43 @@
 <head>
     <script type="text/javascript" src="assets/searchListings.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <title>Home Page</title>
+    <title>xchange</title>
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-
 </head>
 
 <body class="background">
-<header class="header" id="header"></header>
-<div class="card">
-    <h1>XCHANGE</h1>
-    <form class="card-content" id="search-listings-form">
-        <p class="form-field">
-            <input type="text" class="validated-field" id="search-criteria" placeholder="SEARCH" autofocus>
-            <input type="text" class="validated-field" id="search-zip-code" placeholder="ZIP CODE" autofocus>
+    <header class="header" id="header"></header>
+    <div class="card">
+        <h1>XCHANGE</h1>
+        <form class="card-content" id="search-listings-form">
+            <p class="form-field">
+                <input type="text" class="validated-field" id="search-criteria" placeholder="SEARCH" autofocus>
+                <input type="text" class="validated-field" id="search-zip-code" placeholder="ZIP CODE" autofocus>
+            </p>
+        </form>
+        <p class="button-group">
+            <a href="#" class="button" id="search-btn">SEARCH</a>
+            <!-- MENU OF TYPES -->
+        <form>
+            <input type="radio" id="tops" name="type_selector" value="Top">
+            <label for="tops">TOPS</label><br>
+            <input type="radio" id="bottoms" name="type_selector" value="Bottom">
+            <label for="bottoms">BOTTOMS</label><br>
+            <input type="radio" id="outerwear" name="type_selector" value="Outerwear">
+            <label for="outerwear">OUTERWEAR</label>
+            <input type="radio" id="accessories" name="type_selector" value="Accessory">
+            <label for="accessories">ACCESSORIES</label>
+        </form>
         </p>
-    </form>
-    <p class="button-group">
-        <a href="#" class="button" id="search-btn">SEARCH</a>
-        <!-- MENU OF TYPES -->
-    <form>
-        <input type="radio" id="tops" name="type_selector" value="Top">
-        <label for="tops">TOPS</label><br>
-        <input type="radio" id="bottoms" name="type_selector" value="Bottom">
-        <label for="bottoms">BOTTOMS</label><br>
-        <input type="radio" id="outerwear" name="type_selector" value="Outerwear">
-        <label for="outerwear">OUTERWEAR</label>
-        <input type="radio" id="accessories" name="type_selector" value="Accessory">
-        <label for="accessories">ACCESSORIES</label>
-    </form>
-    </p>
-</div>
-<!-- Logic to provide an image gallery for the search results -->
-<div class="card-content" id='search-results-container'>
-    <h5>RESULTS FOR <span id="search-criteria-display"></span></h5>
-    <div id="search-results-display"></div>
-</div>
+    </div>
+    <!-- Logic to provide an image gallery for the search results -->
+    <div class="card-content" id='search-results-container'>
+        <h5>RESULTS FOR <span id="search-criteria-display"></span></h5>
+        <div id="search-results-display"></div>
+    </div>
 </body>
 
 

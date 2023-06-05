@@ -3,7 +3,7 @@ import BindingClass from "../util/bindingClass";
 import Authenticator from "./authenticator";
 
 /**
- * Client to call the MusicPlaylistService.
+ * Client to call the XchangeService.
  *
  * This could be a great place to explore Mixins. Currently the client is being loaded multiple times on each page,
  * which we could avoid using inheritance or Mixins.
@@ -91,12 +91,18 @@ export default class XchangeClient extends BindingClass {
      * @param criteria A string containing search criteria to pass to the API.
      * @returns The items that match the search criteria.
      */
-    async search(criteria, errorCallback) {
+    async search(criteria, zipCode, type, errorCallback) {
         try {
-            const queryParams = new URLSearchParams({ q: criteria })
+            const queryParams = new URLSearchParams()
+            queryParams.append('q', criteria);
+            queryParams.append('zipCode', zipCode);
+            queryParams.append('type', type);
+
             const queryString = queryParams.toString();
+            console.log("queryString: " + queryString);
 
             const response = await this.axiosClient.get(`items/search?${queryString}`);
+
 
             return response.data.items;
         } catch (error) {

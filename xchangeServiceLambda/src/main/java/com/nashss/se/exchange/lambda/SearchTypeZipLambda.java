@@ -22,7 +22,7 @@ public class SearchTypeZipLambda
                         SearchTypeZipRequest.builder()
                                 .withType(query.get("type"))
                                 .withZipCode(query.get("zipCode"))
-                                .withCriteria(query.get("criteria"))
+                                .withCriteria(query.get("q"))
                                 .build()),
                 (request, serviceComponent) ->
                         serviceComponent.providesSearchTypeZipActivity().handleRequest(request)

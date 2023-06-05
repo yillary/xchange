@@ -63,46 +63,44 @@ class SearchListings extends BindingClass {
      * then updates the datastore with the criteria and results.
      * @param evt The "event" object representing the user-initiated event that triggered this method.
      */
-async search(evt) {
-    evt.preventDefault();
+    async search(evt) {
+        evt.preventDefault();
 
-    const searchCriteria = document.getElementById('search-criteria').value;
-    const searchZipCode = document.getElementById('search-zip-code').value;
-    const selectedType = document.querySelector('input[name="type_selector"]:checked');
+        const searchCriteria = document.getElementById('search-criteria').value;
+        const searchZipCode = document.getElementById('search-zip-code').value;
+        const selectedType = document.querySelector('input[name="type_selector"]:checked');
 
-    if (!selectedType) {
-        // Radio button not selected, handle the error or show a message to the user
-        // For now, let's just return without performing the search
-        return;
+        if (!selectedType) {
+            // Radio button not selected, handle the error or show a message to the user
+            // For now, let's just return without performing the search
+            return;
+        }
+
+        const selectedTypeValue = selectedType.value; // Retrieve the value of the selected type
+        const previousSearchCriteria = this.dataStore.get(SEARCH_CRITERIA_KEY);
+        const previousSearchZipCode = this.dataStore.get(SEARCH_ZIP_CODE_KEY);
+        const previousSelectedType = this.dataStore.get(SELECTED_TYPE_KEY);
+
+        if (
+            previousSearchCriteria === searchCriteria &&
+            previousSearchZipCode === searchZipCode &&
+            previousSelectedType === selectedTypeValue
+        ) {
+            return;
+        }
+
+        if (searchCriteria && searchZipCode && selectedTypeValue) {
+            const results = await this.client.search(searchCriteria, searchZipCode, selectedTypeValue);
+            console.log("SearchListings coming back from client results: " +  results);
+            this.dataStore.setState({
+                [SEARCH_CRITERIA_KEY]: searchCriteria,
+                [SEARCH_RESULTS_KEY]: results,
+            });
+            // Handle the response accordingly
+        } else {
+            this.dataStore.setState(EMPTY_DATASTORE_STATE);
+        }
     }
-
-    const selectedTypeValue = selectedType.value; // Retrieve the value of the selected type
-    const previousSearchCriteria = this.dataStore.get(SEARCH_CRITERIA_KEY);
-    const previousSearchZipCode = this.dataStore.get(SEARCH_ZIP_CODE_KEY);
-    const previousSelectedType = this.dataStore.get(SELECTED_TYPE_KEY);
-
-    if (
-        previousSearchCriteria === searchCriteria &&
-        previousSearchZipCode === searchZipCode &&
-        previousSelectedType === selectedTypeValue
-    ) {
-        return;
-    }
-
-    if (searchCriteria && searchZipCode && selectedTypeValue) {
-        const url = `http:localhost:8000/items/search?q=${searchCriteria}&zipCode=${searchZipCode}&type=${selectedTypeValue}`;
-        const response = await fetch(url, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-
-        // Handle the response accordingly
-    } else {
-        this.dataStore.setState(EMPTY_DATASTORE_STATE);
-    }
-}
 
     /**
      * Pulls search results from the datastore and displays them on the html page in the image gallery.

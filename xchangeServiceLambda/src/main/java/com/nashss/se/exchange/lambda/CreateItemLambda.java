@@ -24,7 +24,6 @@ public class CreateItemLambda
                                 .withTitle(unauthenticatedRequest.getTitle())
                                 .withDescription(unauthenticatedRequest.getDescription())
                                 .withType(unauthenticatedRequest.getType())
-                                .withExchanged(unauthenticatedRequest.getExchanged())
                                 .withImages(unauthenticatedRequest.getImages())
                                 .withZipCode(unauthenticatedRequest.getZipCode())
                                 .withEmail(claims.get("email"))

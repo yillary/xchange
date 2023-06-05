@@ -9,16 +9,14 @@ public class CreateItemRequest {
     private final String title;
     private final String description;
     private final String type;
-    private final Boolean exchanged;
     private final Set<String> images;
     private final String zipCode;
     private final String email;
 
-    public CreateItemRequest(String title, String description, String type, Boolean exchanged, Set<String> images, String zipCode, String email) {
+    public CreateItemRequest(String title, String description, String type, Set<String> images, String zipCode, String email) {
         this.title = title;
         this.description = description;
         this.type = type;
-        this.exchanged = exchanged;
         this.images = images;
         this.zipCode = zipCode;
         this.email = email;
@@ -34,10 +32,6 @@ public class CreateItemRequest {
 
     public String getType() {
         return type;
-    }
-
-    public Boolean getExchanged() {
-        return exchanged;
     }
 
     public Set<String> getImages() {
@@ -64,7 +58,6 @@ public class CreateItemRequest {
                 "title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", type='" + type + '\'' +
-                ", exchanged=" + exchanged +
                 ", images=" + images +
                 ", zipCode='" + zipCode + '\'' +
                 ", email='" + email + '\'' +
@@ -75,7 +68,6 @@ public class CreateItemRequest {
         private String title;
         private String description;
         private String type;
-        private Boolean exchanged;
         private Set<String> images;
         private String zipCode;
         private String email;
@@ -84,22 +76,22 @@ public class CreateItemRequest {
             this.title = title;
             return this;
         }
+
         public CreateItemRequest.Builder withDescription(String description) {
             this.description = description;
             return this;
         }
+
         public CreateItemRequest.Builder withType(String type) {
             this.type = type;
             return this;
         }
-        public CreateItemRequest.Builder withExchanged(Boolean exchanged) {
-            this.exchanged = exchanged;
-            return this;
-        }
+
         public CreateItemRequest.Builder withImages(Set<String> images) {
             this.images = images;
             return this;
         }
+
         public CreateItemRequest.Builder withZipCode(String zipCode) {
             this.zipCode = zipCode;
             return this;
@@ -109,7 +101,7 @@ public class CreateItemRequest {
             return this;
         }
         public CreateItemRequest build() {
-            return new CreateItemRequest(title, description, type, exchanged, images, zipCode, email);
+            return new CreateItemRequest(title, description, type, images, zipCode, email);
         }
     }
 }

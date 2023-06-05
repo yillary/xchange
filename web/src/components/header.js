@@ -35,7 +35,7 @@ export default class Header extends BindingClass {
         const homeButton = document.createElement('a');
         homeButton.classList.add('header_home');
         homeButton.href = 'index.html';
-        homeButton.innerText = 'Playlists';
+        homeButton.innerText = 'xchange';
 
         const siteTitle = document.createElement('div');
         siteTitle.classList.add('site-title');
@@ -44,24 +44,43 @@ export default class Header extends BindingClass {
         return siteTitle;
     }
 
-    createUserInfoForHeader(currentUser) {
-        const userInfo = document.createElement('div');
-        userInfo.classList.add('user');
+ createUserInfoForHeader(currentUser) {
+     const userInfo = document.createElement('div');
+     userInfo.classList.add('user');
 
-        const childContent = currentUser
-            ? this.createLogoutButton(currentUser)
-            : this.createLoginButton();
+     if (currentUser) {
+         const dashboardButton = document.createElement('a');
+         dashboardButton.classList.add('button');
+         dashboardButton.href = 'memberDashboard.html';
+         dashboardButton.innerText = 'Member Dashboard';
 
-        userInfo.appendChild(childContent);
+         const logoutButton = this.createLogoutButton(currentUser);
 
-        return userInfo;
-    }
+         userInfo.appendChild(dashboardButton);
+         userInfo.appendChild(document.createTextNode('\u00A0')); // add a space between the buttons
+         userInfo.appendChild(logoutButton);
+
+         const style = window.getComputedStyle(logoutButton);
+         const leftOffset = parseInt(style.getPropertyValue('left'), 10);
+         const buttonWidth = parseInt(style.getPropertyValue('width'), 10);
+
+         dashboardButton.style.left = `${leftOffset - buttonWidth - 80}px`; // adjust the left position of the Dashboard button
+         userInfo.style.width = `${leftOffset + buttonWidth + 80}px`; // adjust the width of the userInfo container to include the gap and buttons
+     } else {
+         const loginButton = this.createLoginButton();
+         userInfo.appendChild(loginButton);
+     }
+
+     return userInfo;
+ }
+
 
     createLoginButton() {
         return this.createButton('Login', this.client.login);
     }
 
     createLogoutButton(currentUser) {
+        console.log("createLogoutButton");
         return this.createButton(`Logout: ${currentUser.name}`, this.client.logout);
     }
 
