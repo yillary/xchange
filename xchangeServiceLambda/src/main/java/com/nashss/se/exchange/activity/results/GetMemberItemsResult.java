@@ -1,18 +1,18 @@
 package com.nashss.se.exchange.activity.results;
 
-import com.nashss.se.exchange.dynamodb.Item;
+import com.nashss.se.exchange.Models.ItemModel;
 
 import java.util.Set;
 
 
 public class GetMemberItemsResult {
-    private final Set<Item> memberItems;
+    private final Set<ItemModel> memberItems;
 
-    public GetMemberItemsResult(Set<Item> memberItems) {
+    public GetMemberItemsResult(Set<ItemModel> memberItems) {
         this.memberItems = memberItems;
     }
 
-    public Set<Item> getMemberItems() {
+    public Set<ItemModel> getMemberItems() {
         return memberItems;
     }
 
@@ -27,9 +27,9 @@ public class GetMemberItemsResult {
     public static Builder builder() { return new Builder(); }
 
     public static class Builder {
-        private Set<Item> memberItems;
+        private Set<ItemModel> memberItems;
 
-        public Builder withMemberItems(Set<Item> items) {
+        public Builder withMemberItems(Set<ItemModel> items) {
             this.memberItems = items;
             return this;
         }

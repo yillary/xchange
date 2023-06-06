@@ -11,7 +11,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.inject.Inject;
-import java.util.HashSet;
 
 /**
  * Implementation of the CreateMemberActivity for the XchangeService's CreateMember API.

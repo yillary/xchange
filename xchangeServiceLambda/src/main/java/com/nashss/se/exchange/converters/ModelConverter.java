@@ -13,7 +13,7 @@ public class ModelConverter {
                 .withDescription(item.getDescription())
                 .withEmail(item.getEmail())
                 .withZipCode(item.getZipCode())
-                .withImages(item.getImages())
+//              .withImages(item.getImages())
                 .withTitle(item.getTitle())
                 .withType(item.getItemType())
                 .withExchanged(item.getExchanged())
