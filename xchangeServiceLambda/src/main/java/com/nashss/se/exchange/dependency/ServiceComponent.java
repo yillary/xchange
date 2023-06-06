@@ -1,11 +1,8 @@
 package com.nashss.se.exchange.dependency;
 
-import com.nashss.se.exchange.activity.CreateItemActivity;
-import com.nashss.se.exchange.activity.CreateMemberActivity;
-import com.nashss.se.exchange.activity.GetItemActivity;
-import com.nashss.se.exchange.activity.SearchTypeZipActivity;
+import com.nashss.se.exchange.activity.*;
+
 import dagger.Component;
-import dagger.Provides;
 
 import javax.inject.Singleton;
 
@@ -18,27 +15,33 @@ import javax.inject.Singleton;
 public interface ServiceComponent {
 
     /**
-     * Provides the relevantActivity
+     * Provides the relevantActivity.
      * @return SearchItemsActivity
      */
     GetItemActivity providesGetItemActivity();
 
     /**
-     * Provides the relevantActivity
+     * Provides the relevantActivity.
      * @return SearchItemsActivity
      */
     SearchTypeZipActivity providesSearchTypeZipActivity();
 
     /**
-     * Provides the relevantActivity
+     * Provides the relevantActivity.
      * @return CreateItemActivity
      */
     CreateItemActivity providesCreateItemActivity();
 
 
     /**
-     * Provides the relevantActivity
+     * Provides the relevantActivity.
      * @return CreateMemberActivity
      */
     CreateMemberActivity providesCreateMemberActivity();
+
+    /**
+     * Provides the relevantActivity.
+     * @return GetMemberItemsActivity
+     */
+    GetMemberItemsActivity providesGetMemberItemsActivity();
 }

@@ -24,7 +24,8 @@ public class SearchTypeZipActivity {
     }
 
     public SearchTypeZipResult handleRequest(final SearchTypeZipRequest searchTypeZipRequest) {
-        System.out.println("SearchTypeZipActivity.handleRequest() with searchTypeRequest: " + searchTypeZipRequest.toString());
+        System.out.println("SearchTypeZipActivity.handleRequest() with searchTypeRequest: "
+                + searchTypeZipRequest.toString());
         log.info("Received SearchTypeZipRequest {}", searchTypeZipRequest);
 
         String[] formattedCriteria = this.formatSearchCriteria(searchTypeZipRequest.getCriteria());

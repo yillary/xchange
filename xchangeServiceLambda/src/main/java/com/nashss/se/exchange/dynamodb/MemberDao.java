@@ -4,6 +4,7 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
+import java.util.HashSet;
 import java.util.Set;
 
 @Singleton
@@ -41,13 +42,21 @@ public class MemberDao {
     }
 
     public void addItemToListings(String memberId, Item item) {
+
         //get the member's Set of Listing itemIds from Dao
         Member member = mapper.load(Member.class, memberId);
-        Set<String> membersListings = member.getListings();
+        Set<String> listingsSet;
+        //if member doesn't have listings yet, make a new Set. Else populate list with existing listings.
+        if(member.getListings() == null) {
+        listingsSet = new HashSet<>();
+        } else {
+        listingsSet = member.getListings();
+        }
+
         //add itemId to listings Set
-        membersListings.add(item.getItemId());
+        listingsSet.add(item.getItemId());
         //set member's listings to new set<String>
-        member.setListings(membersListings);
+        member.setListings(listingsSet);
         //update member
         this.saveMember(member);
     }

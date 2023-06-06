@@ -1,8 +1,5 @@
 package com.nashss.se.exchange.activity.requests;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
-@JsonDeserialize(builder = SearchTypeZipRequest.Builder.class)
 public class SearchTypeZipRequest {
     private final String zipCode;
     private final String type;
@@ -26,12 +23,6 @@ public class SearchTypeZipRequest {
         return criteria;
     }
 
-
-    //CHECKSTYLE:OFF:Builder
-    public static Builder builder() {
-        return new Builder();
-    }
-
     @Override
     public String toString() {
         return "SearchTypeZipRequest{" +
@@ -39,6 +30,11 @@ public class SearchTypeZipRequest {
                 ", type='" + type + '\'' +
                 ", criteria='" + criteria + '\'' +
                 '}';
+    }
+
+    //CHECKSTYLE:OFF:Builder
+    public static Builder builder() {
+        return new Builder();
     }
 
     public static class Builder {

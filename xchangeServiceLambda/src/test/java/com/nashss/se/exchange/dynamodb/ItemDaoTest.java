@@ -46,7 +46,7 @@ public class ItemDaoTest {
         item.setDescription("This is a super awesome shirt pink, M");
         item.setItemType("Top");
         item.setExchanged(false);
-        item.setImages(images);
+//        item.setImages(images);
         item.setZipCode("98045");
         item.setEmail("this@gmail.com");
 
@@ -74,7 +74,7 @@ public class ItemDaoTest {
         item.setDescription("This is a super awesome shirt pink, M");
         item.setItemType("Top");
         item.setExchanged(false);
-        item.setImages(images);
+//        item.setImages(images);
         item.setZipCode("98045");
 
         //WHEN

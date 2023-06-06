@@ -1,9 +1,11 @@
 package com.nashss.se.exchange.Models;
 
-import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+/**
+ * Creates an ItemModel
+ */
 public class ItemModel {
     private final String itemId;
     private final String title;
@@ -15,7 +17,8 @@ public class ItemModel {
     private final String zipCode;
 
 
-    private ItemModel(String itemId, String title, String description, String type, Boolean exchanged, Set<String> images, String email, String zipCode) {
+    private ItemModel(String itemId, String title, String description, String type, Boolean exchanged,
+                      Set<String> images, String email, String zipCode) {
         this.itemId = itemId;
         this.title = title;
         this.description = description;
@@ -61,10 +64,13 @@ public class ItemModel {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {return true;}
+        if (o == null || getClass() != o.getClass()) {return false;}
         ItemModel itemModel = (ItemModel) o;
-        return Objects.equals(itemId, itemModel.itemId) && Objects.equals(title, itemModel.title) && Objects.equals(description, itemModel.description) && Objects.equals(type, itemModel.type) && Objects.equals(exchanged, itemModel.exchanged) && Objects.equals(images, itemModel.images) && Objects.equals(email, itemModel.email);
+        return Objects.equals(itemId, itemModel.itemId) && Objects.equals(title, itemModel.title) &&
+                Objects.equals(description, itemModel.description) && Objects.equals(type, itemModel.type) &&
+                Objects.equals(exchanged, itemModel.exchanged) && Objects.equals(images, itemModel.images) &&
+                Objects.equals(email, itemModel.email);
     }
 
     @Override

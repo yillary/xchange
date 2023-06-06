@@ -3,6 +3,10 @@ package com.nashss.se.exchange.Models;
 import java.util.Objects;
 import java.util.Set;
 
+
+/**
+ * Creates a MemberModel
+ */
 public class MemberModel {
     private final String memberId;
     private final Set<String> listings;
@@ -30,10 +34,11 @@ public class MemberModel {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {return true;}
+        if (o == null || getClass() != o.getClass()) {return false;}
         MemberModel that = (MemberModel) o;
-        return Objects.equals(memberId, that.memberId) && Objects.equals(listings, that.listings) && Objects.equals(zipCode, that.zipCode);
+        return Objects.equals(memberId, that.memberId) && Objects.equals(listings, that.listings)
+                && Objects.equals(zipCode, that.zipCode);
     }
 
     @Override

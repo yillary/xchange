@@ -22,14 +22,14 @@ public class CreateMemberResult {
     }
 
     //CHECKSTYLE:OFF:Builder
-    public static CreateMemberResult.Builder builder() {
-        return new CreateMemberResult.Builder();
+    public static Builder builder() {
+        return new Builder();
     }
 
     public static class Builder {
         private MemberModel memberModel;
 
-        public CreateMemberResult.Builder withMember(MemberModel memberModel) {
+        public Builder withMember(MemberModel memberModel) {
             this.memberModel = memberModel;
             return this;
         }
