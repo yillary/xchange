@@ -37,6 +37,7 @@ public class AuthenticatedLambdaRequest<T> extends LambdaRequest<T> {
     private Map<String, String> getClaimsFromAuthHeader(final String authorizationHeader)
             throws JsonProcessingException {
         String jwt = getJWTFromAuthHeader(authorizationHeader);
+        System.out.println(getClaimsFromJWT(jwt));
         return getClaimsFromJWT(jwt);
     }
 

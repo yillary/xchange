@@ -30,6 +30,9 @@ public class GetMemberItemsActivity {
 
     public GetMemberItemsResult handleRequest(final GetMemberItemsRequest getMemberItemsRequest) {
         log.info("getMemberItemRequest received {}", getMemberItemsRequest);
+        if (getMemberItemsRequest.getMemberId() == null) {
+            throw new IllegalArgumentException("memberId cannot be null.");
+        }
         Member member = memberDao.getMember(getMemberItemsRequest.getMemberId());
 
         List<Item> items = itemDao.getMemberItems(member);

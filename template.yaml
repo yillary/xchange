@@ -329,10 +329,9 @@ Resources:
         ExchangeService:
           Type: Api
           Properties:
-            Path: /member/{memberId}
+            Path: /members
             Method: get
-            Auth:
-              Authorizer: 'NONE'
+
 
   #-----------------------------------------------------
   # DynamoDB Configuration
