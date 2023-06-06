@@ -32,8 +32,8 @@ public class CreateMemberRequest {
     }
 
     //CHECKSTYLE:OFF:Builder
-    public static CreateMemberRequest.Builder builder() {
-        return new CreateMemberRequest.Builder();
+    public static Builder builder() {
+        return new Builder();
     }
 
     @JsonPOJOBuilder
@@ -42,11 +42,11 @@ public class CreateMemberRequest {
         private String zipCode;
 
 
-        public CreateMemberRequest.Builder withMemberId(String memberId) {
+        public Builder withMemberId(String memberId) {
             this.memberId = memberId;
             return this;
         }
-        public CreateMemberRequest.Builder withZipCode(String zipCode) {
+        public Builder withZipCode(String zipCode) {
             this.zipCode = zipCode;
             return this;
         }
