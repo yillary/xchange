@@ -30,7 +30,7 @@ public class UpdateItemLambda
                                     .build());
                 },
                 (request, serviceComponent) ->
-                        serviceComponent.provideUpdatePlaylistActivity().handleRequest(request)
+                        serviceComponent.providesUpdateItemActivity().handleRequest(request)
         );
     }
 }
