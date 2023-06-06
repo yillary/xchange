@@ -8,6 +8,7 @@ import com.nashss.se.exchange.activity.results.CreateMemberResult;
 public class CreateMemberLambda
         extends LambdaActivityRunner<CreateMemberRequest, CreateMemberResult>
         implements RequestHandler<AuthenticatedLambdaRequest<CreateMemberRequest>, LambdaResponse> {
+
     @Override
     public LambdaResponse handleRequest(AuthenticatedLambdaRequest<CreateMemberRequest> input, Context context) {
         return super.runActivity(

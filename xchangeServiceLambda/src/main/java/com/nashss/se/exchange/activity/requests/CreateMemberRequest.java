@@ -3,34 +3,33 @@ package com.nashss.se.exchange.activity.requests;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
-@JsonDeserialize(builder = CreateMemberRequest.class)
+@JsonDeserialize(builder = CreateMemberRequest.Builder.class)
 public class CreateMemberRequest {
-    private final String zipCode;
     private final String memberId;
+    private final String zipCode;
 
 
-    public CreateMemberRequest(String zipCode, String memberId) {
-        this.zipCode = zipCode;
+    public CreateMemberRequest(String memberId, String zipCode) {
         this.memberId = memberId;
+        this.zipCode = zipCode;
     }
 
-
-    public String getZipCode() {
-        return zipCode;
-    }
 
     public String getMemberId() {
         return memberId;
     }
 
+    public String getZipCode() {
+        return zipCode;
+    }
+
     @Override
     public String toString() {
         return "CreateMemberRequest{" +
-                "zipCode='" + zipCode + '\'' +
-                ", memberId='" + memberId + '\'' +
+                "memberId='" + memberId + '\'' +
+                ", zipCode='" + zipCode + '\'' +
                 '}';
     }
-
 
     //CHECKSTYLE:OFF:Builder
     public static CreateMemberRequest.Builder builder() {
@@ -39,20 +38,21 @@ public class CreateMemberRequest {
 
     @JsonPOJOBuilder
     public static class Builder {
-        private String zipCode;
         private String memberId;
+        private String zipCode;
 
-        public CreateMemberRequest.Builder withZipCode(String zipCode) {
-            this.zipCode = zipCode;
-            return this;
-        }
 
         public CreateMemberRequest.Builder withMemberId(String memberId) {
             this.memberId = memberId;
             return this;
         }
+        public CreateMemberRequest.Builder withZipCode(String zipCode) {
+            this.zipCode = zipCode;
+            return this;
+        }
+
         public CreateMemberRequest build() {
-            return new CreateMemberRequest(zipCode, memberId);
+            return new CreateMemberRequest(memberId, zipCode);
         }
     }
 }

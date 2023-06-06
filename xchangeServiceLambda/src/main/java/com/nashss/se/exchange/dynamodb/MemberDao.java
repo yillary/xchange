@@ -4,6 +4,7 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
+import java.util.Set;
 
 @Singleton
 public class MemberDao {
@@ -37,6 +38,18 @@ public class MemberDao {
         }
         mapper.save(member);
         return true;
+    }
+
+    public void addItemToListings(String memberId, Item item) {
+        //get the member's Set of Listing itemIds from Dao
+        Member member = mapper.load(Member.class, memberId);
+        Set<String> membersListings = member.getListings();
+        //add itemId to listings Set
+        membersListings.add(item.getItemId());
+        //set member's listings to new set<String>
+        member.setListings(membersListings);
+        //update member
+        this.saveMember(member);
     }
 
 }
