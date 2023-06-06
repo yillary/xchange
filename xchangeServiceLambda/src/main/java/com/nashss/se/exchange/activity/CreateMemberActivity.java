@@ -6,11 +6,11 @@ import com.nashss.se.exchange.activity.results.CreateMemberResult;
 import com.nashss.se.exchange.converters.ModelConverter;
 import com.nashss.se.exchange.dynamodb.Member;
 import com.nashss.se.exchange.dynamodb.MemberDao;
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.inject.Inject;
-import java.util.HashSet;
 
 /**
  * Implementation of the CreateMemberActivity for the XchangeService's CreateMember API.
@@ -34,9 +34,11 @@ public class CreateMemberActivity {
         Member newMember = new Member();
         newMember.setMemberId(createMemberRequest.getMemberId());
         newMember.setZipCode(createMemberRequest.getZipCode());
-        newMember.setListings(new HashSet<>());
-
-        dao.saveMember(newMember);
+        try {
+            dao.saveMember(newMember);
+        } catch (Exception e) {
+            log.log(Level.INFO, e.getMessage(), e);
+        }
 
         MemberModel memberModel = new ModelConverter().toMemberModel(newMember);
         return CreateMemberResult.builder()

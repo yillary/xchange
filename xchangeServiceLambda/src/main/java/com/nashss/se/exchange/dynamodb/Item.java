@@ -14,7 +14,7 @@ public class Item {
     private String description;
     private String itemType;
     private Boolean exchanged;
-    private Set<String> images;
+//    private Set<String> images;
     private String zipCode;
     private String email;
 
@@ -65,14 +65,14 @@ public class Item {
         this.exchanged = exchanged;
     }
 
-    @DynamoDBAttribute(attributeName = "images")
-    public Set<String> getImages() {
-        return images;
-    }
-
-    public void setImages(Set<String> images) {
-        this.images = images;
-    }
+//    @DynamoDBAttribute(attributeName = "images")
+//    public Set<String> getImages() {
+//        return images;
+//    }
+//
+//    public void setImages(Set<String> images) {
+//        this.images = images;
+//    }
 
     @DynamoDBIndexHashKey(globalSecondaryIndexName = ZIPCODE_TYPE_INDEX, attributeName = "zipCode")
     @DynamoDBAttribute(attributeName = "zipCode")
@@ -92,12 +92,12 @@ public class Item {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Item item = (Item) o;
-        return Objects.equals(itemId, item.itemId) && Objects.equals(title, item.title) && Objects.equals(description, item.description) && Objects.equals(itemType, item.itemType) && Objects.equals(exchanged, item.exchanged) && Objects.equals(images, item.images) && Objects.equals(zipCode, item.zipCode) && Objects.equals(email, item.email);
+        return Objects.equals(itemId, item.itemId) && Objects.equals(title, item.title) && Objects.equals(description, item.description) && Objects.equals(itemType, item.itemType) && Objects.equals(exchanged, item.exchanged) && Objects.equals(zipCode, item.zipCode) && Objects.equals(email, item.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(itemId, title, description, itemType, exchanged, images, zipCode, email);
+        return Objects.hash(itemId, title, description, itemType, exchanged, zipCode, email);
     }
 
     @Override
@@ -108,7 +108,7 @@ public class Item {
                 ", description='" + description + '\'' +
                 ", type='" + itemType + '\'' +
                 ", exchanged=" + exchanged +
-                ", images=" + images +
+//                ", images=" + images +
                 ", zipCode='" + zipCode + '\'' +
                 ", email='" + email + '\'' +
                 '}';
