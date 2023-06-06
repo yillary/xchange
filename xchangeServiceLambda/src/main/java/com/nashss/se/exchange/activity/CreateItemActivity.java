@@ -6,6 +6,7 @@ import com.nashss.se.exchange.activity.results.CreateItemResult;
 import com.nashss.se.exchange.converters.ModelConverter;
 import com.nashss.se.exchange.dynamodb.Item;
 import com.nashss.se.exchange.dynamodb.ItemDao;
+import com.nashss.se.exchange.dynamodb.MemberDao;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.XchangeServiceUtils;
@@ -20,10 +21,12 @@ import javax.inject.Inject;
 public class CreateItemActivity {
     private final Logger log = LogManager.getLogger();
     private final ItemDao itemDao;
+    private final MemberDao memberDao;
 
     @Inject
-    public CreateItemActivity(ItemDao itemDao) {
+    public CreateItemActivity(ItemDao itemDao, MemberDao memberDao) {
         this.itemDao = itemDao;
+        this.memberDao = memberDao;
     }
 
     public CreateItemResult handleRequest(final CreateItemRequest createItemRequest) {
@@ -51,13 +54,14 @@ public class CreateItemActivity {
         item.setEmail(createItemRequest.getEmail());
 
         itemDao.saveItem(item);
+        memberDao.addItemToListings(item.getEmail(), item);
         //save to s3 bucket images, s3 image save, responds with the address that the image is stored at. This becomes the url String that should
         //be stored in the String set for images. http library to make a call to
         //AWS S3 bucket configure it and it
 
-        ItemModel playlistModel = new ModelConverter().toItemModel(item);
+        ItemModel itemModel = new ModelConverter().toItemModel(item);
         return CreateItemResult.builder()
-                .withPlaylist(playlistModel)
+                .withItem(itemModel)
                 .build();
     }
 }

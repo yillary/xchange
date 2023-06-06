@@ -1,6 +1,7 @@
 package com.nashss.se.exchange.dependency;
 
 import com.nashss.se.exchange.activity.CreateItemActivity;
+import com.nashss.se.exchange.activity.CreateMemberActivity;
 import com.nashss.se.exchange.activity.GetItemActivity;
 import com.nashss.se.exchange.activity.SearchTypeZipActivity;
 import dagger.Component;
@@ -34,4 +35,10 @@ public interface ServiceComponent {
      */
     CreateItemActivity providesCreateItemActivity();
 
+
+    /**
+     * Provides the relevantActivity
+     * @return CreateMemberActivity
+     */
+    CreateMemberActivity providesCreateMemberActivity();
 }

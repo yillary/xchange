@@ -1,8 +1,7 @@
 package com.nashss.se.exchange.activity.requests;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
-import java.util.Set;
+import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
 @JsonDeserialize(builder = CreateItemRequest.Builder.class)
 public class CreateItemRequest {
@@ -40,12 +39,6 @@ public class CreateItemRequest {
         return email;
     }
 
-
-    //CHECKSTYLE:OFF:Builder
-    public static CreateItemRequest.Builder builder() {
-        return new CreateItemRequest.Builder();
-    }
-
     @Override
     public String toString() {
         return "CreateItemRequest{" +
@@ -57,6 +50,12 @@ public class CreateItemRequest {
                 '}';
     }
 
+    //CHECKSTYLE:OFF:Builder
+    public static CreateItemRequest.Builder builder() {
+        return new CreateItemRequest.Builder();
+    }
+
+    @JsonPOJOBuilder
     public static class Builder {
         private String title;
         private String description;
