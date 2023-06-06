@@ -51,8 +51,8 @@ public class CreateItemRequest {
     }
 
     //CHECKSTYLE:OFF:Builder
-    public static CreateItemRequest.Builder builder() {
-        return new CreateItemRequest.Builder();
+    public static Builder builder() {
+        return new Builder();
     }
 
     @JsonPOJOBuilder
@@ -68,21 +68,21 @@ public class CreateItemRequest {
             return this;
         }
 
-        public CreateItemRequest.Builder withDescription(String description) {
+        public Builder withDescription(String description) {
             this.description = description;
             return this;
         }
 
-        public CreateItemRequest.Builder withType(String type) {
+        public Builder withType(String type) {
             this.type = type;
             return this;
         }
 
-        public CreateItemRequest.Builder withZipCode(String zipCode) {
+        public Builder withZipCode(String zipCode) {
             this.zipCode = zipCode;
             return this;
         }
-        public CreateItemRequest.Builder withEmail(String email) {
+        public Builder withEmail(String email) {
             this.email = email;
             return this;
         }
