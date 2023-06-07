@@ -39,11 +39,6 @@ public class UpdateItemRequest {
         return memberId;
     }
 
-    //CHECKSTYLE:OFF:Builder
-    public static Builder builder() {
-        return new Builder();
-    }
-
     @Override
     public String toString() {
         return "UpdateItemRequest{" +
@@ -53,6 +48,11 @@ public class UpdateItemRequest {
                 ", itemId='" + itemId + '\'' +
                 ", memberId='" + memberId + '\'' +
                 '}';
+    }
+
+    //CHECKSTYLE:OFF:Builder
+    public static Builder builder() {
+        return new Builder();
     }
 
     @JsonPOJOBuilder

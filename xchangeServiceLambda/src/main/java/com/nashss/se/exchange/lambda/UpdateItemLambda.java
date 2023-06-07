@@ -2,7 +2,6 @@ package com.nashss.se.exchange.lambda;
 
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
-import com.nashss.se.exchange.activity.requests.GetItemRequest;
 import com.nashss.se.exchange.activity.requests.UpdateItemRequest;
 import com.nashss.se.exchange.activity.results.UpdateItemResult;
 import org.apache.logging.log4j.LogManager;
