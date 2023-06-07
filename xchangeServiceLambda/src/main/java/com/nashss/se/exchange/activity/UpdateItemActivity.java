@@ -29,8 +29,8 @@ public class UpdateItemActivity {
     public UpdateItemResult handleRequest(final UpdateItemRequest updateItemRequest) {
         log.info("Received updateItemRequest {}", updateItemRequest);
 
-        if(updateItemRequest.getItemId() == null || updateItemRequest.getMemberId() == null || updateItemRequest.getZipCode() == null){
-            throw new IllegalArgumentException("itemId, memberId or zipCode is null");
+        if(updateItemRequest.getItemId() == null || updateItemRequest.getZipCode() == null){
+            throw new IllegalArgumentException("itemId or zipCode is null");
         }
 
         if(XchangeServiceUtils.isValidZipCode(updateItemRequest.getZipCode()) == false) {
@@ -41,12 +41,27 @@ public class UpdateItemActivity {
             throw new IllegalArgumentException("Title cannot exceed 20 characters");
         }
 
+        //load this item from the Dao
+        String itemId = updateItemRequest.getItemId();
+
+        //with this item, assign the non-updated fields
+        Item itemRetrieved = itemDao.getItem(itemId);
+
+        //create a new item that will be saved to the Dao. Populate updated fields with attributes from request.
+        //Populate non-updatable fields with itemRetrieved aka original item from the Dao.
+        log.info("Phase one");
         Item item = new Item();
+        item.setItemId(itemRetrieved.getItemId());
         item.setTitle(updateItemRequest.getTitle());
         item.setDescription(updateItemRequest.getDescription());
         item.setZipCode(updateItemRequest.getZipCode());
+        item.setExchanged(updateItemRequest.getExchanged());
+        item.setEmail(itemRetrieved.getEmail());
+        item.setItemType(itemRetrieved.getItemType());
 
+        log.info("Phase two");
         itemDao.saveItem(item);
+        log.info("Phase three");
 
         ItemModel itemModel = new ModelConverter().toItemModel(item);
         return UpdateItemResult.builder()

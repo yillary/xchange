@@ -10,13 +10,15 @@ public class UpdateItemRequest {
     private final String zipCode;
     private final String itemId;
     private final String memberId;
+    private final Boolean exchanged;
 
-    public UpdateItemRequest(String title, String description, String zipCode, String itemId, String memberId) {
+    public UpdateItemRequest(String title, String description, String zipCode, String itemId, String memberId, Boolean exchanged) {
         this.title = title;
         this.description = description;
         this.zipCode = zipCode;
         this.itemId = itemId;
         this.memberId = memberId;
+        this.exchanged = exchanged;
     }
 
     public String getTitle() {
@@ -39,6 +41,15 @@ public class UpdateItemRequest {
         return memberId;
     }
 
+    public Boolean getExchanged() {
+        return exchanged;
+    }
+
+    //CHECKSTYLE:OFF:Builder
+    public static Builder builder() {
+        return new Builder();
+    }
+
     @Override
     public String toString() {
         return "UpdateItemRequest{" +
@@ -47,12 +58,8 @@ public class UpdateItemRequest {
                 ", zipCode='" + zipCode + '\'' +
                 ", itemId='" + itemId + '\'' +
                 ", memberId='" + memberId + '\'' +
+                ", exchanged=" + exchanged +
                 '}';
-    }
-
-    //CHECKSTYLE:OFF:Builder
-    public static Builder builder() {
-        return new Builder();
     }
 
     @JsonPOJOBuilder
@@ -62,6 +69,7 @@ public class UpdateItemRequest {
         private String zipCode;
         private String itemId;
         private String memberId;
+        private Boolean exchanged;
 
         public Builder withTitle(String title) {
             this.title = title;
@@ -88,8 +96,13 @@ public class UpdateItemRequest {
             return this;
         }
 
+        public Builder withExchanged(Boolean exchanged) {
+            this.exchanged = exchanged;
+            return this;
+        }
+
         public UpdateItemRequest build() {
-            return new UpdateItemRequest(title, description, zipCode, itemId, memberId);
+            return new UpdateItemRequest(title, description, zipCode, itemId, memberId, exchanged);
         }
     }
 }
