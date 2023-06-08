@@ -2,8 +2,10 @@
 <html>
 
 <head>
+    <script type="text/javascript" src="assets/searchListings.js"></script>
     <script type="text/javascript" src="assets/selectedItem.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/selectedItem.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="component" src="table.js"></script>
     <title>xchange</title>
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,42 +13,66 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="background">
 <header class="header" id="header"></header>
-<h1> Item Details Displayed</h1>
-<a href="index.html"> Back to Search</a>
 
-<!-- https://www.w3schools.com/howto/howto_js_tab_img_gallery.asp -->
-<!-- The grid: four columns -->
-<div class="row">
-    <div class="column">
-        <img src="img_nature.jpg" alt="Nature" onclick="myFunction(this);">
-    </div>
-    <div class="column">
-        <img src="img_snow.jpg" alt="Snow" onclick="myFunction(this);">
-    </div>
-    <div class="column">
-        <img src="img_mountains.jpg" alt="Mountains" onclick="myFunction(this);">
-    </div>
-    <div class="column">
-        <img src="img_lights.jpg" alt="Lights" onclick="myFunction(this);">
-    </div>
+
+<div class="card">
+    <h1>XCHANGE</h1>
+    <form class="card-content" id="search-listings-form">
+        <p class="form-field">
+            <input type="text" class="validated-field" id="search-criteria" placeholder="SEARCH" autofocus>
+            <input type="text" class="validated-field" id="search-zip-code" placeholder="ZIP CODE" autofocus>
+        </p>
+    </form>
+    <p class="button-group">
+        <a href="#" class="button" id="search-btn">SEARCH</a>
+        <!-- MENU OF TYPES -->
+    <form>
+        <input type="radio" id="tops" name="type_selector" value="Top">
+        <label for="tops">TOPS</label><br>
+        <input type="radio" id="bottoms" name="type_selector" value="Bottom">
+        <label for="bottoms">BOTTOMS</label><br>
+        <input type="radio" id="outerwear" name="type_selector" value="Outerwear">
+        <label for="outerwear">OUTERWEAR</label>
+        <input type="radio" id="accessories" name="type_selector" value="Accessory">
+        <label for="accessories">ACCESSORIES</label>
+    </form>
 </div>
 
-<!-- The expanding image container -->
-<div class="container">
-    <!-- Close the image -->
-    <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
 
-    <!-- Expanded image -->
-    <img id="expandedImg" style="width:100%">
+<a href="selectedItem.html"> Select an Item</a>
 
-    <!-- Image text -->
-    <div id="imgtext"></div>
+
+<div>
+
+    <div>
+        <img src="path/to/image.jpg" alt="Image description">
+    </div>
+    <div>
+        <h2 id="item-title"></h2>
+        <h3 id="item-description"></h3>
+
+        <h2 id="playlist-name"></h2>
+        <h3>Created by: <span id="playlist-owner"></span></h3>
+        <div class="tags" id="tags"></div>
+        <ol id="songs"></ol>
+
+        <a href="#" class="button" id="email">Email Xchanger</a>
+
+        <!-- Found email resource at: https://stackoverflow.com/questions/67152290/how-to-i-create-a-button-on-my-website-which-opens-email-client-on-mobile -->
+        <button style="background-color: blue; color:white;" onclick="location.href='takeme@there.com';">Send Email</button>
+
+        <button  style="background-color: blue;"><a href="mailto:takeme@there.com"  style=" color:white;">Send Email</a></button>
+
+        <a href="mailto:takeme@there.com" style="display:inline-block; height:20px;width:80px;background-color: blue; color:white;">Send Email</a>
+    </div>
+
 </div>
+
+
 
 </body>
-
 
 
 </html>

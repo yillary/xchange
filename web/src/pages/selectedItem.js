@@ -9,12 +9,12 @@ import DataStore from "../util/DataStore";
 class SelectedItem extends BindingClass {
     constructor() {
         super();
-        this.bindClassMethods(['imageTabs'], this);
+        this.bindClassMethods(['clientLoaded'], this);
         this.dataStore = new DataStore();
-//        this.dataStore.addChangeListener(this.addPlaylistToPage);
-//        this.dataStore.addChangeListener(this.addSongsToPage);
+        this.dataStore.addChangeListener(this.addPlaylistToPage);
+        this.dataStore.addChangeListener(this.addSongsToPage);
         this.header = new Header(this.dataStore);
-        console.log("SelectedItem constructor");
+        console.log("selectedItem constructor");
     }
 
     /**
@@ -22,44 +22,80 @@ class SelectedItem extends BindingClass {
      */
     async clientLoaded() {
         const urlParams = new URLSearchParams(window.location.search);
-        const itemId = urlParams.get('id');
-        document.getElementById('playlist-name').innerText = "Loading Listing ...";
+        const itemId = urlParams.get('itemId');
+        document.getElementById('item-title').innerText = "Loading Playlist ...";
         const item = await this.client.getItem(itemId);
         this.dataStore.set('item', item);
+        document.getElementById('item-title').innerText = item.title;
+        document.getElementById('item-description').innerText = item.description;
     }
 
     /**
-     * Add the header to the page and load the XchangeClient.
+     * Add the header to the page and load the MusicPlaylistClient.
+     * MY NOTES: I think this one is reloading the page when someone wants to add a song. It's mean for an update
+     * to save the new state of the item. I don't think I need it.
      */
-    mount() {
-        document.getElementById('add-song').addEventListener('click', this.addSong);
+//    mount() {
+//        document.getElementById('add-song').addEventListener('click', this.addSong);
+//
+//        this.header.addHeaderToPage();
+//
+//        this.client = new MusicPlaylistClient();
+//        this.clientLoaded();
+//    }
 
-        this.header.addHeaderToPage();
 
-        this.client = new MusicPlaylistClient();
-        this.clientLoaded();
-    }
-
-
-function imageTabs(imgs) {
-  // Get the expanded image
-  var expandImg = document.getElementById("expandedImg");
-  // Get the image text
-  var imgText = document.getElementById("imgtext");
-  // Use the same src in the expanded image as the image being clicked on from the grid
-  expandImg.src = imgs.src;
-  // Use the value of the alt attribute of the clickable image as text inside the expanded image
-  imgText.innerHTML = imgs.alt;
-  // Show the container element (hidden with CSS)
-  expandImg.parentElement.style.display = "block";
-}
+// I DON' THINK I NEED ANY OF THIS CUZ IT'S JUST UPDATING THE STATE OF OBJECTS. ALL I NEED IS TO DISPLAY.
+//    /**
+//     * When the playlist is updated in the datastore, update the playlist metadata on the page.
+//     */
+//    addPlaylistToPage() {
+//        const playlist = this.dataStore.get('playlist');
+//        if (playlist == null) {
+//            return;
+//        }
+//
+//        document.getElementById('playlist-name').innerText = playlist.name;
+//        document.getElementById('playlist-owner').innerText = playlist.customerName;
+//
+//        let tagHtml = '';
+//        let tag;
+//        for (tag of playlist.tags) {
+//            tagHtml += '<div class="tag">' + tag + '</div>';
+//        }
+//        document.getElementById('tags').innerHTML = tagHtml;
+//    }
+//
+//    /**
+//     * When the songs are updated in the datastore, update the list of songs on the page.
+//     */
+//    addSongsToPage() {
+//        const songs = this.dataStore.get('songs')
+//
+//        if (songs == null) {
+//            return;
+//        }
+//
+//        let songHtml = '';
+//        let song;
+//        for (song of songs) {
+//            songHtml += `
+//                <li class="song">
+//                    <span class="title">${song.title}</span>
+//                    <span class="album">${song.album}</span>
+//                </li>
+//            `;
+//        }
+//        document.getElementById('songs').innerHTML = songHtml;
+//    }
+//}
 
 /**
  * Main method to run when the page contents have loaded.
  */
 const main = async () => {
-    const viewPlaylist = new ViewPlaylist();
-    viewPlaylist.mount();
+    const selectedItem = new SelectedItem();
+    selectedItem.mount();
 };
 
 window.addEventListener('DOMContentLoaded', main);
