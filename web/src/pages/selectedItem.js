@@ -35,17 +35,17 @@ class SelectedItem extends BindingClass {
      * MY NOTES: I think this one is reloading the page when someone wants to add a song. It's mean for an update
      * to save the new state of the item. I don't think I need it.
      */
-//    mount() {
+    mount() {
 //        document.getElementById('add-song').addEventListener('click', this.addSong);
-//
-//        this.header.addHeaderToPage();
-//
-//        this.client = new MusicPlaylistClient();
-//        this.clientLoaded();
-//    }
+
+        this.header.addHeaderToPage();
+
+        this.client = new XchangeClient();
+        this.clientLoaded();
+    }
 
 
-// I DON' THINK I NEED ANY OF THIS CUZ IT'S JUST UPDATING THE STATE OF OBJECTS. ALL I NEED IS TO DISPLAY.
+//// I DON' THINK I NEED ANY OF THIS CUZ IT'S JUST UPDATING THE STATE OF OBJECTS. ALL I NEED IS TO DISPLAY.
 //    /**
 //     * When the playlist is updated in the datastore, update the playlist metadata on the page.
 //     */
@@ -88,7 +88,7 @@ class SelectedItem extends BindingClass {
 //        }
 //        document.getElementById('songs').innerHTML = songHtml;
 //    }
-//}
+}
 
 /**
  * Main method to run when the page contents have loaded.
