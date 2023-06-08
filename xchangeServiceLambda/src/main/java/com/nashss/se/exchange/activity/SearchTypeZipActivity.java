@@ -4,8 +4,8 @@ import com.nashss.se.exchange.Models.ItemModel;
 import com.nashss.se.exchange.activity.requests.SearchTypeZipRequest;
 import com.nashss.se.exchange.activity.results.SearchTypeZipResult;
 import com.nashss.se.exchange.converters.ModelConverter;
-import com.nashss.se.exchange.dynamodb.Item;
-import com.nashss.se.exchange.dynamodb.ItemDao;
+import com.nashss.se.exchange.Item;
+import com.nashss.se.exchange.ItemDao;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

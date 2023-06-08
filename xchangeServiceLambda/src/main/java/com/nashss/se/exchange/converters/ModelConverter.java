@@ -2,8 +2,8 @@ package com.nashss.se.exchange.converters;
 
 import com.nashss.se.exchange.Models.ItemModel;
 import com.nashss.se.exchange.Models.MemberModel;
-import com.nashss.se.exchange.dynamodb.Item;
-import com.nashss.se.exchange.dynamodb.Member;
+import com.nashss.se.exchange.Item;
+import com.nashss.se.exchange.Member;
 
 public class ModelConverter {
 

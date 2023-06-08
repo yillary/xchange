@@ -1,4 +1,4 @@
-package com.nashss.se.exchange.dynamodb;
+package com.nashss.se.exchange;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBQueryExpression;
@@ -10,7 +10,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.util.*;
 
-import static com.nashss.se.exchange.dynamodb.Item.ZIPCODE_TYPE_INDEX;
+import static com.nashss.se.exchange.Item.ZIPCODE_TYPE_INDEX;
 
 @Singleton
 public class ItemDao {

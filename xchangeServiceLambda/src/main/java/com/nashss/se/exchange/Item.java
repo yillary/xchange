@@ -1,9 +1,8 @@
-package com.nashss.se.exchange.dynamodb;
+package com.nashss.se.exchange;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
 
 import java.util.Objects;
-import java.util.Set;
 
 @DynamoDBTable(tableName = "items")
 public class Item {
