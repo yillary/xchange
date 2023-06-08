@@ -1,11 +1,16 @@
 package com.nashss.se.exchange.dependency;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
-import com.nashss.se.exchange.activity.CreateItemActivity;
-import com.nashss.se.exchange.activity.GetItemActivity;
-import com.nashss.se.exchange.activity.SearchTypeZipActivity;
 import com.nashss.se.exchange.ItemDao;
 import com.nashss.se.exchange.ItemDao_Factory;
+import com.nashss.se.exchange.MemberDao;
+import com.nashss.se.exchange.MemberDao_Factory;
+import com.nashss.se.exchange.activity.CreateItemActivity;
+import com.nashss.se.exchange.activity.CreateMemberActivity;
+import com.nashss.se.exchange.activity.GetItemActivity;
+import com.nashss.se.exchange.activity.GetMemberItemsActivity;
+import com.nashss.se.exchange.activity.SearchTypeZipActivity;
+import com.nashss.se.exchange.activity.UpdateItemActivity;
 import dagger.internal.DaggerGenerated;
 import dagger.internal.DoubleCheck;
 import dagger.internal.Preconditions;
@@ -68,6 +73,8 @@ public final class DaggerServiceComponent {
 
     private Provider<ItemDao> itemDaoProvider;
 
+    private Provider<MemberDao> memberDaoProvider;
+
     private ServiceComponentImpl(DaoModule daoModuleParam) {
 
       initialize(daoModuleParam);
@@ -78,6 +85,7 @@ public final class DaggerServiceComponent {
     private void initialize(final DaoModule daoModuleParam) {
       this.provideDynamoDBMapperProvider = DoubleCheck.provider(DaoModule_ProvideDynamoDBMapperFactory.create(daoModuleParam));
       this.itemDaoProvider = DoubleCheck.provider(ItemDao_Factory.create(provideDynamoDBMapperProvider));
+      this.memberDaoProvider = DoubleCheck.provider(MemberDao_Factory.create(provideDynamoDBMapperProvider));
     }
 
     @Override
@@ -92,7 +100,22 @@ public final class DaggerServiceComponent {
 
     @Override
     public CreateItemActivity providesCreateItemActivity() {
-      return new CreateItemActivity(itemDaoProvider.get());
+      return new CreateItemActivity(itemDaoProvider.get(), memberDaoProvider.get());
+    }
+
+    @Override
+    public CreateMemberActivity providesCreateMemberActivity() {
+      return new CreateMemberActivity(memberDaoProvider.get());
+    }
+
+    @Override
+    public GetMemberItemsActivity providesGetMemberItemsActivity() {
+      return new GetMemberItemsActivity(memberDaoProvider.get(), itemDaoProvider.get());
+    }
+
+    @Override
+    public UpdateItemActivity providesUpdateItemActivity() {
+      return new UpdateItemActivity(itemDaoProvider.get());
     }
   }
 }
