@@ -34,5 +34,4 @@ public class UpdateItemResult {
             return new UpdateItemResult(itemModel);
         }
     }
-
 }

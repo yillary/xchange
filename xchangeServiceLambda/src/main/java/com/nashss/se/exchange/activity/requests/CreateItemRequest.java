@@ -63,7 +63,7 @@ public class CreateItemRequest {
         private String zipCode;
         private String email;
 
-        public CreateItemRequest.Builder withTitle(String title) {
+        public Builder withTitle(String title) {
             this.title = title;
             return this;
         }
