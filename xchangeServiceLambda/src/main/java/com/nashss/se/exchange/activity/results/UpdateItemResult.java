@@ -3,35 +3,35 @@ package com.nashss.se.exchange.activity.results;
 import com.nashss.se.exchange.Models.ItemModel;
 
 public class UpdateItemResult {
-    private final ItemModel itemModel;
+    private final ItemModel item;
 
-    public UpdateItemResult(ItemModel itemModel) {
-        this.itemModel = itemModel;
+    public UpdateItemResult(ItemModel item) {
+        this.item = item;
     }
 
-
-    @Override
-    public String toString() {
-        return "UpdateItemResult{" +
-                "itemModel=" + itemModel +
-                '}';
-    }
 
     //CHECKSTYLE:OFF:Builder
     public static Builder builder() {
         return new Builder();
     }
 
-    public static class Builder {
-        private ItemModel itemModel;
+    @Override
+    public String toString() {
+        return "UpdateItemResult{" +
+                "item=" + item +
+                '}';
+    }
 
-        public Builder withItem(ItemModel itemModel) {
-            this.itemModel = itemModel;
+    public static class Builder {
+        private ItemModel item;
+
+        public Builder withItem(ItemModel item) {
+            this.item = item;
             return this;
         }
 
         public UpdateItemResult build() {
-            return new UpdateItemResult(itemModel);
+            return new UpdateItemResult(item);
         }
     }
 }

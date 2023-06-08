@@ -61,10 +61,8 @@ public class UpdateItemActivity {
 
         log.info("Phase two");
         itemDao.saveItem(item);
-        Item itemLoaded = itemDao.getItem(item.getItemId());
-        log.info("ItemLoaded looks like this: {}", itemLoaded);
 
-        ItemModel itemModel = new ModelConverter().toItemModel(itemLoaded);
+        ItemModel itemModel = new ModelConverter().toItemModel(item);
         log.info("ItemModel looks like this: {}", itemModel.toString());
         return UpdateItemResult.builder()
                 .withItem(itemModel)
