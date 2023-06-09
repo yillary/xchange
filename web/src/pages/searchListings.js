@@ -83,12 +83,14 @@ class SearchListings extends BindingClass {
         if (
             previousSearchCriteria === searchCriteria &&
             previousSearchZipCode === searchZipCode &&
+            previousSelectedType === selectedTypeValue ||
+            previousSearchZipCode === searchZipCode &&
             previousSelectedType === selectedTypeValue
         ) {
             return;
         }
 
-        if (searchCriteria && searchZipCode && selectedTypeValue) {
+        if (searchCriteria && searchZipCode && selectedTypeValue || searchZipCode && selectedTypeValue) {
             const results = await this.client.search(searchCriteria, searchZipCode, selectedTypeValue);
             console.log("SearchListings coming back from client results: " +  results);
             this.dataStore.setState({
@@ -112,11 +114,7 @@ class SearchListings extends BindingClass {
         const searchCriteriaDisplay = document.getElementById('search-criteria-display');
         const searchResultsDisplay = document.getElementById('search-results-display');
 
-        if (searchCriteria === '') {
-            searchResultsContainer.classList.add('hidden');
-            searchCriteriaDisplay.innerHTML = '';
-            searchResultsDisplay.innerHTML = '';
-        } else {
+
             searchResultsContainer.classList.remove('hidden');
             searchCriteriaDisplay.innerHTML = `"${searchCriteria}"`;
             searchResultsDisplay.innerHTML = '';
@@ -129,7 +127,7 @@ class SearchListings extends BindingClass {
                 galleryContent.className = 'gallery';
 
                 const itemLink = document.createElement('a');
-                itemLink.href = 'selectedItem.html';
+                itemLink.href = 'web/static_assets/selectedItem.html';
 
 //                const itemImage = document.createElement('img');
 //                itemImage.src = item.imageUrl;
@@ -146,7 +144,7 @@ class SearchListings extends BindingClass {
                 galleryContent.appendChild(itemTitle);
                 galleryItem.appendChild(galleryContent);
                 searchResultsDisplay.appendChild(galleryItem);
-            }
+//            }
         }
     }
 
