@@ -11,7 +11,7 @@
     margin: 0;
     counter-reset: section;
     font-family: 'Space Mono', monospace;
-    background-image: url("Homepage-Banner.png");
+
 }
 
 .header {
@@ -42,7 +42,7 @@
 .button-group: {
     display: flex-start;
     flex-direction: row;
-    justify-content: space-around;
+    justify: center;
 }
 
 .header_home {
@@ -70,6 +70,12 @@
     border: none;
     outline: none;
     padding-top: 80px;
+    justify: center;
+
+}
+
+.form-field.search-btn {
+    padding-left:20;
 
 }
 
@@ -94,7 +100,10 @@
     max-width: 500px;
     display: flex;
     flex-direction: row;
-    justify-content:
+    justify-content: center;
+    background-image: Homepage-Banner.png;
+    background-size: cover;
+    background-position: center;
 }
 
 .tags {
@@ -177,6 +186,13 @@ div.desc {
   content: "";
   display: table;
   clear: both;
+}
+
+h3 {
+    text-align: center;
+    padding-left: 50;
+    padding-right: 50;
+
 }
 
 

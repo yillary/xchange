@@ -23,11 +23,12 @@ class SelectedItem extends BindingClass {
     async clientLoaded() {
         const urlParams = new URLSearchParams(window.location.search);
         const itemId = urlParams.get('itemId');
-        document.getElementById('item-title').innerText = "Loading Playlist ...";
+        //document.getElementById('item-title').innerText = "Loading Playlist ...";
         const item = await this.client.getItem(itemId);
         this.dataStore.set('item', item);
         document.getElementById('item-title').innerText = item.title;
         document.getElementById('item-description').innerText = item.description;
+
     }
 
     /**
@@ -43,7 +44,7 @@ class SelectedItem extends BindingClass {
 //         emailButton.href = 'mailto:' + item.email;
 //         Console.log("item.email is: " + item.email);
 
-        this.header.addHeaderToPage();
+
         this.client = new XchangeClient();
         this.clientLoaded();
     }

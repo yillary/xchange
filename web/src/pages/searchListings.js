@@ -128,7 +128,7 @@ class SearchListings extends BindingClass {
 
                 const itemLink = document.createElement('a');
                 itemLink.id = document.createElement('id');
-                itemLink.href = 'web/static_assets/selectedItem.html';
+                itemLink.href = '/selectedItem.html?itemId=' + item.itemId;
 
 //                const itemImage = document.createElement('img');
 //                itemImage.src = item.imageUrl;
@@ -140,9 +140,8 @@ class SearchListings extends BindingClass {
                 itemTitle.className = 'desc';
                 itemTitle.textContent = item.title;
 
-//                itemLink.appendChild(itemImage);
+                itemLink.appendChild(itemTitle);
                 galleryContent.appendChild(itemLink);
-                galleryContent.appendChild(itemTitle);
                 galleryItem.appendChild(galleryContent);
                 searchResultsDisplay.appendChild(galleryItem);
         }
