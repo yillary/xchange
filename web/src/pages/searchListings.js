@@ -127,6 +127,7 @@ class SearchListings extends BindingClass {
                 galleryContent.className = 'gallery';
 
                 const itemLink = document.createElement('a');
+                itemLink.id = document.createElement('id');
                 itemLink.href = 'web/static_assets/selectedItem.html';
 
 //                const itemImage = document.createElement('img');
@@ -144,7 +145,6 @@ class SearchListings extends BindingClass {
                 galleryContent.appendChild(itemTitle);
                 galleryItem.appendChild(galleryContent);
                 searchResultsDisplay.appendChild(galleryItem);
-//            }
         }
     }
 
