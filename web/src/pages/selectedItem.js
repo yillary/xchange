@@ -9,7 +9,7 @@ import DataStore from "../util/DataStore";
 class SelectedItem extends BindingClass {
     constructor() {
         super();
-        this.bindClassMethods(['clientLoaded'], this);
+        this.bindClassMethods(['clientLoaded', 'mount', 'addEmailButton'], this);
         this.dataStore = new DataStore();
         this.dataStore.addChangeListener(this.addPlaylistToPage);
         this.dataStore.addChangeListener(this.addSongsToPage);
@@ -38,13 +38,27 @@ class SelectedItem extends BindingClass {
     mount() {
 //        document.getElementById('add-song').addEventListener('click', this.addSong);
 
-        this.header.addHeaderToPage();
+//        document.getElementById('email-button').addEventListener('click', function() {
+//         const emailButton = document.getElementById('email-button');
+//         emailButton.href = 'mailto:' + item.email;
+//         Console.log("item.email is: " + item.email);
 
+        this.header.addHeaderToPage();
         this.client = new XchangeClient();
         this.clientLoaded();
     }
 
 
+    addEmailButton() {
+      const item = this.dataStore.get('item');
+      const emailButton = document.getElementById('email-button');
+      emailButton.addEventListener('click', function() {
+        emailButton.href = 'mailto:' + item.email;
+        console.log("item.email is: " + item.email);
+      });
+    }
+
+}
 //// I DON' THINK I NEED ANY OF THIS CUZ IT'S JUST UPDATING THE STATE OF OBJECTS. ALL I NEED IS TO DISPLAY.
 //    /**
 //     * When the playlist is updated in the datastore, update the playlist metadata on the page.
@@ -88,7 +102,7 @@ class SelectedItem extends BindingClass {
 //        }
 //        document.getElementById('songs').innerHTML = songHtml;
 //    }
-}
+
 
 /**
  * Main method to run when the page contents have loaded.

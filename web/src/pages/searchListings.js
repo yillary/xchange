@@ -42,7 +42,6 @@ class SearchListings extends BindingClass {
         this.dataStore = new DataStore(EMPTY_DATASTORE_STATE);
         this.header = new Header(this.dataStore);
         this.dataStore.addChangeListener(this.displaySearchResults);
-        this.table = new Table(this.dataStore);
     }
 
     /**
@@ -55,7 +54,6 @@ class SearchListings extends BindingClass {
 
         this.header.addHeaderToPage();
         this.client = new XchangeClient();
-        this.table.addTableToPage();
     }
 
 
@@ -133,17 +131,17 @@ class SearchListings extends BindingClass {
                 const itemLink = document.createElement('a');
                 itemLink.href = 'selectedItem.html';
 
-                const itemImage = document.createElement('img');
-                itemImage.src = item.imageUrl;
-                itemImage.alt = item.title;
-                itemImage.width = 600;
-                itemImage.height = 400;
+//                const itemImage = document.createElement('img');
+//                itemImage.src = item.imageUrl;
+//                itemImage.alt = item.title;
+//                itemImage.width = 600;
+//                itemImage.height = 400;
 
                 const itemTitle = document.createElement('div');
                 itemTitle.className = 'desc';
                 itemTitle.textContent = item.title;
 
-                itemLink.appendChild(itemImage);
+//                itemLink.appendChild(itemImage);
                 galleryContent.appendChild(itemLink);
                 galleryContent.appendChild(itemTitle);
                 galleryItem.appendChild(galleryContent);
@@ -162,18 +160,18 @@ class SearchListings extends BindingClass {
             return '<h4>No results found</h4>';
         }
 
-        let html = '<table><tr><th>Name</th><th>Song Count</th><th>Tags</th></tr>';
+        let html = '<tr><th>Title</th><th>Description</th></tr>';
         for (const res of searchResults) {
             html += `
             <tr>
                 <td>
-                    <a href="playlist.html?id=${res.id}">${res.name}</a>
+                    <a href="item.html?itemId=${res.itemId}">${res.title}</a>
                 </td>
-                <td>${res.songCount}</td>
-                <td>${res.tags?.join(', ')}</td>
+                <td>${res.description}</td>
+//                <td>${res.tags?.join(', ')}</td>
             </tr>`;
         }
-        html += '</table>';
+//        html += '</table>';
 
         return html;
     }
