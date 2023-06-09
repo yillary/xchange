@@ -179,6 +179,94 @@ div.desc {
   clear: both;
 }
 
+/* table styles */
+
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+
+th {
+    border-bottom: 1px solid var(--primary-color);
+}
+
+a {
+    color: var(--tertiary-color);
+    text-decoration: none;
+}
+.parent {
+  margin: 1rem;
+  padding: 2rem 2rem;
+  text-align: center;
+}
+.child {
+  display: inline-block;
+  border: 2px solid red;
+  padding: 1rem 1rem;
+  vertical-align: middle;
+}
+.table-container {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.table-container th {
+    font-weight: bold;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 0.5rem;
+}
+
+.table-container td {
+    border: 1px solid var(--primary-color);
+    padding: 0.5rem;
+}
+
+.form-group row {
+     border: 1px solid var(--primary-color);
+     padding: 0.5rem;
+}
+
+.your-class input{
+  float:left;
+}
+
+.input[type=text] {
+  width: 5%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+.input {
+  width: 10%;
+  padding: 6px 10px;
+  margin: 5px 0;
+  box-sizing: border-box;
+}
+
+.form-control {
+  font-size: 14px;
+  margin: 0 10px;
+  padding: 4px 8px;
+}
+
+.button-bordered {
+  background-color: var(--secondary-color);
+  border: 3px solid var(--primary-color);
+  margin: 8px 8px 16px 15px;
+  color: var(--primary-color);
+  padding: 6px 8px 4px 8px;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+.add {
+    cursor: pointer;
+}
+
 
 /*NOT MY STUFF*/
 /*
