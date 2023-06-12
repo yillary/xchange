@@ -35,7 +35,7 @@ export default class Header extends BindingClass {
         const homeButton = document.createElement('a');
         homeButton.classList.add('header_home');
         homeButton.href = 'index.html';
-        homeButton.innerText = 'xchange';
+        homeButton.innerText = 'XCHANGE';
 
         const siteTitle = document.createElement('div');
         siteTitle.classList.add('site-title');
@@ -52,7 +52,7 @@ export default class Header extends BindingClass {
          const dashboardButton = document.createElement('a');
          dashboardButton.classList.add('button');
          dashboardButton.href = 'memberDashboard.html';
-         dashboardButton.innerText = 'Member Dashboard';
+         dashboardButton.innerText = 'MY STUFF';
 
          const logoutButton = this.createLogoutButton(currentUser);
 
@@ -76,12 +76,12 @@ export default class Header extends BindingClass {
 
 
     createLoginButton() {
-        return this.createButton('Login', this.client.login);
+        return this.createButton('LOGIN', this.client.login);
     }
 
     createLogoutButton(currentUser) {
         console.log("createLogoutButton");
-        return this.createButton(`Logout: ${currentUser.name}`, this.client.logout);
+        return this.createButton(`LOGOUT: ${currentUser.name}`, this.client.logout);
     }
 
     createButton(text, clickHandler) {
