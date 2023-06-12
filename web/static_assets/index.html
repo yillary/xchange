@@ -15,18 +15,19 @@
 <body class="background">
     <header class="header" id="header"></header>
     <div class="card">
-        <h1>XCHANGE</h1>
+        <h3>BE THE CHANGE. BE AN EXCHANGER. </h3>
+
         <form class="card-content" id="search-listings-form">
             <p class="form-field">
                 <input type="text" class="validated-field" id="search-criteria" placeholder="SEARCH" autofocus>
                 <input type="text" class="validated-field" id="search-zip-code" placeholder="ZIP CODE" autofocus>
+                <a href="#" class="button" id="search-btn">SEARCH</a>
             </p>
         </form>
-        <p class="button-group">
-            <a href="#" class="button" id="search-btn">SEARCH</a>
+
             <!-- MENU OF TYPES -->
-        <form>
-            <input type="radio" id="tops" name="type_selector" value="Top">
+        <form class="button-group">
+            <input checked type="radio" id="tops" name="type_selector" value="Top">
             <label for="tops">TOPS</label><br>
             <input type="radio" id="bottoms" name="type_selector" value="Bottom">
             <label for="bottoms">BOTTOMS</label><br>
@@ -35,17 +36,22 @@
             <input type="radio" id="accessories" name="type_selector" value="Accessory">
             <label for="accessories">ACCESSORIES</label>
         </form>
-        </p>
     </div>
+
+    <a href="selectedItem.html"> Select an Item</a>
     <div id="table-container"></div>
     </p>
     <!-- Logic to provide an image gallery for the search results -->
-    <!--
+
     <div class="card-content" id='search-results-container'>
         <h5>RESULTS FOR <span id="search-criteria-display"></span></h5>
         <div id="search-results-display"></div>
     </div>
-    -->
+
+<card id="experiment">
+
+</card>
+
 </body>
 
 

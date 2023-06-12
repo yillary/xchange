@@ -3,6 +3,25 @@ import Header from '../components/header';
 import BindingClass from "../util/bindingClass";
 import DataStore from "../util/DataStore";
 
+/*
+The code below this comment is equivalent to...
+const EMPTY_DATASTORE_STATE = {
+    'search-criteria': '',
+    'search-results': [],
+};
+
+...but uses the "KEY" constants instead of "magic strings".
+The "KEY" constants will be reused a few times below.
+*/
+
+const SEARCH_CRITERIA_KEY = 'search-criteria';
+const SEARCH_RESULTS_KEY = 'search-results';
+const EMPTY_DATASTORE_STATE = {
+    [SEARCH_CRITERIA_KEY]: '',
+    [SEARCH_RESULTS_KEY]: [],
+};
+
+
 /**
  * Logic needed for the view playlist page of the website.
  */
@@ -11,9 +30,8 @@ class SelectedItem extends BindingClass {
         super();
         this.bindClassMethods(['clientLoaded', 'mount'], this);
         this.dataStore = new DataStore();
-//        this.dataStore.addChangeListener(this.addPlaylistToPage);
-//        this.dataStore.addChangeListener(this.addSongsToPage);
         this.header = new Header(this.dataStore);
+        this.table = new Table(this.dataStore)
         console.log("selectedItem constructor");
     }
 
@@ -21,22 +39,26 @@ class SelectedItem extends BindingClass {
      * Once the client is loaded, get the playlist metadata and song list.
      */
     async clientLoaded() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const itemId = urlParams.get('itemId');
-        //document.getElementById('item-title').innerText = "Loading Playlist ...";
-        const item = await this.client.getItem(itemId);
-        this.dataStore.set('item', item);
-        document.getElementById('item-title').innerText = item.title;
-        document.getElementById('item-description').innerText = item.description;
+    //bring in the member , get their email
+        const searchCriteria = this.dataStore.get(member);
 
-             console.log("phase one " + item);
-              const emailButton = document.getElementById('email-button');
+    //make a call to api getMemberListings
+        if (searchCriteria != null) {
+            const results = await this.client.getMemberListings(searchCriteria.email);
+            console.log("MemberDashboard coming back from client, results: " + results);
 
-                emailButton.href = 'mailto:' + item.email;
-                console.log("item.email is: " + item.email);
-
-
+            this.dataStore.setState({
+                [SEARCH_CRITERIA_KEY]: searchCriteria,
+                [SEARCH_RESULTS_KEY]: results,
+            });
+        } else {
+            this.dataStore.setState(EMPTY_DATASTORE_STATE);
+        }
     }
+    // New method: display items: for each listing, create a div, with details. Preferrably a table.
+    //
+
+
 
     /**
      * Add the header to the page and load the MusicPlaylistClient.
@@ -50,21 +72,11 @@ class SelectedItem extends BindingClass {
 //         const emailButton = document.getElementById('email-button');
 //         emailButton.href = 'mailto:' + item.email;
 //         Console.log("item.email is: " + item.email);
-
+        this.header.addHeaderToPage();
+        this.table.addTableToPage();
         this.client = new XchangeClient();
         this.clientLoaded();
-
     }
-
-//    addEmailButton() {
-////      const item = this.dataStore.get('item');
-////     console.log("phase one " + item);
-////      const emailButton = document.getElementById('email-button');
-////      emailButton.addEventListener('click', function() {
-////        emailButton.href = 'mailto:' + item.email;
-////        console.log("item.email is: " + item.email);
-////      });
-//    }
 
 }
 

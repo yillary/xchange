@@ -42,7 +42,6 @@ class SearchListings extends BindingClass {
         this.dataStore = new DataStore(EMPTY_DATASTORE_STATE);
         this.header = new Header(this.dataStore);
         this.dataStore.addChangeListener(this.displaySearchResults);
-        this.table = new Table(this.dataStore);
     }
 
     /**
@@ -55,7 +54,6 @@ class SearchListings extends BindingClass {
 
         this.header.addHeaderToPage();
         this.client = new XchangeClient();
-        this.table.addTableToPage();
     }
 
 
@@ -85,12 +83,14 @@ class SearchListings extends BindingClass {
         if (
             previousSearchCriteria === searchCriteria &&
             previousSearchZipCode === searchZipCode &&
+            previousSelectedType === selectedTypeValue ||
+            previousSearchZipCode === searchZipCode &&
             previousSelectedType === selectedTypeValue
         ) {
             return;
         }
 
-        if (searchCriteria && searchZipCode && selectedTypeValue) {
+        if (searchCriteria && searchZipCode && selectedTypeValue || searchZipCode && selectedTypeValue) {
             const results = await this.client.search(searchCriteria, searchZipCode, selectedTypeValue);
             console.log("SearchListings coming back from client results: " +  results);
             this.dataStore.setState({
@@ -114,11 +114,7 @@ class SearchListings extends BindingClass {
         const searchCriteriaDisplay = document.getElementById('search-criteria-display');
         const searchResultsDisplay = document.getElementById('search-results-display');
 
-        if (searchCriteria === '') {
-            searchResultsContainer.classList.add('hidden');
-            searchCriteriaDisplay.innerHTML = '';
-            searchResultsDisplay.innerHTML = '';
-        } else {
+
             searchResultsContainer.classList.remove('hidden');
             searchCriteriaDisplay.innerHTML = `"${searchCriteria}"`;
             searchResultsDisplay.innerHTML = '';
@@ -131,24 +127,25 @@ class SearchListings extends BindingClass {
                 galleryContent.className = 'gallery';
 
                 const itemLink = document.createElement('a');
-                itemLink.href = 'selectedItem.html';
+                itemLink.id = document.createElement('id');
+                itemLink.href = '/selectedItem.html?itemId=' + item.itemId;
 
-                const itemImage = document.createElement('img');
-                itemImage.src = item.imageUrl;
-                itemImage.alt = item.title;
-                itemImage.width = 600;
-                itemImage.height = 400;
+//                const itemImage = document.createElement('img');
+//                itemImage.src = item.imageUrl;
+//                itemImage.alt = item.title;
+//                itemImage.width = 600;
+//                itemImage.height = 400;
+
+//Make a lisf of pic urls by category. If criteria is x then provide locally stored list and insert pic.
 
                 const itemTitle = document.createElement('div');
                 itemTitle.className = 'desc';
                 itemTitle.textContent = item.title;
 
-                itemLink.appendChild(itemImage);
+                itemLink.appendChild(itemTitle);
                 galleryContent.appendChild(itemLink);
-                galleryContent.appendChild(itemTitle);
                 galleryItem.appendChild(galleryContent);
                 searchResultsDisplay.appendChild(galleryItem);
-            }
         }
     }
 
@@ -162,18 +159,18 @@ class SearchListings extends BindingClass {
             return '<h4>No results found</h4>';
         }
 
-        let html = '<table><tr><th>Name</th><th>Song Count</th><th>Tags</th></tr>';
+        let html = '<tr><th>Title</th><th>Description</th></tr>';
         for (const res of searchResults) {
             html += `
             <tr>
                 <td>
-                    <a href="playlist.html?id=${res.id}">${res.name}</a>
+                    <a href="item.html?itemId=${res.itemId}">${res.title}</a>
                 </td>
-                <td>${res.songCount}</td>
-                <td>${res.tags?.join(', ')}</td>
+                <td>${res.description}</td>
+//                <td>${res.tags?.join(', ')}</td>
             </tr>`;
         }
-        html += '</table>';
+//        html += '</table>';
 
         return html;
     }

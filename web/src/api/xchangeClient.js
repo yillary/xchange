@@ -15,7 +15,7 @@ export default class XchangeClient extends BindingClass {
     constructor(props = {}) {
         super();
 
-        const methodsToBind = ['clientLoaded', 'getIdentity', 'login', 'logout', 'getItem', 'search'];
+        const methodsToBind = ['clientLoaded', 'getIdentity', 'login', 'logout', 'getItem', 'search', 'getMemberListings'];
         this.bindClassMethods(methodsToBind, this);
 
         this.authenticator = new Authenticator();;
@@ -77,9 +77,10 @@ export default class XchangeClient extends BindingClass {
      * @param errorCallback (Optional) A function to execute if the call fails.
      * @returns The item's metadata.
      */
-    async getItem(id, errorCallback) {
+    async getItem(itemId, errorCallback) {
         try {
-            const response = await this.axiosClient.get(`items/${id}`);
+            const response = await this.axiosClient.get(`items/${itemId}`);
+            console.log(response);
             return response.data.item;
         } catch (error) {
             this.handleError(error, errorCallback)
@@ -108,7 +109,22 @@ export default class XchangeClient extends BindingClass {
         } catch (error) {
             this.handleError(error, errorCallback)
         }
+    }
 
+    /**
+     * Gets the member's listings for the given email of member.
+     * @param id Unique identifier for an item
+     * @param errorCallback (Optional) A function to execute if the call fails.
+     * @returns The json of listings associated with member.
+     */
+    async getMemberListings(memberEmail, errorCallback) {
+        try {
+            const response = await this.axiosClient.get(`members`);
+            console.log(response);
+            return response.data.listings;
+        } catch (error) {
+            this.handleError(error, errorCallback)
+        }
     }
 
     /**
