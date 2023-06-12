@@ -9,10 +9,10 @@ import DataStore from "../util/DataStore";
 class SelectedItem extends BindingClass {
     constructor() {
         super();
-        this.bindClassMethods(['clientLoaded', 'mount', 'addEmailButton'], this);
+        this.bindClassMethods(['clientLoaded', 'mount'], this);
         this.dataStore = new DataStore();
-        this.dataStore.addChangeListener(this.addPlaylistToPage);
-        this.dataStore.addChangeListener(this.addSongsToPage);
+//        this.dataStore.addChangeListener(this.addPlaylistToPage);
+//        this.dataStore.addChangeListener(this.addSongsToPage);
         this.header = new Header(this.dataStore);
         console.log("selectedItem constructor");
     }
@@ -29,6 +29,13 @@ class SelectedItem extends BindingClass {
         document.getElementById('item-title').innerText = item.title;
         document.getElementById('item-description').innerText = item.description;
 
+             console.log("phase one " + item);
+              const emailButton = document.getElementById('email-button');
+
+                emailButton.href = 'mailto:' + item.email;
+                console.log("item.email is: " + item.email);
+
+
     }
 
     /**
@@ -44,66 +51,22 @@ class SelectedItem extends BindingClass {
 //         emailButton.href = 'mailto:' + item.email;
 //         Console.log("item.email is: " + item.email);
 
-
         this.client = new XchangeClient();
         this.clientLoaded();
+
     }
 
-
-    addEmailButton() {
-      const item = this.dataStore.get('item');
-      const emailButton = document.getElementById('email-button');
-      emailButton.addEventListener('click', function() {
-        emailButton.href = 'mailto:' + item.email;
-        console.log("item.email is: " + item.email);
-      });
-    }
+//    addEmailButton() {
+////      const item = this.dataStore.get('item');
+////     console.log("phase one " + item);
+////      const emailButton = document.getElementById('email-button');
+////      emailButton.addEventListener('click', function() {
+////        emailButton.href = 'mailto:' + item.email;
+////        console.log("item.email is: " + item.email);
+////      });
+//    }
 
 }
-//// I DON' THINK I NEED ANY OF THIS CUZ IT'S JUST UPDATING THE STATE OF OBJECTS. ALL I NEED IS TO DISPLAY.
-//    /**
-//     * When the playlist is updated in the datastore, update the playlist metadata on the page.
-//     */
-//    addPlaylistToPage() {
-//        const playlist = this.dataStore.get('playlist');
-//        if (playlist == null) {
-//            return;
-//        }
-//
-//        document.getElementById('playlist-name').innerText = playlist.name;
-//        document.getElementById('playlist-owner').innerText = playlist.customerName;
-//
-//        let tagHtml = '';
-//        let tag;
-//        for (tag of playlist.tags) {
-//            tagHtml += '<div class="tag">' + tag + '</div>';
-//        }
-//        document.getElementById('tags').innerHTML = tagHtml;
-//    }
-//
-//    /**
-//     * When the songs are updated in the datastore, update the list of songs on the page.
-//     */
-//    addSongsToPage() {
-//        const songs = this.dataStore.get('songs')
-//
-//        if (songs == null) {
-//            return;
-//        }
-//
-//        let songHtml = '';
-//        let song;
-//        for (song of songs) {
-//            songHtml += `
-//                <li class="song">
-//                    <span class="title">${song.title}</span>
-//                    <span class="album">${song.album}</span>
-//                </li>
-//            `;
-//        }
-//        document.getElementById('songs').innerHTML = songHtml;
-//    }
-
 
 /**
  * Main method to run when the page contents have loaded.

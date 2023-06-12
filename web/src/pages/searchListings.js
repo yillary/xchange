@@ -136,6 +136,8 @@ class SearchListings extends BindingClass {
 //                itemImage.width = 600;
 //                itemImage.height = 400;
 
+//Make a lisf of pic urls by category. If criteria is x then provide locally stored list and insert pic.
+
                 const itemTitle = document.createElement('div');
                 itemTitle.className = 'desc';
                 itemTitle.textContent = item.title;

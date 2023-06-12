@@ -24,6 +24,10 @@
     padding: 4px 20px;
 }
 
+.item-details {
+    alight-items: left;
+}
+
 .button {
   background-color: var(--tertiary-color);
   border: none;

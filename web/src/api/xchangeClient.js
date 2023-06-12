@@ -80,6 +80,7 @@ export default class XchangeClient extends BindingClass {
     async getItem(itemId, errorCallback) {
         try {
             const response = await this.axiosClient.get(`items/${itemId}`);
+            console.log(response);
             return response.data.item;
         } catch (error) {
             this.handleError(error, errorCallback)
