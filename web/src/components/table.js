@@ -31,12 +31,17 @@ export default class Table extends BindingClass {
           console.error('Error: data is not an array!');
           return;
       }
+      if(data.length == 0) {
+        console.error('data is an array with size 0');
+      }
+      console.log("data length is: " + data.length);
       const table = document.createElement('table');
       table.classList.add('table-container'); // Add a class to style the table
 
       // Create the table header row
+      console.log("going to create table now.");
       const headerRow = table.insertRow();
-      const headers = ['Title', 'Description', 'Exchanged'];
+      const headers = ['Title', 'Description', 'Exchanged', 'Edit'];
       headers.forEach(header => {
           const th = document.createElement('th');
           th.innerText = header;
@@ -44,7 +49,9 @@ export default class Table extends BindingClass {
       });
 
       // Create the table body rows
+      console.log("data received: " + data);
       data.forEach(item => {
+            console.log("item: " + item);
           const row = table.insertRow();
           row.classList.add('playlist-row'); // Add a class to style the row
           const cells = [item.title, item.description];

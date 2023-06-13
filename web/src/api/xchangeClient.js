@@ -112,25 +112,10 @@ export default class XchangeClient extends BindingClass {
     }
 
     /**
-     * Gets the member's listings for the given email of member.
-     * @param id Unique identifier for an item
-     * @param errorCallback (Optional) A function to execute if the call fails.
-     * @returns The json of listings associated with member.
+     * Search for a member's items.
+     * @returns The member's items.
      */
-//    async getMemberListings(errorCallback) {
-//        try {
-//            const token = await this.getTokenOrThrow("You must be logged in to view items.");
-//            console.log("response in getMemberListings", response);
-//            return response.data;
-////            return response.data.listings;
-//        } catch (error) {
-//            this.handleError(error, errorCallback)
-//        }
-//    }
-
-
-
-async getMemberListings(errorCallBack) {
+    async getMemberListings(errorCallBack) {
         try {
             const token = await this.getTokenOrThrow("You must be logged in to view items.");
             const response = await this.axiosClient.get(`members`, {
@@ -138,27 +123,14 @@ async getMemberListings(errorCallBack) {
                     Authorization: `Bearer ${token}`
                 }
             });
-            return response.data;
+
+             console.log(typeof response);
+             console.log("this is the response form the API: " + JSON.stringify(response.data.memberItems));
+             return response.data.memberItems;
         } catch (error) {
             this.handleError(error, errorCallBack);
         }
     }
-
-///**
-//     * Retrieves all raid objects from the database asynchronously.
-//     * @param errorCallback(Optional) A function to execute if the call fails.
-//     * @returns All raid objects from the database.
-//     */
-//    async getAllRaids(errorCallback) {
-//        try {
-//            const response = await this.axiosClient.get(`raidevents`);
-//            console.log("response in get all Raids", response);
-//            return response.data;
-//        } catch (error) {
-//            this.handleError(error, errorCallback);
-//        }
-//    }
-
 
     /**
      * Get the identity of the current user
