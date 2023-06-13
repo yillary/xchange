@@ -128,6 +128,26 @@ export default class XchangeClient extends BindingClass {
     }
 
     /**
+     * Get the identity of the current user
+     * @param errorCallback (Optional) A function to execute if the call fails.
+     * @returns The user information for the current user.
+     */
+    async getIdentity(errorCallback) {
+        try {
+            const isLoggedIn = await this.authenticator.isUserLoggedIn();
+
+            if (!isLoggedIn) {
+                return undefined;
+            }
+
+            return await this.authenticator.getCurrentUserInfo();
+        } catch (error) {
+            this.handleError(error, errorCallback)
+        }
+    }
+
+
+    /**
      * Helper method to log the error and run any error functions.
      * @param error The error received from the server.
      * @param errorCallback (Optional) A function to execute if the call fails.
