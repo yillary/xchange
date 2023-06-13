@@ -117,15 +117,48 @@ export default class XchangeClient extends BindingClass {
      * @param errorCallback (Optional) A function to execute if the call fails.
      * @returns The json of listings associated with member.
      */
-    async getMemberListings(memberEmail, errorCallback) {
+//    async getMemberListings(errorCallback) {
+//        try {
+//            const token = await this.getTokenOrThrow("You must be logged in to view items.");
+//            console.log("response in getMemberListings", response);
+//            return response.data;
+////            return response.data.listings;
+//        } catch (error) {
+//            this.handleError(error, errorCallback)
+//        }
+//    }
+
+
+
+async getMemberListings(errorCallBack) {
         try {
-            const response = await this.axiosClient.get(`members`);
-            console.log(response);
-            return response.data.listings;
+            const token = await this.getTokenOrThrow("You must be logged in to view items.");
+            const response = await this.axiosClient.get(`members`, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            return response.data;
         } catch (error) {
-            this.handleError(error, errorCallback)
+            this.handleError(error, errorCallBack);
         }
     }
+
+///**
+//     * Retrieves all raid objects from the database asynchronously.
+//     * @param errorCallback(Optional) A function to execute if the call fails.
+//     * @returns All raid objects from the database.
+//     */
+//    async getAllRaids(errorCallback) {
+//        try {
+//            const response = await this.axiosClient.get(`raidevents`);
+//            console.log("response in get all Raids", response);
+//            return response.data;
+//        } catch (error) {
+//            this.handleError(error, errorCallback);
+//        }
+//    }
+
 
     /**
      * Get the identity of the current user

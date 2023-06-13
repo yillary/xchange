@@ -42,8 +42,9 @@ class MemberDashboard extends BindingClass {
         this.table.addTableToPage();
         this.client = new XchangeClient();
         this.header.addHeaderToPage();
-        const member = await this.client.getIdentity();
-        const listings = await this.client.getMemberListings(member.email);
+//        const member = await this.client.getIdentity();
+//        const listings = await this.client.getMemberListings(member.email);
+//        const listings = await this.client.getMemberListings();
         //build table will retrieve the data forme.
         this.header.addHeaderToPage;
     }

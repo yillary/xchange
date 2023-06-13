@@ -217,7 +217,7 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Lists_and_Counters/Using_CS
     display: none;
 }
 
-/* table styles */ 
+/* table styles */
 
 th, td {
     padding: 15px;
@@ -231,4 +231,27 @@ th {
 a {
     color: var(--tertiary-color);
     text-decoration: none;
+}
+.parent {
+  margin: 1rem;
+  padding: 2rem 2rem;
+  text-align: center;
+}
+.child {
+  display: inline-block;
+  border: 2px solid red;
+  padding: 1rem 1rem;
+  vertical-align: middle;
+}
+.table-container {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.table-container th {
+    font-weight: bold;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 0.5rem;
 }
