@@ -54,15 +54,35 @@ export default class Table extends BindingClass {
             console.log("item: " + item);
           const row = table.insertRow();
           row.classList.add('playlist-row'); // Add a class to style the row
-          const cells = [item.title, item.description, item.exchanged];
-          cells.forEach(cell => {
-              const td = document.createElement('td');
-              td.innerText = cell;
-              row.appendChild(td);
+       
+        const editButton = this.createEditButton(item);
+          const cells = [item.title, item.description, item.exchanged, editButton];
+          cells.forEach(cell => { 
+            if (cell == editButton){
+                const itemLink = document.createElement('a');
+                itemLink.id = 'edit-button';
+                itemLink.className= 'button';
+                itemLink.href = '/updateItem.html?itemId=' + item.itemId;
+                itemLink.innerText = 'Edit';
+                const td = document.createElement('td');
+                td.appendChild(itemLink);
+                row.appendChild(td);
+            } else {
+                const td = document.createElement('td');
+                td.innerText = cell;
+                row.appendChild(td);
+            }
           });
       });
 
       return table;
   }
+
+
+createEditButton(item) {
+    const itemLink = document.createElement('a');
+   itemLink.id = document.createElement('id');
+    itemLink.href = '/updateItem.html?itemId=' + item.itemId;
+}
 
 }
