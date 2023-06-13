@@ -54,7 +54,7 @@ export default class Table extends BindingClass {
             console.log("item: " + item);
           const row = table.insertRow();
           row.classList.add('playlist-row'); // Add a class to style the row
-          const cells = [item.title, item.description];
+          const cells = [item.title, item.description, item.exchanged];
           cells.forEach(cell => {
               const td = document.createElement('td');
               td.innerText = cell;
