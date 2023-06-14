@@ -1,23 +1,45 @@
 <!DOCTYPE html>
 <html>
-
+<title>xchange</title>
 <head>
-    <script type="text/javascript" src="assets/searchListings.js"></script>
+<!--    <script type="text/javascript" src="assets/home.js"></script>-->
+    <script type="text/javascript" src="assets/memberDashboard.js"></script>
+    <script type="component" src="table.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <title>xchange</title>
-    <!-- GOOGLE FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
 </head>
 
-<body>
-<header class="header" id="header"></header>
-<h1> Member's Listings Displayed here</h1>
-<a href="updateItem.html"> Update</a>
 
+<body class="background">
+<header class="header" id="header"></header>
+
+<!-- FROM MIDSTONE PROJECT -->
+<body class="background"></body>
+<div class="card">
+<!--    <h1 style="color: #FFB563;">Inventory</h1>-->
+<!--    <hr class = "dashed">-->
+<!--    <h4>Warehouse No.01, Nashville, TN</h4>-->
+
+
+<!-- Rounded switch 3WSchools-->
+<div class="card hidden" id="toggle-exchanged" >
+    <label class="toggle">
+        <span class="onoff">OFF</span>
+        <input type="checkbox">
+        <span class="slider round"></span>
+      </label>
+</div>
+
+
+
+
+    <div id="table-container"></div>
+    <p class="button-group">
+        <a href="createItem.html">New Listing</a>
+    </p>
+</div>
 </body>
 
 
-
+</body>
 </html>

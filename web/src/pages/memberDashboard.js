@@ -16,7 +16,7 @@ const EMPTY_DATASTORE_STATE = {
 /**
  * Logic needed for the view table page of the website.
  */
-class Inventory extends BindingClass {
+class MemberDashboard extends BindingClass {
     constructor() {
         super();
 
@@ -26,22 +26,33 @@ class Inventory extends BindingClass {
         this.dataStore = new DataStore(EMPTY_DATASTORE_STATE);
         this.table = new Table(this.dataStore);
         this.dataStore.addChangeListener(this.displaySearchResults);
+        this.header = new Header();
     }
 
     /**
      * Add the table to the page and load the MusicPlaylistClient.
      */
-    mount() {
-        console.log('Inventory.js mounting...');
+
+
+    /**
+     * Add the table to the page and load the XchangeClient
+     */
+    async mount() {
+        console.log('MemberDashboard.js mounting...');
         this.table.addTableToPage();
         this.client = new XchangeClient();
         this.header.addHeaderToPage();
+//        const member = await this.client.getIdentity();
+//        const listings = await this.client.getMemberListings(member.email);
+//        const listings = await this.client.getMemberListings();
+        //build table will retrieve the data forme.
+        this.header.addHeaderToPage;
     }
 }
 
     const main = async () => {
-        const inventory = new Inventory();
-        inventory.mount();
+        const memberDashboard = new MemberDashboard();
+        memberDashboard.mount();
     };
 
     window.addEventListener('DOMContentLoaded', main);

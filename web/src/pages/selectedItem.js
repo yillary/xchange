@@ -11,8 +11,6 @@ class SelectedItem extends BindingClass {
         super();
         this.bindClassMethods(['clientLoaded', 'mount'], this);
         this.dataStore = new DataStore();
-//        this.dataStore.addChangeListener(this.addPlaylistToPage);
-//        this.dataStore.addChangeListener(this.addSongsToPage);
         this.header = new Header(this.dataStore);
         console.log("selectedItem constructor");
     }
