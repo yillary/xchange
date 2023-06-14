@@ -23,13 +23,13 @@ module.exports = {
     usedExports: true
   },
   entry: {
-    createPlaylist: path.resolve(__dirname, 'src', 'pages', 'createPlaylist.js'),
-    viewPlaylist: path.resolve(__dirname, 'src', 'pages', 'viewPlaylist.js'),
-    searchPlaylists: path.resolve(__dirname, 'src', 'pages', 'searchPlaylists.js'),
+//    createPlaylist: path.resolve(__dirname, 'src', 'pages', 'createPlaylist.js'),
+//    viewPlaylist: path.resolve(__dirname, 'src', 'pages', 'viewPlaylist.js'),
+//    searchPlaylists: path.resolve(__dirname, 'src', 'pages', 'searchPlaylists.js'),
     index: path.resolve(__dirname, 'src', 'pages', 'viewListings.js'),
     selectedItem: path.resolve(__dirname, 'src', 'pages', 'selectedItem.js'),
-    searchListings: path.resolve(__dirname, 'src', 'pages', 'searchListings.js')
-
+    searchListings: path.resolve(__dirname, 'src', 'pages', 'searchListings.js'),
+    memberDashboard: path.resolve(__dirname, 'src', 'pages', 'memberDashboard.js')
   },
   output: {
     path: path.resolve(__dirname, 'build', 'assets'),
