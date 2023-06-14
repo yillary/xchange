@@ -16,14 +16,31 @@ export default class Table extends BindingClass {
 
   async addTableToPage() {
       console.log('Table.js building...');
-      //get data
-//      const member = await this.client.getIdentity();
-      const listings = await this.client.getMemberListings();
-      //build table with the data
-      const table = this.buildTable(listings);
-      const container = document.getElementById('table-container');
-      table.classList.add('table-container'); // Add a class to style the table
-      container.appendChild(table);
+
+    try {
+        const listings = await this.client.getMemberListings();
+        const table = this.buildTable(listings);
+        const container = document.getElementById('table-container');
+        table.classList.add('table-container'); // Add a class to style the table
+        container.appendChild(table);
+        toggleExchanged.classList.remove('hidden');
+        this.createToggleSlider();
+        // const toggleExchanged = document.getElementById('toggle-exchanged');
+        // toggleExchanged.classList.remove('hidden');
+        // this.createToggleSlider();
+    } catch (error) {
+        // const toggleExchanged = document.getElementById('toggle-exchanged');
+        // toggleExchanged.classList.add('hidden');
+        toggleExchanged.classList.add('hidden');
+        const note = document.createElement('h3');
+        note.innerText = "Hmm . . . nothing's here yet. Let's get started!";
+        document.body.appendChild(note);
+        const itemLink = document.createElement('a');
+        itemLink.className = 'button';
+        itemLink.href = '/createItem.html';
+        itemLink.innerText = "Post a New Item"
+        document.body.appendChild(itemLink);
+    }
   }
 
   buildTable(data) {
@@ -83,6 +100,19 @@ createEditButton(item) {
     const itemLink = document.createElement('a');
    itemLink.id = document.createElement('id');
     itemLink.href = '/updateItem.html?itemId=' + item.itemId;
+}
+
+/**
+ * creates a slider button to filter exchanged items.
+ */
+createToggleSlider() {
+    const toggle = document.querySelector.querySelector('.toggle input');
+    toggle.addEventListener('click', () => {
+        const onOff = toggle.partentNode.querySelector('.onoff');
+
+        onOff.textContent = toggle.checked ? 'Show Exchanged' : 'Hide Exchanged';
+    })
+
 }
 
 }
