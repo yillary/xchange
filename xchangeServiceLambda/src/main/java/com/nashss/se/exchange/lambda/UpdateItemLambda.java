@@ -23,7 +23,7 @@ public class UpdateItemLambda
                                     .withZipCode(unauthenticatedRequest.getZipCode())
                                     .withExchanged(unauthenticatedRequest.getExchanged())
                                     .withItemId(unauthenticatedRequest.getItemId())
-                                    .withMemberId(claims.get("email"))
+                                    .withEmail(claims.get("email"))
                                     .build());
                 },
                 (request, serviceComponent) ->

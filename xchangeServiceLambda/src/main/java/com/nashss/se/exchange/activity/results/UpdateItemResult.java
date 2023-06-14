@@ -9,10 +9,8 @@ public class UpdateItemResult {
         this.item = item;
     }
 
-
-    //CHECKSTYLE:OFF:Builder
-    public static Builder builder() {
-        return new Builder();
+    public ItemModel getItem() {
+        return item;
     }
 
     @Override
@@ -20,6 +18,11 @@ public class UpdateItemResult {
         return "UpdateItemResult{" +
                 "item=" + item +
                 '}';
+    }
+
+    //CHECKSTYLE:OFF:Builder
+    public static Builder builder() {
+        return new Builder();
     }
 
     public static class Builder {

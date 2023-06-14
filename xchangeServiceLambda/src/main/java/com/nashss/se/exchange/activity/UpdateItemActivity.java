@@ -41,10 +41,8 @@ public class UpdateItemActivity {
             throw new IllegalArgumentException("Title cannot exceed 20 characters");
         }
 
-        //load this item from the Dao
+        //load the original item from the Dao. With this item, assign the non-updated fields.
         String itemId = updateItemRequest.getItemId();
-
-        //with this item, assign the non-updated fields
         Item itemRetrieved = itemDao.getItem(itemId);
 
         //create a new item that will be saved to the Dao. Populate updated fields with attributes from request.
@@ -52,12 +50,13 @@ public class UpdateItemActivity {
         log.info("Phase one");
         Item item = new Item();
         item.setItemId(itemRetrieved.getItemId());
-        item.setTitle(updateItemRequest.getTitle());
-        item.setDescription(updateItemRequest.getDescription());
-        item.setZipCode(updateItemRequest.getZipCode());
-        item.setExchanged(updateItemRequest.getExchanged());
         item.setEmail(itemRetrieved.getEmail());
         item.setItemType(itemRetrieved.getItemType());
+
+        item.setTitle(updateItemRequest.getTitle());
+        item.setDescription(updateItemRequest.getDescription());
+        item.setZipCode(updateItemRequest.getEmail());
+        item.setExchanged(updateItemRequest.getExchanged());
 
         log.info("Phase two");
         itemDao.saveItem(item);

@@ -5,6 +5,7 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBQueryExpression;
 import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedQueryList;
 import com.amazonaws.services.dynamodbv2.model.AmazonDynamoDBException;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
+import com.nashss.se.exchange.exceptions.ItemNotFoundException;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -63,7 +64,7 @@ public class ItemDao {
         if (item == null) {
             throw new IllegalArgumentException("Item cannot be null");
         }
-        mapper.save(item);
+            mapper.save(item);
         return true;
     }
 

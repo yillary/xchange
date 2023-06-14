@@ -9,15 +9,15 @@ public class UpdateItemRequest {
     private final String description;
     private final String zipCode;
     private final String itemId;
-    private final String memberId;
+    private final String email;
     private final Boolean exchanged;
 
-    public UpdateItemRequest(String title, String description, String zipCode, String itemId, String memberId, Boolean exchanged) {
+    public UpdateItemRequest(String title, String description, String zipCode, String itemId, String email, Boolean exchanged) {
         this.title = title;
         this.description = description;
         this.zipCode = zipCode;
         this.itemId = itemId;
-        this.memberId = memberId;
+        this.email = email;
         this.exchanged = exchanged;
     }
 
@@ -37,8 +37,8 @@ public class UpdateItemRequest {
         return itemId;
     }
 
-    public String getMemberId() {
-        return memberId;
+    public String getEmail() {
+        return email;
     }
 
     public Boolean getExchanged() {
@@ -57,7 +57,7 @@ public class UpdateItemRequest {
                 ", description='" + description + '\'' +
                 ", zipCode='" + zipCode + '\'' +
                 ", itemId='" + itemId + '\'' +
-                ", memberId='" + memberId + '\'' +
+                ", email='" + email + '\'' +
                 ", exchanged=" + exchanged +
                 '}';
     }
@@ -68,7 +68,7 @@ public class UpdateItemRequest {
         private String description;
         private String zipCode;
         private String itemId;
-        private String memberId;
+        private String email;
         private Boolean exchanged;
 
         public Builder withTitle(String title) {
@@ -91,8 +91,8 @@ public class UpdateItemRequest {
             return this;
         }
 
-        public Builder withMemberId(String memberId) {
-            this.memberId = memberId;
+        public Builder withEmail(String email) {
+            this.email = email;
             return this;
         }
 
@@ -102,7 +102,7 @@ public class UpdateItemRequest {
         }
 
         public UpdateItemRequest build() {
-            return new UpdateItemRequest(title, description, zipCode, itemId, memberId, exchanged);
+            return new UpdateItemRequest(title, description, zipCode, itemId, email, exchanged);
         }
     }
 }
