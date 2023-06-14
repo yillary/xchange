@@ -1,6 +1,8 @@
 package com.nashss.se.exchange;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -10,6 +12,7 @@ import java.util.Set;
 @Singleton
 public class MemberDao {
     private final DynamoDBMapper mapper;
+    private final Logger log = LogManager.getLogger();
 
     @Inject
     public MemberDao(DynamoDBMapper mapper) {
@@ -17,6 +20,7 @@ public class MemberDao {
     }
 
     public Member getMember(String memberId) {
+        log.info("hello from member dao memberId: {}", memberId);
         if (memberId == null) {
             throw new IllegalArgumentException("ItemDao.getItem(): itemId cannot be null");
         }

@@ -33,14 +33,16 @@ public class GetMemberItemsActivity {
         if (getMemberItemsRequest.getMemberId() == null) {
             throw new IllegalArgumentException("memberId cannot be null.");
         }
+        log.info("Phase one");
         Member member = memberDao.getMember(getMemberItemsRequest.getMemberId());
-
+        log.info("Phase two");
         List<Item> items = itemDao.getMemberItems(member);
         Set<ItemModel> result = new HashSet<>();
         for (Item item : items) {
             ItemModel itemModel = new ModelConverter().toItemModel(item);
             result.add(itemModel);
         }
+        log.info("Phase three");
         return GetMemberItemsResult.builder()
                 .withMemberItems(result)
                 .build();

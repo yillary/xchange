@@ -11,7 +11,7 @@
     margin: 0;
     counter-reset: section;
     font-family: 'Space Mono', monospace;
-    background-image: url("Homepage-Banner.png");
+
 }
 
 .header {
@@ -22,6 +22,10 @@
     background-color: var(--primary-color);
     color: var(--secondary-color);
     padding: 4px 20px;
+}
+
+.item-details {
+    alight-items: left;
 }
 
 .button {
@@ -42,7 +46,7 @@
 .button-group: {
     display: flex-start;
     flex-direction: row;
-    justify-content: space-around;
+    justify: center;
 }
 
 .header_home {
@@ -70,6 +74,12 @@
     border: none;
     outline: none;
     padding-top: 80px;
+    justify: center;
+
+}
+
+.form-field.search-btn {
+    padding-left:20;
 
 }
 
@@ -94,7 +104,10 @@
     max-width: 500px;
     display: flex;
     flex-direction: row;
-    justify-content:
+    justify-content: center;
+    background-image: Homepage-Banner.png;
+    background-size: cover;
+    background-position: center;
 }
 
 .tags {
@@ -179,6 +192,12 @@ div.desc {
   clear: both;
 }
 
+h3 {
+    text-align: center;
+    padding-left: 50;
+    padding-right: 50;
+
+}
 
 /*NOT MY STUFF*/
 /*
@@ -197,7 +216,7 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Lists_and_Counters/Using_CS
     display: none;
 }
 
-/* table styles */ 
+/* table styles */
 
 th, td {
     padding: 15px;
@@ -211,4 +230,86 @@ th {
 a {
     color: var(--tertiary-color);
     text-decoration: none;
+}
+.parent {
+  margin: 1rem;
+  padding: 2rem 2rem;
+  text-align: center;
+}
+.child {
+  display: inline-block;
+  border: 2px solid red;
+  padding: 1rem 1rem;
+  vertical-align: middle;
+}
+.table-container {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.table-container th {
+    font-weight: bold;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 0.5rem;
+}
+
+
+/* SLIDER TOGGLE STYLES: FILTER EXCHANGED */
+.toggle {
+  position: relative;
+}
+
+.toggle input { /* hiding the checkbox which is the underlying type this is*/
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle .onoff {
+  color: #fff;
+  font-size: 6em;
+  text-align: center;
+  display: block;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+.slider {
+  position: relative;
+  display: block;
+  cursor: pointer;
+  background-color: #333;
+  transition: .4s;
+  width: 50px;
+  height: 30px;
+}
+
+.slider:before {
+  content: '';
+  position: absolute;
+  height: 25px;
+  width: 25px;
+  background-color: #fff;
+  transition: .4s;
+  top: 2.5px;
+  left: 2.5px;
+}
+
+input:checked + .slider {
+  background-color: #fd5d00;
+  box-shadow: 0 0 12px #fd5d00;
+}
+
+input:checked + .slider:before {
+  transform: translateX(80px);/*how many pixels it slides from side to side*/
+}
+
+.slider.round {
+  border-radius: 20px;
+}
+
+.slider.round::before {
+  border-radius: 20px;
 }

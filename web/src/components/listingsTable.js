@@ -16,8 +16,8 @@ export default class OrderTable extends BindingClass {
 
     async addGridToPage() {
         console.log('listingsTable.js building...');
-//        const currentUser = await this.client.getIdentity();
-//        const data = await this.client.getAllOrderData();
+        const currentUser = await this.client.getIdentity();
+        const data = await this.client.getAllOrderData();
         const grid = this.buildGrid(data);
         const container = document.getElementById('order-table-container');
         grid.classList.add('grid'); // Add a class to style the table
@@ -25,10 +25,10 @@ export default class OrderTable extends BindingClass {
     }
 
     buildGrid(data) {
-//        if (!Array.isArray(data)) {
-//            console.error('Error: data is not an array!');
-//            return;
-//        }
+        if (!Array.isArray(data)) {
+            console.error('Error: data is not an array!');
+            return;
+        }
 
         const grid = document.createElement('grid');
         grid.classList.add('grid-full');

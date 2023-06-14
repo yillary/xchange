@@ -15,7 +15,7 @@ export default class XchangeClient extends BindingClass {
     constructor(props = {}) {
         super();
 
-        const methodsToBind = ['clientLoaded', 'getIdentity', 'login', 'logout', 'getItem', 'search'];
+        const methodsToBind = ['clientLoaded', 'getIdentity', 'login', 'logout', 'getItem', 'search', 'getMemberListings'];
         this.bindClassMethods(methodsToBind, this);
 
         this.authenticator = new Authenticator();;
@@ -77,9 +77,10 @@ export default class XchangeClient extends BindingClass {
      * @param errorCallback (Optional) A function to execute if the call fails.
      * @returns The item's metadata.
      */
-    async getItem(id, errorCallback) {
+    async getItem(itemId, errorCallback) {
         try {
-            const response = await this.axiosClient.get(`items/${id}`);
+            const response = await this.axiosClient.get(`items/${itemId}`);
+            console.log(response);
             return response.data.item;
         } catch (error) {
             this.handleError(error, errorCallback)
@@ -108,8 +109,48 @@ export default class XchangeClient extends BindingClass {
         } catch (error) {
             this.handleError(error, errorCallback)
         }
-
     }
+
+    /**
+     * Search for a member's items.
+     * @returns The member's items.
+     */
+    async getMemberListings(errorCallBack) {
+        try {
+            const token = await this.getTokenOrThrow("You must be logged in to view items.");
+            const response = await this.axiosClient.get(`members`, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+
+             console.log(typeof response);
+             console.log("this is the response form the API: " + JSON.stringify(response.data.memberItems));
+             return response.data.memberItems;
+        } catch (error) {
+            this.handleError(error, errorCallBack);
+        }
+    }
+
+    /**
+     * Get the identity of the current user
+     * @param errorCallback (Optional) A function to execute if the call fails.
+     * @returns The user information for the current user.
+     */
+    async getIdentity(errorCallback) {
+        try {
+            const isLoggedIn = await this.authenticator.isUserLoggedIn();
+
+            if (!isLoggedIn) {
+                return undefined;
+            }
+
+            return await this.authenticator.getCurrentUserInfo();
+        } catch (error) {
+            this.handleError(error, errorCallback)
+        }
+    }
+
 
     /**
      * Helper method to log the error and run any error functions.
