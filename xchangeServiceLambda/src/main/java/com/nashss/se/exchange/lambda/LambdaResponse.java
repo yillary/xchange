@@ -73,6 +73,7 @@ public class LambdaResponse extends APIGatewayProxyResponseEvent {
      */
     public static LambdaResponse error(Exception e) {
         log.info("error with exception");
+        log.error(e);
         return error(e.getMessage());
     }
 }
