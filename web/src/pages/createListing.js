@@ -13,7 +13,7 @@ class CreateListing extends BindingClass {
         super();
         this.bindClassMethods(['mount', 'submit', 'redirectToViewMemberDashboard'], this);
         this.dataStore = new DataStore();
-        this.dataStore.addChangeListener(this.redirectToViewMemberDashboard);
+        // this.dataStore.addChangeListener(this.redirectToViewMemberDashboard);
         this.header = new Header(this.dataStore);
         this.authenticator = new Authenticator();
     }
@@ -51,31 +51,39 @@ class CreateListing extends BindingClass {
         const selectedType = document.querySelector('input[name="type_selector"]:checked');
         const selectedTypeValue = selectedType.value; 
 
-        //tags were included in the boiler plate example, but not needed for mine.
-        // let tags;
-        // if (tagsText.length < 1) {
-        //     tags = null;
-        // } else {
-        //     tags = tagsText.split(/\s*,\s*/);
+        //making a call to the client to make a call to the API:
+
+        // try {
+        //     const listing = this.client.createListing(listingTitle, description, selectedTypeValue, zipCode);
+        //     this.dataStore.set('listing', listing);
+        // } catch (error) {
+        //     createButton.innerText = origButtonText;
+        //     errorMessageDisplay.innerText = `Error: ${error.message}`;
+        //     errorMessageDisplay.classList.remove('hidden');
         // }
 
-        //making a call to the client to make a call to the API:
+        const proceed = true;
         const listing = await this.client.createListing(listingTitle, description, selectedTypeValue, zipCode, (error) => {
             createButton.innerText = origButtonText;
             errorMessageDisplay.innerText = `Error: ${error.message}`;
             errorMessageDisplay.classList.remove('hidden');
+            proceed = false;
         });
-        this.dataStore.set('listing', listing);    
+        this.dataStore.set('listing', listing);   
+        this.redirectToViewMemberDashboard(proceed);
     }
 
     /**
      * When the playlist is updated in the datastore, redirect to the view playlist page.
      */
-    redirectToViewMemberDashboard() {
-        const user = this.authenticator.getCurrentUserInfo;
-        if (user != null) {
-            window.location.href = `/memberDashboard.html?id=${user.email}`;
+    redirectToViewMemberDashboard(proceed) {
+        if (proceed == true){
+            const user = this.authenticator.getCurrentUserInfo;
+            if (user != null) {
+                window.location.href = `/memberDashboard.html?id=${user.email}`;
+            }
         }
+
     }
 }
 
@@ -87,4 +95,4 @@ const main = async () => {
     createListing.mount();
 };
 
-window.addEventListener('DOMContentLoaded', main);
+window.addEventListener('DOMContentLoaded', main);  
