@@ -44,12 +44,14 @@ class CreateListing extends BindingClass {
         const origButtonText = createButton.innerText;
         createButton.innerText = 'Loading...';
 
+        //retrieving our parameters to pass on to the API
         const listingTitle = document.getElementById('create-title').value;
         const description = document.getElementById('create-description').value;
         const zipCode = document.getElementById('create-zipCode').value;
         const selectedType = document.querySelector('input[name="type_selector"]:checked');
         const selectedTypeValue = selectedType.value; 
 
+        //tags were included in the boiler plate example, but not needed for mine.
         // let tags;
         // if (tagsText.length < 1) {
         //     tags = null;
@@ -57,20 +59,19 @@ class CreateListing extends BindingClass {
         //     tags = tagsText.split(/\s*,\s*/);
         // }
 
+        //making a call to the client to make a call to the API:
         const listing = await this.client.createListing(listingTitle, description, selectedTypeValue, zipCode, (error) => {
             createButton.innerText = origButtonText;
             errorMessageDisplay.innerText = `Error: ${error.message}`;
             errorMessageDisplay.classList.remove('hidden');
         });
-        this.dataStore.set('listing', listing);
+        this.dataStore.set('listing', listing);    
     }
 
     /**
      * When the playlist is updated in the datastore, redirect to the view playlist page.
      */
     redirectToViewMemberDashboard() {
-        //get current user info from authenticator
-        //redirect to memberDashboard.
         const user = this.authenticator.getCurrentUserInfo;
         if (user != null) {
             window.location.href = `/memberDashboard.html?id=${user.email}`;

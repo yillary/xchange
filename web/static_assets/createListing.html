@@ -12,64 +12,40 @@
 </head>
 
 <body class="background">
-<header class="header" id="header"></header>
-<div class="card">
-    <h2>Create Listing</h2>
-    <!-- FORM FIELD ENTER TEXT -->
-    <form class="card-content" id="create-playlist-form">
-        <p class="hidden error" id="error-message"> </p>
-        <p class="form-field">
-            <label>Title</label>
-            <input type="text" class="validated-field" id="create-title" placeholder="Graphic T" autofocus data-tip="Title must be 20 charaters or less.">
-            <label>Description</label>
-            <input type="text" class="validated-field" id="create-description" placeholder="Size, Color, Condition" autofocus data-tip="Description must be 200 characters or less.">
-            <label>Zip Code</label>
-            <input type="text" class="validated-field" id="create-zipCode" placeholder="98044" autofocus>
-        </p>   
-        <!-- MENU OF TYPES RADIO BUTTONS -->
-        <form class="button-group">
-        <input checked type="radio" id="tops" name="type_selector" value="Top">
-        <label for="tops">TOP</label><br>
-        <input type="radio" id="bottoms" name="type_selector" value="Bottom">
-        <label for="bottoms">BOTTOM</label><br>
-        <input type="radio" id="outerwear" name="type_selector" value="Outerwear">
-        <label for="outerwear">OUTERWEAR</label>
-        <input type="radio" id="accessories" name="type_selector" value="Accessory">
-        <label for="accessories">ACCESSORY</label>
-        <!-- SUBMIT BUTTON -->
-        <p>
-            <a href="#" class="button" id="create">Post Listing</a>
-        </p>
+    <header class="header" id="header"></header>
+    <div class="card">
+        <h2>Create Listing</h2>
+        <!-- FORM FIELD ENTER TEXT -->
+        <form class="card-content" id="create-playlist-form">
+            <!-- take out hiddne from below class -->
+            <p class="hidden error" id="error-message"> </p>
+            <p class="form-field">
+                <label>Title</label>
+                <input type="text" required class="validated-field" id="create-title" placeholder="Graphic T" 
+                    autofocus data-tip="Title must be 20 charaters or less.">
+                <label>Description</label>
+                <input type="text" required class="validated-field" id="create-description" placeholder="Size, Color, Condition" 
+                    autofocus data-tip="Description must be 200 characters or less.">
+                <label>Zip Code</label>
+                <input type="text" required class="validated-field" id="create-zipCode" placeholder="98044" autofocus>
+            </p>   
+                <!-- MENU OF TYPES RADIO BUTTONS -->
+                <form class="button-group">
+                <input checked type="radio" id="tops" name="type_selector" value="Top">
+                <label for="tops">TOP</label><br>
+                <input type="radio" id="bottoms" name="type_selector" value="Bottom">
+                <label for="bottoms">BOTTOM</label><br>
+                <input type="radio" id="outerwear" name="type_selector" value="Outerwear">
+                <label for="outerwear">OUTERWEAR</label>
+                <input type="radio" id="accessories" name="type_selector" value="Accessory">
+                <label for="accessories">ACCESSORY</label>
+                <!-- SUBMIT BUTTON -->
+            <p>
+                <a href="#" class="button" id="create">Post Listing</a>
+            </p>
     </form>
 </div>
-
-
-<a href="memberDashboard.html"> Back to My Stuff</a>
-
 
 </body>
 </html>
 
-
-<body class="background">
-    <header class="header" id="header"></header>
-    <div class="card">
-        <h2>Create Playlist</h2>
-        <form class="card-content" id="create-playlist-form">
-            <p class="hidden error" id="error-message"> </p>
-            <p class="form-field">
-                <label>Playlist Name</label>
-                <input type="text" required class="validated-field" id="playlist-name" placeholder="smooth-jamz"
-                    autofocus>
-            </p>
-            <p class="form-field">
-                <label>Tags</label>
-                <input type="text" id="tags" class="tags" placeholder="tag1,tag2"
-                    data-tip="Must be a comma separated list of tags">
-            </p>
-            <p>
-                <a href="#" class="button" id="create">Create Playlist</a>
-            </p>
-        </form>
-    </div>
-</body>
