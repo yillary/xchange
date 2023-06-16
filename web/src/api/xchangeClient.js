@@ -160,6 +160,35 @@ export default class XchangeClient extends BindingClass {
          }
      }
 
+          /**
+      * Create a new listing owned by the current user.
+      * @param title The title of the item to create.
+      * @param description to associate with item.
+      * @param type of clothing to associate with item.
+      * @param zipCode to associate with item.
+      * @param errorCallback (Optional) A function to execute if the call fails.
+      * @returns The listing that has been created.
+      */
+          async updateListing(title, description, zipCode, exchanged, itemId, errorCallback) {
+            try {
+                const token = await this.getTokenOrThrow("Only authenticated users can create listings.");
+                const response = await this.axiosClient.post(`items`, {
+                    title: title,
+                    description: description,
+                    zipCode: zipCode,
+                    exchanged: exchanged,
+                    itemId: itemId
+                }, {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+                return response.data.listing;
+            } catch (error) {
+                this.handleError(error, errorCallback)
+            }
+        }
+
 
     /**
      * Get the identity of the current user
