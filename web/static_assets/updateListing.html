@@ -14,38 +14,41 @@
 <body class="background">
     <header class="header" id="header"></header>
     <div class="card">
-        <h2>Create Listing</h2>
+        <h2>Update Listing</h2>
         <!-- FORM FIELD ENTER TEXT -->
         <form class="card-content" id="create-playlist-form">
-
+            <nav>
+                <img src="pink-shirt.png" alt="Image Goes Here" width="200" height="200" type="image/png">
+            </nav>
             <!-- take out hiddne from below class -->
             <p class="error" id="error-message"> </p>
-            <p class="form-field">
-                <label>Title</label>
-                <input type="text" required class="validated-field" id="create-title" placeholder="Graphic T" 
-                    autofocus data-tip="Title must be 20 charaters or less.">
-                <label>Description</label>
-                <input type="text" required class="validated-field" id="create-description" placeholder="Size, Color, Condition" 
-                    autofocus data-tip="Description must be 200 characters or less.">
-                <label>Zip Code</label>
-                <input type="text" required class="validated-field" id="create-zipCode" placeholder="98044" autofocus>
-            </p>   
-                <!-- MENU OF TYPES RADIO BUTTONS -->
-                <form class="button-group">
-                <input checked type="radio" id="tops" name="type_selector" value="Top">
-                <label for="tops">TOP</label><br>
-                <input type="radio" id="bottoms" name="type_selector" value="Bottom">
-                <label for="bottoms">BOTTOM</label><br>
-                <input type="radio" id="outerwear" name="type_selector" value="Outerwear">
-                <label for="outerwear">OUTERWEAR</label>
-                <input type="radio" id="accessories" name="type_selector" value="Accessory">
-                <label for="accessories">ACCESSORY</label>
-                <!-- SUBMIT BUTTON -->
             <p>
-                <a href="#" class="button" id="create">Post Listing</a>
+                <label>Title</label>
+                <input type="text" required class="validated-field" id="update-title"  
+                    autofocus data-tip="Title must be 20 charaters or less.">
             </p>
+            <p>
+                <label>Description</label>
+                <input type="text" required class="validated-field" id="update-description"  
+                     data-tip="Description must be 200 characters or less.">
+            </p>
+            <p>
+                <label>Zip Code</label>
+                <input type="text" required class="validated-field" id="update-zipCode">
+            
+            </p>
+                <input type="radio" id="exchanged" name="exchanged_selector" value="Exchanged">
+                <label for="tops">EXCHANGED</label><br>
+            </p>
+            <p>
+                <a href="#" class="button" id="update">Update</a>
+            </p>
+                
+            
+            
     </form>
 </div>
-
 </body>
+
+
 </html>

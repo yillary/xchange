@@ -15,7 +15,7 @@ export default class XchangeClient extends BindingClass {
     constructor(props = {}) {
         super();
 
-        const methodsToBind = ['clientLoaded', 'getIdentity', 'login', 'logout', 'getItem', 'search', 'getMemberListings'];
+        const methodsToBind = ['clientLoaded', 'getIdentity', 'login', 'logout', 'getItem', 'search', 'getMemberListings', 'updateListing'];
         this.bindClassMethods(methodsToBind, this);
 
         this.authenticator = new Authenticator();;
@@ -170,6 +170,7 @@ export default class XchangeClient extends BindingClass {
       * @returns The listing that has been created.
       */
           async updateListing(title, description, zipCode, exchanged, itemId, errorCallback) {
+           console.log("Hello from XchangeClient.updateListing()");
             try {
                 const token = await this.getTokenOrThrow("Only authenticated users can create listings.");
                 const response = await this.axiosClient.post(`items`, {
