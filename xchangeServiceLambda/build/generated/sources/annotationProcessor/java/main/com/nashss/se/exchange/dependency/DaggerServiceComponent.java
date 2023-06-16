@@ -1,16 +1,16 @@
 package com.nashss.se.exchange.dependency;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
-import com.nashss.se.exchange.ItemDao;
-import com.nashss.se.exchange.ItemDao_Factory;
-import com.nashss.se.exchange.MemberDao;
-import com.nashss.se.exchange.MemberDao_Factory;
 import com.nashss.se.exchange.activity.CreateItemActivity;
 import com.nashss.se.exchange.activity.CreateMemberActivity;
 import com.nashss.se.exchange.activity.GetItemActivity;
 import com.nashss.se.exchange.activity.GetMemberItemsActivity;
 import com.nashss.se.exchange.activity.SearchTypeZipActivity;
 import com.nashss.se.exchange.activity.UpdateItemActivity;
+import com.nashss.se.exchange.dynamodb.ItemDao;
+import com.nashss.se.exchange.dynamodb.ItemDao_Factory;
+import com.nashss.se.exchange.dynamodb.MemberDao;
+import com.nashss.se.exchange.dynamodb.MemberDao_Factory;
 import dagger.internal.DaggerGenerated;
 import dagger.internal.DoubleCheck;
 import dagger.internal.Preconditions;

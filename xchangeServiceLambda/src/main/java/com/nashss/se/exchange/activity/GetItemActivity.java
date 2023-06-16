@@ -5,8 +5,9 @@ import com.nashss.se.exchange.Models.ItemModel;
 import com.nashss.se.exchange.activity.requests.GetItemRequest;
 import com.nashss.se.exchange.activity.results.GetItemResult;
 import com.nashss.se.exchange.converters.ModelConverter;
-import com.nashss.se.exchange.Item;
-import com.nashss.se.exchange.ItemDao;
+
+import com.nashss.se.exchange.dynamodb.Item;
+import com.nashss.se.exchange.dynamodb.ItemDao;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

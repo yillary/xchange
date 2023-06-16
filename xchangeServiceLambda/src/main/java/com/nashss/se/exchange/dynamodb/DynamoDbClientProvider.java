@@ -1,4 +1,4 @@
-package com.nashss.se.exchange;
+package com.nashss.se.exchange.dynamodb;
 
 
 import com.amazonaws.auth.DefaultAWSCredentialsProviderChain;

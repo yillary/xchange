@@ -2,10 +2,13 @@ package com.nashss.se.exchange.dynamoDb;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedQueryList;
-import com.nashss.se.exchange.Item;
-import com.nashss.se.exchange.ItemDao;
+
+import com.nashss.se.exchange.dynamodb.Item;
+import com.nashss.se.exchange.dynamodb.ItemDao;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
