@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.nashss.se.exchange.dynamodb.ItemDaoTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-06-02T23:35:47" hostname="Hillarys-MBP.hsd1.wa.comcast.net" time="3.061">
+<testsuite name="com.nashss.se.exchange.dynamoDb.ItemDaoTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-06-16T14:57:10" hostname="Hillarys-MBP.hsd1.wa.comcast.net" time="3.71">
   <properties/>
-  <testcase name="saveItem_givenValidItem_returnsTrue()" classname="com.nashss.se.exchange.dynamodb.ItemDaoTest" time="2.874"/>
-  <testcase name="searchItems_givenZipTypeAndCriteria_returnsListItemsInSameZipCodeAndType()" classname="com.nashss.se.exchange.dynamodb.ItemDaoTest" time="0.014"/>
-  <testcase name="getItem_existingItem_loadsItem()" classname="com.nashss.se.exchange.dynamodb.ItemDaoTest" time="0.159"/>
-  <system-out><![CDATA[Item is: Item{itemId='ID001', title='Awesome Shirt', description='This is a super awesome shirt pink, M', type='Top', exchanged=false, images=[img2, img1], zipCode='98045', email='this@gmail.com'}
+  <testcase name="saveItem_givenValidItem_returnsTrue()" classname="com.nashss.se.exchange.dynamoDb.ItemDaoTest" time="3.55"/>
+  <testcase name="searchItems_givenZipTypeAndCriteria_returnsListItemsInSameZipCodeAndType()" classname="com.nashss.se.exchange.dynamoDb.ItemDaoTest" time="0.009"/>
+  <testcase name="getItem_existingItem_loadsItem()" classname="com.nashss.se.exchange.dynamoDb.ItemDaoTest" time="0.143"/>
+  <system-out><![CDATA[2023-06-16 07:57:13 INFO  ItemDao:69 - Hello from the ItemDao!
+Item is: Item{itemId='ID001', title='Awesome Shirt', description='This is a super awesome shirt pink, M', type='Top', exchanged=false, zipCode='98045', email='this@gmail.com'}
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

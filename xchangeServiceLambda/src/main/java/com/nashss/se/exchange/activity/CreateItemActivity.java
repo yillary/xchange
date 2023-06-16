@@ -5,9 +5,10 @@ import com.nashss.se.exchange.activity.requests.CreateItemRequest;
 import com.nashss.se.exchange.activity.results.CreateItemResult;
 import com.nashss.se.exchange.converters.ModelConverter;
 import com.nashss.se.exchange.dynamodb.Item;
-import com.nashss.se.exchange.dynamodb.ItemDao;
+
 import com.nashss.se.exchange.dynamodb.MemberDao;
 
+import com.nashss.se.exchange.dynamodb.ItemDao;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

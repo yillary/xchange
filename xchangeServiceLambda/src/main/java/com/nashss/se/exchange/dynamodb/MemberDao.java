@@ -1,6 +1,8 @@
 package com.nashss.se.exchange.dynamodb;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
+import com.nashss.se.exchange.dynamodb.Item;
+import com.nashss.se.exchange.dynamodb.Member;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

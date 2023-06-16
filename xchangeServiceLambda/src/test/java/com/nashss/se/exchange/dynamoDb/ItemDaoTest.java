@@ -1,9 +1,14 @@
-package com.nashss.se.exchange.dynamodb;
+package com.nashss.se.exchange.dynamoDb;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedQueryList;
+
+import com.nashss.se.exchange.dynamodb.Item;
+import com.nashss.se.exchange.dynamodb.ItemDao;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
@@ -11,7 +16,7 @@ import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.mockito.Mockito.mock;
+
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 

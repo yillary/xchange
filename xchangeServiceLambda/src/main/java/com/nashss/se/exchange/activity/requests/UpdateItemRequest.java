@@ -3,20 +3,22 @@ package com.nashss.se.exchange.activity.requests;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
-@JsonDeserialize(builder = CreateItemRequest.Builder.class)
-public class CreateItemRequest {
+@JsonDeserialize(builder = UpdateItemRequest.Builder.class)
+public class UpdateItemRequest {
     private final String title;
     private final String description;
-    private final String type;
     private final String zipCode;
+    private final String itemId;
     private final String email;
+    private final Boolean exchanged;
 
-    public CreateItemRequest(String title, String description, String type, String zipCode, String email) {
+    public UpdateItemRequest(String title, String description, String zipCode, String itemId, String email, Boolean exchanged) {
         this.title = title;
         this.description = description;
-        this.type = type;
         this.zipCode = zipCode;
+        this.itemId = itemId;
         this.email = email;
+        this.exchanged = exchanged;
     }
 
     public String getTitle() {
@@ -27,27 +29,20 @@ public class CreateItemRequest {
         return description;
     }
 
-    public String getType() {
-        return type;
-    }
-
     public String getZipCode() {
         return zipCode;
+    }
+
+    public String getItemId() {
+        return itemId;
     }
 
     public String getEmail() {
         return email;
     }
 
-    @Override
-    public String toString() {
-        return "CreateItemRequest{" +
-                "title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", type='" + type + '\'' +
-                ", zipCode='" + zipCode + '\'' +
-                ", email='" + email + '\'' +
-                '}';
+    public Boolean getExchanged() {
+        return exchanged;
     }
 
     //CHECKSTYLE:OFF:Builder
@@ -55,13 +50,26 @@ public class CreateItemRequest {
         return new Builder();
     }
 
+    @Override
+    public String toString() {
+        return "UpdateItemRequest{" +
+                "title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                ", itemId='" + itemId + '\'' +
+                ", email='" + email + '\'' +
+                ", exchanged=" + exchanged +
+                '}';
+    }
+
     @JsonPOJOBuilder
     public static class Builder {
         private String title;
         private String description;
-        private String type;
         private String zipCode;
+        private String itemId;
         private String email;
+        private Boolean exchanged;
 
         public Builder withTitle(String title) {
             this.title = title;
@@ -73,21 +81,28 @@ public class CreateItemRequest {
             return this;
         }
 
-        public Builder withType(String type) {
-            this.type = type;
-            return this;
-        }
-
         public Builder withZipCode(String zipCode) {
             this.zipCode = zipCode;
             return this;
         }
+
+        public Builder withItemId(String itemId) {
+            this.itemId = itemId;
+            return this;
+        }
+
         public Builder withEmail(String email) {
             this.email = email;
             return this;
         }
-        public CreateItemRequest build() {
-            return new CreateItemRequest(title, description, type, zipCode, email);
+
+        public Builder withExchanged(Boolean exchanged) {
+            this.exchanged = exchanged;
+            return this;
+        }
+
+        public UpdateItemRequest build() {
+            return new UpdateItemRequest(title, description, zipCode, itemId, email, exchanged);
         }
     }
 }

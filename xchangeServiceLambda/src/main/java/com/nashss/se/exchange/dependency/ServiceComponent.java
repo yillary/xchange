@@ -44,4 +44,10 @@ public interface ServiceComponent {
      * @return GetMemberItemsActivity
      */
     GetMemberItemsActivity providesGetMemberItemsActivity();
+
+    /**
+     * Provides the relevantActivity.
+     * @return UpdateItemActivity
+     */
+    UpdateItemActivity providesUpdateItemActivity();
 }

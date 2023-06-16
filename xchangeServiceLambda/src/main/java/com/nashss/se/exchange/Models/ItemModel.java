@@ -12,19 +12,16 @@ public class ItemModel {
     private final String description;
     private final String type;
     private final Boolean exchanged;
-    private final Set<String> images;
     private final String email;
     private final String zipCode;
 
 
-    private ItemModel(String itemId, String title, String description, String type, Boolean exchanged,
-                      Set<String> images, String email, String zipCode) {
+    private ItemModel(String itemId, String title, String description, String type, Boolean exchanged, String email, String zipCode) {
         this.itemId = itemId;
         this.title = title;
         this.description = description;
         this.type = type;
         this.exchanged = exchanged;
-        this.images = images;
         this.email = email;
         this.zipCode = zipCode;
     }
@@ -49,10 +46,6 @@ public class ItemModel {
         return exchanged;
     }
 
-    public Set<String> getImages() {
-        return images;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -61,21 +54,33 @@ public class ItemModel {
         return zipCode;
     }
 
+    @Override
+    public String toString() {
+        return "ItemModel{" +
+                "itemId='" + itemId + '\'' +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", type='" + type + '\'' +
+                ", exchanged=" + exchanged +
+                ", email='" + email + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                '}';
+    }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {return true;}
-        if (o == null || getClass() != o.getClass()) {return false;}
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
         ItemModel itemModel = (ItemModel) o;
-        return Objects.equals(itemId, itemModel.itemId) && Objects.equals(title, itemModel.title) &&
-                Objects.equals(description, itemModel.description) && Objects.equals(type, itemModel.type) &&
-                Objects.equals(exchanged, itemModel.exchanged) && Objects.equals(images, itemModel.images) &&
-                Objects.equals(email, itemModel.email);
+        return Objects.equals(itemId, itemModel.itemId) && Objects.equals(title, itemModel.title)
+                && Objects.equals(description, itemModel.description) && Objects.equals(type, itemModel.type)
+                && Objects.equals(exchanged, itemModel.exchanged) && Objects.equals(email, itemModel.email)
+                && Objects.equals(zipCode, itemModel.zipCode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(itemId, title, description, type, exchanged, images, email);
+        return Objects.hash(itemId, title, description, type, exchanged, email, zipCode);
     }
 
     //CHECKSTYLE:OFF:Builder
@@ -89,7 +94,6 @@ public class ItemModel {
         private String description;
         private String type;
         private Boolean exchanged;
-        private Set<String> images;
         private String email;
         private String zipCode;
 
@@ -118,11 +122,6 @@ public class ItemModel {
             return this;
         }
 
-        public Builder withImages(Set<String> images) {
-            this.images = images;
-            return this;
-        }
-
         public Builder withEmail(String email) {
             this.email = email;
             return this;
@@ -134,7 +133,7 @@ public class ItemModel {
         }
 
         public ItemModel build() {
-            return new ItemModel(itemId, title, description, type, exchanged, images, email, zipCode);
+            return new ItemModel(itemId, title, description, type, exchanged, email, zipCode);
         }
     }
 }

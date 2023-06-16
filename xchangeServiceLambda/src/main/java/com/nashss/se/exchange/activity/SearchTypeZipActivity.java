@@ -19,7 +19,7 @@ public class SearchTypeZipActivity {
     private final ItemDao itemDao;
 
     @Inject
-    public SearchTypeZipActivity(ItemDao itemDao) {
+    public SearchTypeZipActivity(com.nashss.se.exchange.dynamodb.ItemDao itemDao) {
         this.itemDao = itemDao;
     }
 

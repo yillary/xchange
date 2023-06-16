@@ -28,20 +28,4 @@ public class SearchTypeZipLambda
                         serviceComponent.providesSearchTypeZipActivity().handleRequest(request)
         );
     }
-
-//    @Override
-//    public LambdaResponse handleRequest(LambdaRequest<SearchTypeZipRequest> input, Context context) {
-//        System.out.println("SearchTypeZipRequest.hanldeRequest() with input: " + input + " " + context);
-//        log.info("SearchTypeZipLambda: received SearchTypeZipRequest");
-//        return super.runActivity(
-//                () -> input.fromPathAndQuery((path, query) ->
-//                        SearchTypeZipRequest.builder()
-//                                .withZipCode(path.get("zipCode"))
-//                                .withType(path.get("type"))
-//                                .withCriteria(query.get("criteria"))
-//                                .build()),
-//                (request, serviceComponent) ->
-//                        serviceComponent.providesSearchTypeZipActivity().handleRequest(request)
-//        );
-//    }
 }

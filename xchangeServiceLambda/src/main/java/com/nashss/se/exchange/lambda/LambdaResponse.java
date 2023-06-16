@@ -30,6 +30,7 @@ public class LambdaResponse extends APIGatewayProxyResponseEvent {
      */
     public static LambdaResponse success(Object payload) {
         log.info("success");
+        log.info("before it's written to a json, LambdaResponse: " + payload.toString());
         try {
             return new LambdaResponse(200, MAPPER.writeValueAsString(payload));
         } catch (JsonProcessingException e) {
