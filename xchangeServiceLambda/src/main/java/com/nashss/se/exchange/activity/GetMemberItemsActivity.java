@@ -36,6 +36,7 @@ public class GetMemberItemsActivity {
         log.info("Phase one");
         Member member = memberDao.getMember(getMemberItemsRequest.getMemberId());
         log.info("Phase two");
+        log.info("Member's itemIds: " + member.getListings());
         List<Item> items = itemDao.getMemberItems(member);
         Set<ItemModel> result = new HashSet<>();
         for (Item item : items) {

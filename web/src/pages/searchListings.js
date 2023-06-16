@@ -2,7 +2,6 @@ import XchangeClient from '../api/xchangeClient';
 import Header from '../components/header';
 import BindingClass from "../util/bindingClass";
 import DataStore from "../util/DataStore";
-import Table from '../components/table';
 
 /*
 The code below this comment is equivalent to...
@@ -23,10 +22,9 @@ const SELECTED_TYPE_KEY = 'selected-type'; // Add a new constant for the selecte
 const EMPTY_DATASTORE_STATE = {
   [SEARCH_CRITERIA_KEY]: '',
   [SEARCH_RESULTS_KEY]: [],
-  [SEARCH_ZIP_CODE_KEY]: '', // Include the search zip code in the empty data store state
-  [SELECTED_TYPE_KEY]: '', // Include the selected type in the empty data store state
+  [SEARCH_ZIP_CODE_KEY]: '',
+  [SELECTED_TYPE_KEY]: '', 
 };
-
 
 
 /**

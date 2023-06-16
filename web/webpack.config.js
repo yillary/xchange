@@ -29,6 +29,7 @@ module.exports = {
     index: path.resolve(__dirname, 'src', 'pages', 'viewListings.js'),
     selectedItem: path.resolve(__dirname, 'src', 'pages', 'selectedItem.js'),
     searchListings: path.resolve(__dirname, 'src', 'pages', 'searchListings.js'),
+    createListing: path.resolve(__dirname, 'src', 'pages', 'createListing.js'),
     memberDashboard: path.resolve(__dirname, 'src', 'pages', 'memberDashboard.js')
   },
   output: {
