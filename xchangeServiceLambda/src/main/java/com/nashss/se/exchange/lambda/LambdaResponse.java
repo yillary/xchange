@@ -33,6 +33,7 @@ public class LambdaResponse extends APIGatewayProxyResponseEvent {
         try {
             return new LambdaResponse(200, MAPPER.writeValueAsString(payload));
         } catch (JsonProcessingException e) {
+            log.error(e);
             throw new RuntimeException("Unable to convert payload to JSON.");
         }
     }
@@ -72,6 +73,7 @@ public class LambdaResponse extends APIGatewayProxyResponseEvent {
      */
     public static LambdaResponse error(Exception e) {
         log.info("error with exception");
+        log.error(e);
         return error(e.getMessage());
     }
 }

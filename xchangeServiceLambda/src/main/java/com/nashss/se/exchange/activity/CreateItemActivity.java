@@ -47,6 +47,10 @@ public class CreateItemActivity {
             throw new IllegalArgumentException("Title cannot exceed 20 characters");
         }
 
+        if (createItemRequest.getDescription().length() > 200) {
+            throw new IllegalArgumentException("Description cannot exceed 200 characters");
+        }
+
         Item item = new Item();
         item.setItemId(XchangeServiceUtils.generateId());
         item.setTitle(createItemRequest.getTitle());

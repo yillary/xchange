@@ -5,6 +5,8 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBQueryExpression;
 import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedQueryList;
 import com.amazonaws.services.dynamodbv2.model.AmazonDynamoDBException;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -15,6 +17,7 @@ import static com.nashss.se.exchange.dynamodb.Item.ZIPCODE_TYPE_INDEX;
 @Singleton
 public class ItemDao {
     private final DynamoDBMapper mapper;
+    private final Logger log = LogManager.getLogger();
 
     @Inject
     public ItemDao(DynamoDBMapper dynamoDBMapper) {
@@ -63,6 +66,7 @@ public class ItemDao {
         if (item == null) {
             throw new IllegalArgumentException("Item cannot be null");
         }
+        log.info("Hello from the ItemDao!");
         mapper.save(item);
         return true;
     }
