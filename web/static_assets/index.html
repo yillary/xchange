@@ -14,35 +14,36 @@
 
 <body class="background">
     <header class="header" id="header"></header>
-    <div class="card">
-        <h3>BE THE CHANGE. BE AN EXCHANGER. </h3>
+    <div class="image-container">
+        <div class="card">
+            <h1>Be the change. Be an Exchanger. </h1>
 
-        <form class="card-content" id="search-listings-form">
-            <p class="form-field">
-                <input type="text" class="validated-field" id="search-criteria" placeholder="SEARCH" autofocus>
-                <input type="text" class="validated-field" id="search-zip-code" placeholder="ZIP CODE" autofocus>
-                <a href="#" class="button" id="search-btn">SEARCH</a>
-            </p>
-        </form>
+            <form class="card-content" id="search-listings-form">
+                <p class="form-field">
+                    <input type="text" class="validated-field" id="search-criteria" placeholder="SEARCH" autofocus>
+                    <input type="text" class="validated-field" id="search-zip-code" placeholder="ZIP CODE" autofocus>
+                    <a href="#" class="button" id="search-btn">SEARCH</a>
+                </p>
+            </form>
 
-            <!-- MENU OF TYPES -->
-        <form class="button-group">
-            <input checked type="radio" id="tops" name="type_selector" value="Top">
-            <label for="tops">TOPS</label><br>
-            <input type="radio" id="bottoms" name="type_selector" value="Bottom">
-            <label for="bottoms">BOTTOMS</label><br>
-            <input type="radio" id="outerwear" name="type_selector" value="Outerwear">
-            <label for="outerwear">OUTERWEAR</label>
-            <input type="radio" id="accessories" name="type_selector" value="Accessory">
-            <label for="accessories">ACCESSORIES</label>
-        </form>
+                <!-- MENU OF TYPES -->
+            <form class="button-group">
+                <input checked type="radio" id="tops" name="type_selector" value="Top">
+                <label for="tops">TOPS</label><br>
+                <input type="radio" id="bottoms" name="type_selector" value="Bottom">
+                <label for="bottoms">BOTTOMS</label><br>
+                <input type="radio" id="outerwear" name="type_selector" value="Outerwear">
+                <label for="outerwear">OUTERWEAR</label>
+                <input type="radio" id="accessories" name="type_selector" value="Accessory">
+                <label for="accessories">ACCESSORIES</label>
+            </form>
+        </div>
     </div>
-    <a href="selectedItem.html"> Select an Item</a>
     <div id="table-container"></div>
     </p>
     <!-- Logic to provide an image gallery for the search results -->
 
-    <div class="card-content" id='search-results-container'>
+    <div class="card hidden" id='search-results-container'>
         <h5>RESULTS FOR <span id="search-criteria-display"></span></h5>
         <div id="search-results-display"></div>
     </div>

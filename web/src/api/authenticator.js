@@ -33,6 +33,9 @@ export default class Authenticator extends BindingClass {
 
     async login() {
         await Auth.federatedSignIn();
+        //check if member is in db
+        
+        //if not, redirect to createMember.js
     }
 
     async logout() {
