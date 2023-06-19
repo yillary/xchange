@@ -129,6 +129,12 @@
     padding: 8px;
 }
 
+footer {
+  display: block;
+  background-color: var(--primary-color);
+  color: var(--tertiary-color);
+}
+
 .form-field {
     border: none;
     outline: none;
