@@ -43,7 +43,7 @@
   border: 5px solid #777;
 }
 
-.button-group: {
+.button-group {
     display: flex-start;
     flex-direction: row;
     justify: center;

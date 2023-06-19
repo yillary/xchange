@@ -67,11 +67,11 @@ class SearchListings extends BindingClass {
         const searchZipCode = document.getElementById('search-zip-code').value;
         const selectedType = document.querySelector('input[name="type_selector"]:checked');
 
-        if (!selectedType) {
-            // Radio button not selected, handle the error or show a message to the user
-            // For now, let's just return without performing the search
-            return;
-        }
+        // if (!selectedType) {
+        //     // Radio button not selected, handle the error or show a message to the user
+        //     // For now, let's just return without performing the search
+        //     return;
+        // }
 
         const selectedTypeValue = selectedType.value; // Retrieve the value of the selected type
         const previousSearchCriteria = this.dataStore.get(SEARCH_CRITERIA_KEY);
