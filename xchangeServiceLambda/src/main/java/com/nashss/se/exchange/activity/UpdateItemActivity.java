@@ -32,18 +32,25 @@ public class UpdateItemActivity {
     public UpdateItemResult handleRequest(final UpdateItemRequest updateItemRequest) {
         log.info("Received updateItemRequest {}", updateItemRequest);
 
-        if(updateItemRequest.getItemId() == null || updateItemRequest.getZipCode() == null){
-            throw new IllegalArgumentException("itemId or zipCode is null");
+        if(updateItemRequest.getItemId() == null){
+            throw new IllegalArgumentException("itemId is null");
+        }
+
+        if( updateItemRequest.getZipCode() == null) {
+            throw new IllegalArgumentException("Zip code is null.");
         }
 
         if(XchangeServiceUtils.isValidZipCode(updateItemRequest.getZipCode()) == false) {
-            throw new IllegalArgumentException("Zip Code is invalid. Must contain numbers only");
+            throw new IllegalArgumentException("Zip Code is invalid. Must contain numbers only and only five numbers.");
         }
 
         if (updateItemRequest.getTitle().length() > 20) {
             throw new IllegalArgumentException("Title cannot exceed 20 characters");
         }
 
+        if (updateItemRequest.getDescription().length() > 200) {
+            throw new IllegalArgumentException("Your description is too long. It cannot exceed 200 characters.");
+        }
         //load the original item from the Dao. With this item, assign the non-updated fields.
         String itemId = updateItemRequest.getItemId();
         Item itemRetrieved = itemDao.getItem(itemId);
@@ -58,7 +65,7 @@ public class UpdateItemActivity {
 
         item.setTitle(updateItemRequest.getTitle());
         item.setDescription(updateItemRequest.getDescription());
-        item.setZipCode(updateItemRequest.getEmail());
+        item.setZipCode(updateItemRequest.getZipCode());
         item.setExchanged(updateItemRequest.getExchanged());
 
         log.info("Phase two");

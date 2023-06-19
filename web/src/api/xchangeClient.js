@@ -173,7 +173,7 @@ export default class XchangeClient extends BindingClass {
            console.log("Hello from XchangeClient.updateListing()");
             try {
                 const token = await this.getTokenOrThrow("Only authenticated users can create listings.");
-                const response = await this.axiosClient.post(`items`, {
+                const response = await this.axiosClient.put(`items`, {
                     title: title,
                     description: description,
                     zipCode: zipCode,

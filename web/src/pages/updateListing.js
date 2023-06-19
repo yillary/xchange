@@ -58,11 +58,12 @@ class UpdateListing extends BindingClass {
         //prep for an error message should one occur
         const errorMessageDisplay = document.getElementById('error-message');
         errorMessageDisplay.innerText = ``;
-        errorMessageDisplay.classList.add('hidden');
+        // errorMessageDisplay.classList.add('hidden');
 
 
         console.log("phase one");
 
+        //submit button configuration
         const updateButton = document.getElementById('update');
         const origButtonText = updateButton.innerText;
         updateButton.innerText = 'Got it!';
@@ -71,42 +72,33 @@ class UpdateListing extends BindingClass {
 
         //retrieving our parameters to pass on to the API
         const title = document.getElementById('update-title').value;
+        console.log("after title " + title);
         const description = document.getElementById('update-description').value;
+        console.log("after desc " + description);
         const zipCode = document.getElementById('update-zipCode').value;
-        const exchanged = document.querySelector('input[name="exchanged_selector"]:checked');
-        const exchangedValue = exchanged.value;
+        console.log("after zip " + zipCode);
+        const exchangedValue = document.querySelector('input[name="exchanged_selector"]:checked');
+  
+        //getting ItemId:
+        const urlParams = new URLSearchParams(window.location.search);
+        const itemId = urlParams.get('itemId');
 
-        // if (!exchanged) {
-        //     exchanged.value = false;
-        // } else {
-        //     exchanged.value = true;
-        // }
-
-        // console.log("value of title, desc, zip:", listingTitle, description, zipCode, exchangedValue);
+        //checking values are correct:
+        console.log("value of title, desc, zip, itemId:", title + description + zipCode + exchangedValue.value + " " + itemId);
 
         console.log("phase three");
 
         //make a call to the API, proceed if no errors are thrown.
-        // console.log(typeof exchangedValue);
-
-
-        // const title = "dothisthing!";
-        // const description =  "make this a description";
-        // const zipCode = "99999";
-        // const exchangedValue = false;
-        // const itemId = a1vkV;
-
         const proceed = true;
-        // await this.client.updateListing(title, description, zipCode, exchangedValue, itemId,(error));
-        await this.client.updateListing(title, description, zipCode, exchangedValue, itemId, (error) => {
+
+        await this.client.updateListing(title, description, zipCode, exchangedValue.value, itemId, (error) => {
             updateButton.innerText = origButtonText;
             errorMessageDisplay.innerText = `Error: ${error.message}`;
             errorMessageDisplay.classList.remove('hidden');
             proceed = false;
         });
 
-
-        this.dataStore.set('listing', listing);   
+        // this.dataStore.set('listing', listing);   
         this.redirectToViewMemberDashboard(proceed);
     }
 
@@ -114,6 +106,7 @@ class UpdateListing extends BindingClass {
      * When the playlist is updated in the datastore, redirect to the view playlist page.
      */
     redirectToViewMemberDashboard(proceed) {
+        console.log("made it to the redirect method.")
         if (proceed == true){
             const user = this.authenticator.getCurrentUserInfo;
             if (user != null) {
