@@ -9,8 +9,7 @@ export default class Table extends BindingClass {
       super();
 
       const methodsToBind = ['addTableToPage', 'buildTable'];
-      this.bindClassMethods(methodsToBind, this);
-
+      this.bindClassMethods(methodsToBind, this); 
       this.client = new XchangeClient();
   }
 
@@ -79,7 +78,7 @@ export default class Table extends BindingClass {
                 const itemLink = document.createElement('a');
                 itemLink.id = 'edit-button';
                 itemLink.className= 'button';
-                itemLink.href = '/updateItem.html?itemId=' + item.itemId;
+                itemLink.href = '/updateListing.html?itemId=' + item.itemId;
                 itemLink.innerText = 'Edit';
                 const td = document.createElement('td');
                 td.appendChild(itemLink);
@@ -98,8 +97,8 @@ export default class Table extends BindingClass {
 
 createEditButton(item) {
     const itemLink = document.createElement('a');
-   itemLink.id = document.createElement('id');
-    itemLink.href = '/updateItem.html?itemId=' + item.itemId;
+    itemLink.id = document.createElement('id');
+    itemLink.href = '/updateListing.html?itemId=' + item.itemId;
 }
 
 /**

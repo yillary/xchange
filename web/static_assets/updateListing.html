@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="assets/updateListing.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>xchange</title>
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+
+<body class="background">
+    <header class="header" id="header"></header>
+    <div class="card">
+        <h2>Update Listing</h2>
+        <!-- FORM FIELD ENTER TEXT -->
+        <form class="card-content" id="create-playlist-form">
+            <nav>
+                <img src="pink-shirt.png" alt="Image Goes Here" width="200" height="200" type="image/png">
+            </nav>
+            <!-- take out hiddne from below class -->
+            <p class="error" id="error-message"> </p>
+            <p>
+                <label>Title</label>
+                <input type="text" required class="validated-field" id="update-title"  
+                    autofocus data-tip="Title must be 20 charaters or less.">
+            </p>
+            <p>
+                <label>Description</label>
+                <input type="text" required class="validated-field" id="update-description"  
+                     data-tip="Description must be 200 characters or less.">
+            </p>
+            <p>
+                <label>Zip Code</label>
+                <input type="text" required class="validated-field" id="update-zipCode">
+            
+            </p>
+                <input type="radio" id="exchanged" name="exchanged_selector" value="true">
+                <label for="exchanged">Exchanged</label><br>
+                <input checked type="radio" id="available" name="exchanged_selector" value="false">
+                <label for="available">Available</label><br>
+            </p>
+            <p>
+                <a href="#" class="button" id="update">Update</a>
+            </p>
+                
+            
+            
+    </form>
+</div>
+</body>
+
+
+</html>
