@@ -63,6 +63,10 @@ class SearchListings extends BindingClass {
     async search(evt) {
         evt.preventDefault();
 
+        const errorMessageDisplay = document.getElementById('error-message');
+        errorMessageDisplay.innerText = ``;
+        // errorMessageDisplay.classList.add('hidden');
+
         const searchCriteria = document.getElementById('search-criteria').value;
         const searchZipCode = document.getElementById('search-zip-code').value;
         const selectedType = document.querySelector('input[name="type_selector"]:checked');
@@ -96,7 +100,10 @@ class SearchListings extends BindingClass {
                 [SEARCH_RESULTS_KEY]: results,
             });
             // Handle the response accordingly
-        } else {
+        } else if (searchCriteria && selectedTypeValue && !searchZipCode) {
+            createButton.innerText = origButtonText;
+            errorMessageDisplay.innerText = `Oops, you forgot to add a valid zip code.`;
+            // errorMessageDisplay.classList.remove('hidden');
             this.dataStore.setState(EMPTY_DATASTORE_STATE);
         }
     }

@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html>
-<title>xchange</title>
+
 <head>
+    
 <!--    <script type="text/javascript" src="assets/home.js"></script>-->
     <script type="text/javascript" src="assets/memberDashboard.js"></script>
     <script type="component" src="table.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <meta charset="UTF-8">
+    <title>xchange</title>
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- <meta charset="UTF-8"> -->
 </head>
 
 
@@ -34,12 +40,21 @@
 
 
     <div id="table-container"></div>
-    <p class="button-group">
-        <a href="createListing.html">New Listing</a>
+    <p id="button-create-listing" class="button-group">
+        <!-- <button id="create" onclick="window.location.href='createListing.html';">New Listing</a> -->
+        <a class="button" id="new-listing" href="createListing.html">New Listing</a>
     </p>
 </div>
 </body>
-
+<footer>
+    <div class="footer-whitespace"></div>
+    <div class="footer-container">
+        <p>Hillary Martin<p>
+        <a id='footer-text' href="mailto:hillaryannettemartin.com">Email</a>
+        <a id='footer-text' href="linkedin.com">LinkedIn</a>
+        <a id='footer-text' href="github.com">GitHub</a></p>
+    </div>
+  </footer>
 
 </body>
 </html>

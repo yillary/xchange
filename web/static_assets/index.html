@@ -9,14 +9,15 @@
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body class="background">
     <header class="header" id="header"></header>
-    <div class="image-container">
+    <!-- <div class="image-container"> -->
         <div class="card">
             <h1>Be the change. Be an Exchanger. </h1>
+            <p class="error hidden" id="error-message"> </p>
 
             <form class="card-content" id="search-listings-form">
                 <p class="form-field">
@@ -38,24 +39,21 @@
                 <label for="accessories">ACCESSORIES</label>
             </form>
         </div>
-    </div>
-    <div id="table-container"></div>
-    </p>
+    <!-- </div> -->
     <!-- Logic to provide an image gallery for the search results -->
 
     <div class="card hidden" id='search-results-container'>
         <h5>RESULTS FOR <span id="search-criteria-display"></span></h5>
         <div id="search-results-display"></div>
     </div>
-
-<card id="experiment">
-
-</card>
-
-
-<footer>
-    <p>Author: Hege Refsnes<br>
-    <a href="mailto:hege@example.com">hege@example.com</a></p>
-  </footer>
 </body>
+<footer>
+    <div class="footer-whitespace"></div>
+    <div class="footer-container">
+        <p>Hillary Martin<p>
+        <a id='footer-text' href="mailto:hillaryannettemartin.com">Email</a>
+        <a id='footer-text' href="linkedin.com">LinkedIn</a>
+        <a id='footer-text' href="github.com">GitHub</a></p>
+    </div>
+  </footer>
 </html>

@@ -37,39 +37,12 @@ export default class Header extends BindingClass {
         homeButton.href = 'index.html';
         homeButton.innerText = 'XCHANGE';
 
-        // const img = document.createElement('img');
-        // img.src = 'EXCHANGE-wordmark-smaller.png';
-        // img.alt = 'Playlist';
-        // img.style.width = '150px';
-        // img.style.height = '150px';
-        // homeButton.appendChild(img);
-
         const siteTitle = document.createElement('div');
         siteTitle.classList.add('site-title');
         siteTitle.appendChild(homeButton);
 
         return siteTitle;
     }
-
-
-    // createSiteTitle() {
-    //     const homeButton = document.createElement('a');
-    //     homeButton.classList.add('header_home');
-    //     homeButton.href = 'index.html';
-    
-    //     const img = document.createElement('img');
-    //     img.src = 'sixpacklogo.png';
-    //     img.alt = 'Playlist';
-    //     img.style.width = '150px';
-    //     img.style.height = '150px';
-    //     homeButton.appendChild(img);
-    
-    //     const siteTitle = document.createElement('div');
-    //     siteTitle.classList.add('site-title');
-    //     siteTitle.appendChild(homeButton);
-    
-    //     return siteTitle;
-    // }
 
  createUserInfoForHeader(currentUser) {
      const userInfo = document.createElement('div');
