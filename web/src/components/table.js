@@ -11,26 +11,52 @@ export default class Table extends BindingClass {
       const methodsToBind = ['addTableToPage', 'buildTable'];
       this.bindClassMethods(methodsToBind, this); 
       this.client = new XchangeClient();
-      //ChatGPT Suggestion:
-      //Adding event listener for the toggle button. IF it's checked, it will loop through 
-      //every third column to check if value is 'true'. if it is, it will add the class hidden
-      //to the row. 
+ 
       const exchangedFilter = document.getElementById('exchanged-filter')
-      const tableRows = document.querySelectorAll('#table-container tbody tr')
-
+    //   const tableRows = document.querySelectorAll('#table-container tbody tr')
+    //     console.log("befoe listener, tableRows: " + tableRows);
       exchangedFilter.addEventListener('change', function() {
+        console.log("entering event change listener");
         const isChecked = this.checked;
-        const tableRows = document.querySelectorAll('#item-table tbody tr');
-        tableRows.forEach(function(row) {
-            const exchangedCell = row.cells[3];
-            if (exchangedCell.textContent === 'true' && isChecked) {
-                row.style.display = 'table-row'; // Show the row
-              } else {
-                row.style.display = 'none'; // Hide the row
-              }
-            });
-          });
-      }
+        console.log("isChecked: " + isChecked);
+        var table = document.getElementById("table-id");
+        console.log("table is: " + table);
+        // if(isChecked == 'true') {
+            for (var i =0, row; row = table.rows[i]; i++ ) {
+                //iterate through rows
+                console.log("current row is: " + row);
+                for(var j = 0, col; col = row.cells[j]; j++) {
+                    //iterate through columns
+                    //columns will be accessed using the 'col' variable assign inthe for loop
+                    //if col.value == true add hidden class to the row. 
+                    console.log("column currently on: " + col.innerText);
+                    if(col.innerText == 'true') {
+                        console.log("assigning hidden class.");
+                        row.classList.add('hidden');
+                    }
+                }
+            }
+        // } 
+        // else if(isChecked == 'false') {
+        //     for (var i =0, row; row = table.rows[i]; i++ ) {
+        //         //iterate through rows
+        //         console.log("current row is: " + row);
+        //         for(var j = 0, col; col = row.cells[j]; j++) {
+        //             //iterate through columns
+        //             //columns will be accessed using the 'col' variable assign inthe for loop
+        //             //if col.value == true add hidden class to the row. 
+        //             console.log("column currently on: " + col.innerText);
+        //             if(col.innerText == 'true') {
+        //                 console.log("removing hidden class.");
+        //                 row.classList.remove('hidden');
+        //             }
+        //         }
+        //     }
+        // }
+      });
+    }
+
+    
 
 
   async addTableToPage() {
@@ -71,7 +97,8 @@ export default class Table extends BindingClass {
       }
       console.log("data length is: " + data.length);
       const table = document.createElement('table');
-      table.classList.add('table-container'); // Add a class to style the table
+      table.classList.add('table-container');
+      table.setAttribute('id', 'table-id');
 
       // Create the table header row
       console.log("going to create table now.");
