@@ -12,16 +12,30 @@ export default class Table extends BindingClass {
       this.bindClassMethods(methodsToBind, this); 
       this.client = new XchangeClient();
  
+      //Stuff for exchanged filter.
+      //need to have js make the checkbox so it won't be hideous on the page when there are no items.
+
+      //Behavior of data when box is checked:
       const exchangedFilter = document.getElementById('exchanged-filter')
-    //   const tableRows = document.querySelectorAll('#table-container tbody tr')
-    //     console.log("befoe listener, tableRows: " + tableRows);
+
       exchangedFilter.addEventListener('change', function() {
         console.log("entering event change listener");
         const isChecked = this.checked;
         console.log("isChecked: " + isChecked);
         var table = document.getElementById("table-id");
         console.log("table is: " + table);
-        // if(isChecked == 'true') {
+        if(isChecked == true) {
+            for (var i =0, row; row = table.rows[i]; i++ ) {
+                console.log("current row is: " + row.innerText);
+                for(var j = 0, col; col = row.cells[j]; j++) {
+                    console.log("column currently on: " + col.innerText);
+                    if(col.innerText == 'true') {
+                        console.log("assigning hidden class.");
+                        row.classList.add('hidden');
+                    }
+                }
+            }
+        } else {
             for (var i =0, row; row = table.rows[i]; i++ ) {
                 //iterate through rows
                 console.log("current row is: " + row);
@@ -31,28 +45,12 @@ export default class Table extends BindingClass {
                     //if col.value == true add hidden class to the row. 
                     console.log("column currently on: " + col.innerText);
                     if(col.innerText == 'true') {
-                        console.log("assigning hidden class.");
-                        row.classList.add('hidden');
+                        console.log("removing hidden class.");
+                        row.classList.remove('hidden');
                     }
                 }
             }
-        // } 
-        // else if(isChecked == 'false') {
-        //     for (var i =0, row; row = table.rows[i]; i++ ) {
-        //         //iterate through rows
-        //         console.log("current row is: " + row);
-        //         for(var j = 0, col; col = row.cells[j]; j++) {
-        //             //iterate through columns
-        //             //columns will be accessed using the 'col' variable assign inthe for loop
-        //             //if col.value == true add hidden class to the row. 
-        //             console.log("column currently on: " + col.innerText);
-        //             if(col.innerText == 'true') {
-        //                 console.log("removing hidden class.");
-        //                 row.classList.remove('hidden');
-        //             }
-        //         }
-        //     }
-        // }
+        }
       });
     }
 
