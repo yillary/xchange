@@ -11,6 +11,25 @@ export default class Table extends BindingClass {
       const methodsToBind = ['addTableToPage', 'buildTable'];
       this.bindClassMethods(methodsToBind, this); 
       this.client = new XchangeClient();
+      //ChatGPT Suggestion:
+      //Adding event listener for the toggle button. IF it's checked, it will loop through 
+      //every third column to check if value is 'true'. if it is, it will add the class hidden
+      //to the row. 
+      const toggleButton = document.getElementById('toggle-exchanged')
+      const tableRows = document.querySelectorAll('#table-container tbody tr')
+
+     
+      toggleButton.addEventListener('click', () => {
+        for (let i=0; i < tableRows.length; i++) {
+            const row = tableRows[i];
+            const exchangedCell = row.querySelector('td:nth-child(3)');
+            const isExchanged = exchangedCell.textContent == 'true';
+
+            if(isExchanged) {
+                row.classList.toggle('hidden');
+            }
+        }
+      })
   }
 
   async addTableToPage() {
@@ -20,13 +39,12 @@ export default class Table extends BindingClass {
         const listings = await this.client.getMemberListings();
         const table = this.buildTable(listings);
         const container = document.getElementById('table-container');
-        table.classList.add('table-container'); // Add a class to style the table
+        table.classList.add('table-container'); 
         container.appendChild(table);
+       //begin creating toggle switch
+        const toggleExchanged = document.getElementById('toggle-exchanged');
         toggleExchanged.classList.remove('hidden');
         this.createToggleSlider();
-        // const toggleExchanged = document.getElementById('toggle-exchanged');
-        // toggleExchanged.classList.remove('hidden');
-        // this.createToggleSlider();
     } catch (error) {
         // const toggleExchanged = document.getElementById('toggle-exchanged');
         // toggleExchanged.classList.add('hidden');
@@ -69,11 +87,23 @@ export default class Table extends BindingClass {
       data.forEach(item => {
             console.log("item: " + item);
           const row = table.insertRow();
-          row.classList.add('playlist-row'); // Add a class to style the row
+          row.classList.add('playlist-row'); 
        
         const editButton = this.createEditButton(item);
           const cells = [item.title, item.description, item.exchanged, editButton];
           cells.forEach(cell => { 
+            if (cell == item) {
+                if (item.exchanged === true) {
+                    const td = document.createElement('td');
+                    td.innerText = "Yep";
+                    row.classList.add('hidden');
+                    row.appendChild(td);
+                  } else {
+                    const td = document.createElement('td');
+                    td.innerText = "Nope";
+                    row.appendChild(td);
+                  }
+            }
             if (cell == editButton){
                 const itemLink = document.createElement('a');
                 itemLink.id = 'edit-button';
@@ -113,5 +143,18 @@ createToggleSlider() {
     })
 
 }
+
+filterExchanged(item, command) {
+    if (command === 'hide') {
+      const cells = [item.exchanged];
+      cells.forEach(cell => {
+        if (cell === true) {
+          itemLink.classList.add('hide');
+        }
+      });
+    }
+  }
+  
+
 
 }
