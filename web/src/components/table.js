@@ -69,16 +69,26 @@ export default class Table extends BindingClass {
         const container = document.getElementById('table-container');
         table.classList.add('table-container'); 
         container.appendChild(table);
+
+        //setup for table:
+        const exchangedFilter = document.getElementById('exchanged-filter-container');
+        exchangedFilter.classList.remove('hidden');
+        const welcome = document.getElementById('opening-line-existing')
+        welcome.classList.remove('hidden');
     } catch (error) {
-        // toggleExchanged.classList.add('hidden');
-        const note = document.createElement('h3');
-        note.innerText = "Hmm . . . nothing's here yet. Let's get started!";
-        document.body.appendChild(note);
-        const itemLink = document.createElement('a');
-        itemLink.className = 'button';
-        itemLink.href = '/createItem.html';
-        itemLink.innerText = "Post a New Item"
-        document.body.appendChild(itemLink);
+        //make filter hidden if the table doesn't load.
+        const exchangedFilter = document.getElementById('exchanged-filter-container');
+        exchangedFilter.classList.add('hidden');
+        const welcome = document.getElementById('opening-line-new')
+        welcome.classList.remove('hidden');
+        // const note = document.createElement('h3');
+        // note.innerText = "Hmm . . . nothing's here yet. Let's get started!";
+        // document.body.appendChild(note);
+        // const itemLink = document.createElement('a');
+        // itemLink.className = 'button';
+        // itemLink.href = '/createItem.html';
+        // itemLink.innerText = "Post a New Item"
+        // document.body.appendChild(itemLink);
     }
   }
 

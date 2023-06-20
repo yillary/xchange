@@ -13,7 +13,6 @@ public class Item {
     private String description;
     private String itemType;
     private Boolean exchanged;
-//    private Set<String> images;
     private String zipCode;
     private String email;
 

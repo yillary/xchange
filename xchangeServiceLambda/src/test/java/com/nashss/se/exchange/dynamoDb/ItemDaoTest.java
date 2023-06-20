@@ -51,7 +51,6 @@ public class ItemDaoTest {
         item.setDescription("This is a super awesome shirt pink, M");
         item.setItemType("Top");
         item.setExchanged(false);
-//        item.setImages(images);
         item.setZipCode("98045");
         item.setEmail("this@gmail.com");
 
@@ -68,9 +67,6 @@ public class ItemDaoTest {
     @Test
     void saveItem_givenValidItem_returnsTrue() {
         //GIVEN
-        Set<String> images = new HashSet<>();
-        images.add("img1");
-        images.add("img2");
         String itemId = "ID001";
 
         Item item = new Item();
@@ -79,7 +75,6 @@ public class ItemDaoTest {
         item.setDescription("This is a super awesome shirt pink, M");
         item.setItemType("Top");
         item.setExchanged(false);
-//        item.setImages(images);
         item.setZipCode("98045");
 
         //WHEN
@@ -91,104 +86,103 @@ public class ItemDaoTest {
 
     @Test
     void searchItems_givenZipTypeAndCriteria_returnsListItemsInSameZipCodeAndType() {
-//        //GIVEN
-//        Set<String> images = new HashSet<>();
-//        images.add("img1");
-//        images.add("img2");
-//        String itemId = "ID001";
-//
-//        Item item = new Item();
-//        item.setItemId(itemId);
-//        item.setTitle("Awesome Shirt");
-//        item.setDescription("This is a super awesome shirt pink, M");
-//        item.setType("Top");
-//        item.setExchanged(false);
-//        item.setImages(images);
-//        item.setZipCode("98045");
-//
-//
-//        Set<String> images2 = new HashSet<>();
-//        images2.add("img1");
-//        images2.add("img2");
-//        String itemId2 = "ID002";
-//
-//        Item item2 = new Item();
-//        item2.setItemId(itemId2);
-//        item2.setTitle("Sweatshirt is cool");
-//        item2.setDescription("So soft and I love it. You will too.");
-//        item2.setType("Top");
-//        item2.setExchanged(false);
-//        item2.setImages(images2);
-//        item2.setZipCode("98045");
-//
-//
-//        Set<String> images3 = new HashSet<>();
-//        images3.add("img1");
-//        images3.add("img2");
-//        String itemId3 = "ID003";
-//
-//        Item item3 = new Item();
-//        item3.setItemId(itemId);
-//        item3.setTitle("Another Pair of Pants");
-//        item3.setDescription("This is a super awesome pant pink, M");
-//        item3.setType("Bottoms");
-//        item3.setExchanged(false);
-//        item3.setImages(images);
-//        item3.setZipCode("00000");
-//
-//        //Search Parameters
-//        String zipCode = "98045";
-//        String type = "";
-//        String[] criteria = new String[0];
-//
-//        //List Items
-//        List<Item> items = new ArrayList<>();
-//        items.add(item);
-//        items.add(item2);
-//        items.add(item3);
-//
-//        //Excpected Result
-//        List<Item> expectedResult = new ArrayList<>();
-//        expectedResult.add(item);
-//        expectedResult.add(item2);
-//
-//        //Mock Query Results
-//
-//        queryResult.add(item);
-//        queryResult.add(item2);
-//        System.out.println("size of mockQueryResults: " + queryResult.size());
-//        System.out.println("toString() of mockQueryResults: " + queryResult.toString());
-//        queryResult.stream().forEach(listing -> System.out.println("Listings: " + listing.toString()));
-//
-//        //Mockito
-//        //when(dynamoDBMapper.query(Item.class, any(DynamoDBQueryExpression.class))).thenReturn((PaginatedQueryList<Item>) expectedResult);
-//        when(dynamoDBMapper.query(eq(Item.class), any(DynamoDBQueryExpression.class)))
-//                .thenReturn(queryResult);
-//
-//        //As suggested by ChatGPT on how to mock this part of the code:
-//        when(dynamoDBMapper.load(eq(Item.class), anyString())).thenAnswer(invocation -> {
-//            String itemIdNum = invocation.getArgument(1);
-//            if(itemIdNum.equals("ID001")) {
-//                return expectedResult.get(0);
-//            } else if (itemId.equals("ID002")) {
-//                return expectedResult.get(1);
-//            }
-//            return null;
-//        });
-//
-//        List<Item> searchResults = Arrays.asList(item, item2);
-//        List<Item> fullyLoadedInfo = new ArrayList<>();
-//        for (Item item0 : searchResults) {
-//            fullyLoadedInfo.add(dynamoDBMapper.load(Item.class, item0.getItemId()));
-//        }
-//
-//        //WHEN
-//        List<Item> results = itemDao.searchItems(zipCode, type, criteria);
-//
-//        //THEN
-//
-//        assertSame(expectedResult, results, "There should be two items that have both a Top " +
-//                "type and a zip of 98045, " + results.toString());
+        //GIVEN
+        Set<String> images = new HashSet<>();
+        images.add("img1");
+        images.add("img2");
+        String itemId = "ID001";
+
+        Item item = new Item();
+        item.setItemId(itemId);
+        item.setTitle("Awesome Shirt");
+        item.setDescription("This is a super awesome shirt pink, M");
+        item.setType("Top");
+        item.setExchanged(false);
+        item.setZipCode("98045");
+
+
+        Set<String> images2 = new HashSet<>();
+        images2.add("img1");
+        images2.add("img2");
+        String itemId2 = "ID002";
+
+        Item item2 = new Item();
+        item2.setItemId(itemId2);
+        item2.setTitle("Sweatshirt is cool");
+        item2.setDescription("So soft and I love it. You will too.");
+        item2.setType("Top");
+        item2.setExchanged(false);
+        item2.setImages(images2);
+        item2.setZipCode("98045");
+
+
+        Set<String> images3 = new HashSet<>();
+        images3.add("img1");
+        images3.add("img2");
+        String itemId3 = "ID003";
+
+        Item item3 = new Item();
+        item3.setItemId(itemId);
+        item3.setTitle("Another Pair of Pants");
+        item3.setDescription("This is a super awesome pant pink, M");
+        item3.setType("Bottoms");
+        item3.setExchanged(false);
+        item3.setImages(images);
+        item3.setZipCode("00000");
+
+        //Search Parameters
+        String zipCode = "98045";
+        String type = "";
+        String[] criteria = new String[0];
+
+        //List Items
+        List<Item> items = new ArrayList<>();
+        items.add(item);
+        items.add(item2);
+        items.add(item3);
+
+        //Excpected Result
+        List<Item> expectedResult = new ArrayList<>();
+        expectedResult.add(item);
+        expectedResult.add(item2);
+
+        //Mock Query Results
+
+        queryResult.add(item);
+        queryResult.add(item2);
+        System.out.println("size of mockQueryResults: " + queryResult.size());
+        System.out.println("toString() of mockQueryResults: " + queryResult.toString());
+        queryResult.stream().forEach(listing -> System.out.println("Listings: " + listing.toString()));
+
+        //Mockito
+        //when(dynamoDBMapper.query(Item.class, any(DynamoDBQueryExpression.class))).thenReturn((PaginatedQueryList<Item>) expectedResult);
+        when(dynamoDBMapper.query(eq(Item.class), any(DynamoDBQueryExpression.class)))
+                .thenReturn(queryResult);
+
+        //As suggested by ChatGPT on how to mock this part of the code:
+        when(dynamoDBMapper.load(eq(Item.class), anyString())).thenAnswer(invocation -> {
+            String itemIdNum = invocation.getArgument(1);
+            if(itemIdNum.equals("ID001")) {
+                return expectedResult.get(0);
+            } else if (itemId.equals("ID002")) {
+                return expectedResult.get(1);
+            }
+            return null;
+        });
+
+        List<Item> searchResults = Arrays.asList(item, item2);
+        List<Item> fullyLoadedInfo = new ArrayList<>();
+        for (Item item0 : searchResults) {
+            fullyLoadedInfo.add(dynamoDBMapper.load(Item.class, item0.getItemId()));
+        }
+
+        //WHEN
+        List<Item> results = itemDao.searchItems(zipCode, type, criteria);
+
+        //THEN
+
+        assertSame(expectedResult, results, "There should be two items that have both a Top " +
+                "type and a zip of 98045, " + results.toString());
     }
 
 }
