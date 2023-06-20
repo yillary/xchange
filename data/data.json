@@ -4,22 +4,22 @@
       "PutRequest": {
         "Item": {
           "itemId": {
-            "S": "to001"
+            "S": "acc001"
           },
           "title": {
-            "S": "Woah T-Shirt"
+            "S": "Baseball Hat"
           },
           "description": {
-            "S": "This is a totally cool tShirt that looks super cute with jeans. Size L"
+            "S": "A stylish black baseball hat. Size: One size fits all. Excellent condition. Adds a sporty and casual touch to any outfit. Perfect for outdoor activities or a laid-back look."
           },
           "itemType": {
-            "S": "Top"
+            "S": "accessories"
           },
           "exchanged": {
             "BOOL": false
           },
           "email": {
-            "S": "aperson@gmail.com"
+            "S": "kimtardashian@gmail.com"
           },
           "zipCode": {
             "S": "98045"
@@ -31,22 +31,22 @@
       "PutRequest": {
         "Item": {
           "itemId": {
-            "S": "Bottom001"
+            "S": "acc002"
           },
           "title": {
-            "S": "Woah Pants"
+            "S": "Statement Earrings"
           },
           "description": {
-            "S": "Rips in the knees and acid wash. Size 4"
+            "S": "A pair of stunning statement earrings. Color: Gold. Like-new condition. Adds a touch of glamour to any outfit, perfect for special occasions or dressing up a casual look."
           },
           "itemType": {
-            "S": "Bottom"
+            "S": "accessories"
           },
           "exchanged": {
             "BOOL": false
           },
           "email": {
-            "S": "anotherperson@gmail.com"
+            "S": "kimtardashian@gmail.com"
           },
           "zipCode": {
             "S": "98045"
@@ -58,22 +58,22 @@
       "PutRequest": {
         "Item": {
           "itemId": {
-            "S": "Top002"
+            "S": "acc003"
           },
           "title": {
-            "S": "Wowie T-Shirt"
+            "S": "Leather Backpack"
           },
           "description": {
-            "S": "This is a totally cool tShirt with a graphic print. Size M"
+            "S": "A sleek black leather backpack. Size: Medium. Gently used. Perfect for carrying essentials while staying stylish. Ideal for work, travel, or everyday use."
           },
           "itemType": {
-            "S": "Top"
+            "S": "accessories"
           },
           "exchanged": {
             "BOOL": false
           },
           "email": {
-            "S": "yetanotherperson@gmail.com"
+            "S": "paulbimon@gmail.com"
           },
           "zipCode": {
             "S": "98045"
@@ -85,25 +85,619 @@
       "PutRequest": {
         "Item": {
           "itemId": {
-            "S": "Top003"
+            "S": "acc004"
           },
           "title": {
-            "S": "Long-sleeved T-shirt"
+            "S": "Fashion Sneakers"
           },
           "description": {
-            "S": "lightweight, white, size XS"
+            "S": "Trendy white fashion sneakers. Size: US 9. Like-new condition. Provides comfort and style, perfect for casual and athleisure outfits. Versatile and on-trend."
           },
           "itemType": {
-            "S": "Top"
+            "S": "accessories"
           },
           "exchanged": {
             "BOOL": false
           },
           "email": {
-            "S": "justanotherperson@gmail.com"
+            "S": "paulbimon@gmail.com"
           },
           "zipCode": {
-            "S": "40000"
+            "S": "98045"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "itemId": {
+            "S": "acc005"
+          },
+          "title": {
+            "S": "Chain Necklace"
+          },
+          "description": {
+            "S": "A fashionable gold chain necklace. Length: 18 inches. Excellent condition. Adds a touch of elegance to any outfit, perfect for both casual and formal occasions."
+          },
+          "itemType": {
+            "S": "accessories"
+          },
+          "exchanged": {
+            "BOOL": false
+          },
+          "email": {
+            "S": "charliebuth@gmail.com"
+          },
+          "zipCode": {
+            "S": "98067"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "itemId": {
+            "S": "acc006"
+          },
+          "title": {
+            "S": "Crossbody Bag"
+          },
+          "description": {
+            "S": "A versatile black crossbody bag. Size: Small. Gently used. Offers functionality and style, ideal for hands-free convenience. Perfect for daily use or a night out."
+          },
+          "itemType": {
+            "S": "accessories"
+          },
+          "exchanged": {
+            "BOOL": false
+          },
+          "email": {
+            "S": "charliebuth@gmail.com"
+          },
+          "zipCode": {
+            "S": "98067"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "itemId": {
+            "S": "acc007"
+          },
+          "title": {
+            "S": "Wide Brim Hat"
+          },
+          "description": {
+            "S": "A trendy wide brim hat in beige. Size: One size fits all. Like-new condition. Adds a touch of boho-chic to any outfit. Perfect for sunny days and beach vacations."
+          },
+          "itemType": {
+            "S": "accessories"
+          },
+          "exchanged": {
+            "BOOL": false
+          },
+          "email": {
+            "S": "elviscrestly@gmail.com"
+          },
+          "zipCode": {
+            "S": "98067"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "itemId": {
+            "S": "acc008"
+          },
+          "title": {
+            "S": "Silk Scarf"
+          },
+          "description": {
+            "S": "A luxurious silk scarf in vibrant colors. Size: One size fits all. Gently used. Adds a touch of sophistication to any outfit, perfect for both formal and casual occasions."
+          },
+          "itemType": {
+            "S": "accessories"
+          },
+          "exchanged": {
+            "BOOL": false
+          },
+          "email": {
+            "S": "harrylotter@gmail.com"
+          },
+          "zipCode": {
+            "S": "98067"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "itemId": {
+            "S": "top001"
+          },
+          "title": {
+            "S": "Crop Top"
+          },
+          "description": {
+            "S": "A trendy black crop top. Size: Small. Like-new condition. Perfect for pairing with high-waisted jeans or skirts for a fashionable and confident look."
+          },
+          "itemType": {
+            "S": "top"
+          },
+          "exchanged": {
+            "BOOL": false
+          },
+          "email": {
+            "S": "taylormift@gmail.com"
+          },
+          "zipCode": {
+            "S": "98045"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "itemId": {
+            "S": "top002"
+          },
+          "title": {
+            "S": "Off-Shoulder Top"
+          },
+          "description": {
+            "S": "A stylish off-shoulder top in white. Size: Medium. Excellent condition. Perfect for creating an elegant and feminine look. Goes well with jeans or skirts."
+          },
+          "itemType": {
+            "S": "top"
+          },
+          "exchanged": {
+            "BOOL": false
+          },
+          "email": {
+            "S": "taylormift@gmail.com"
+          },
+          "zipCode": {
+            "S": "98045"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "itemId": {
+            "S": "top003"
+          },
+          "title": {
+            "S": "Plaid Shirt"
+          },
+          "description": {
+            "S": "A classic plaid shirt in red and black. Size: Large. Gently used. Perfect for a casual and relaxed style. Looks great when paired with jeans and boots."
+          },
+          "itemType": {
+            "S": "top"
+          },
+          "exchanged": {
+            "BOOL": false
+          },
+          "email": {
+            "S": "kimtardashian@gmail.com"
+          },
+          "zipCode": {
+            "S": "98045"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "itemId": {
+            "S": "top004"
+          },
+          "title": {
+            "S": "Button-Up Shirt"
+          },
+          "description": {
+            "S": "A versatile white button-up shirt. Size: Medium. Like-new condition. Adds a touch of sophistication to any outfit, perfect for both formal and casual occasions."
+          },
+          "itemType": {
+            "S": "top"
+          },
+          "exchanged": {
+            "BOOL": false
+          },
+          "email": {
+            "S": "kimtardashian@gmail.com"
+          },
+          "zipCode": {
+            "S": "98045"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "itemId": {
+            "S": "top005"
+          },
+          "title": {
+            "S": "Graphic T-Shirt"
+          },
+          "description": {
+            "S": "A trendy graphic t-shirt with a bold print. Size: Large. Excellent condition. Adds a cool and edgy vibe to any outfit. Perfect for casual and street-style looks."
+          },
+          "itemType": {
+            "S": "top"
+          },
+          "exchanged": {
+            "BOOL": false
+          },
+          "email": {
+            "S": "paulbimon@gmail.com"
+          },
+          "zipCode": {
+            "S": "98045"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "itemId": {
+            "S": "top006"
+          },
+          "title": {
+            "S": "Blouse"
+          },
+          "description": {
+            "S": "A stylish and elegant blouse in ivory. Size: Small. Gently used. Perfect for creating a chic and sophisticated look. Goes well with skirts or trousers."
+          },
+          "itemType": {
+            "S": "top"
+          },
+          "exchanged": {
+            "BOOL": false
+          },
+          "email": {
+            "S": "paulbimon@gmail.com"
+          },
+          "zipCode": {
+            "S": "98045"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "itemId": {
+            "S": "bottom001"
+          },
+          "title": {
+            "S": "Skinny Jeans"
+          },
+          "description": {
+            "S": "A pair of trendy black skinny jeans. Size: 28. Like-new condition. Offers a slim and flattering fit. Versatile and perfect for creating various stylish looks."
+          },
+          "itemType": {
+            "S": "bottom"
+          },
+          "exchanged": {
+            "BOOL": false
+          },
+          "email": {
+            "S": "taylormift@gmail.com"
+          },
+          "zipCode": {
+            "S": "98045"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "itemId": {
+            "S": "bottom002"
+          },
+          "title": {
+            "S": "Mini Skirt"
+          },
+          "description": {
+            "S": "A cute and flirty mini skirt in floral print. Size: Small. Excellent condition. Perfect for creating feminine and playful outfits. Looks great with a blouse or crop top."
+          },
+          "itemType": {
+            "S": "bottom"
+          },
+          "exchanged": {
+            "BOOL": false
+          },
+          "email": {
+            "S": "taylormift@gmail.com"
+          },
+          "zipCode": {
+            "S": "98045"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "itemId": {
+            "S": "bottom003"
+          },
+          "title": {
+            "S": "Bellbottoms"
+          },
+          "description": {
+            "S": "A pair of trendy bellbottom pants in denim. Size: Medium. Gently used. Adds a retro and bohemian flair to any outfit. Looks great with a flowy blouse or a fitted top."
+          },
+          "itemType": {
+            "S": "bottom"
+          },
+          "exchanged": {
+            "BOOL": false
+          },
+          "email": {
+            "S": "kimtardashian@gmail.com"
+          },
+          "zipCode": {
+            "S": "98045"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "itemId": {
+            "S": "bottom004"
+          },
+          "title": {
+            "S": "High-Waisted Shorts"
+          },
+          "description": {
+            "S": "A pair of stylish high-waisted shorts in denim. Size: Small. Like-new condition. Offers a flattering and vintage-inspired look. Perfect for summer days and casual outings."
+          },
+          "itemType": {
+            "S": "bottom"
+          },
+          "exchanged": {
+            "BOOL": false
+          },
+          "email": {
+            "S": "kimtardashian@gmail.com"
+          },
+          "zipCode": {
+            "S": "98045"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "itemId": {
+            "S": "bottom005"
+          },
+          "title": {
+            "S": "Pleated Skirt"
+          },
+          "description": {
+            "S": "A classic pleated skirt in navy blue. Size: Medium. Gently used. Adds a touch of elegance and sophistication to any outfit. Perfect for both formal and casual occasions."
+          },
+          "itemType": {
+            "S": "bottom"
+          },
+          "exchanged": {
+            "BOOL": false
+          },
+          "email": {
+            "S": "paulbimon@gmail.com"
+          },
+          "zipCode": {
+            "S": "98045"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "itemId": {
+            "S": "bottom006"
+          },
+          "title": {
+            "S": "Cropped Pants"
+          },
+          "description": {
+            "S": "A pair of cropped pants in beige. Size: Small. Excellent condition. Offers a relaxed and comfortable fit. Perfect for creating chic and casual looks."
+          },
+          "itemType": {
+            "S": "bottom"
+          },
+          "exchanged": {
+            "BOOL": false
+          },
+          "email": {
+            "S": "paulbimon@gmail.com"
+          },
+          "zipCode": {
+            "S": "98045"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "itemId": {
+            "S": "outerwear001"
+          },
+          "title": {
+            "S": "Denim Jacket"
+          },
+          "description": {
+            "S": "A classic denim jacket in light blue. Size: Medium. Gently used. Offers a versatile and timeless look. Perfect for layering over tops and dresses."
+          },
+          "itemType": {
+            "S": "outerwear"
+          },
+          "exchanged": {
+            "BOOL": false
+          },
+          "email": {
+            "S": "charliebuth@gmail.com"
+          },
+          "zipCode": {
+            "S": "98067"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "itemId": {
+            "S": "outerwear002"
+          },
+          "title": {
+            "S": "Parka Jacket"
+          },
+          "description": {
+            "S": "A warm and stylish parka jacket in olive green. Size: Large. Excellent condition. Features a faux fur-lined hood and multiple pockets. Perfect for cold weather."
+          },
+          "itemType": {
+            "S": "outerwear"
+          },
+          "exchanged": {
+            "BOOL": false
+          },
+          "email": {
+            "S": "charliebuth@gmail.com"
+          },
+          "zipCode": {
+            "S": "98067"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "itemId": {
+            "S": "outerwear003"
+          },
+          "title": {
+            "S": "Trench Coat"
+          },
+          "description": {
+            "S": "A classic trench coat in camel. Size: Small. Like-new condition. Offers a sophisticated and polished look. Perfect for both formal and casual outfits."
+          },
+          "itemType": {
+            "S": "outerwear"
+          },
+          "exchanged": {
+            "BOOL": false
+          },
+          "email": {
+            "S": "elviscrestly@gmail.com"
+          },
+          "zipCode": {
+            "S": "98067"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "itemId": {
+            "S": "outerwear004"
+          },
+          "title": {
+            "S": "Leather Jacket"
+          },
+          "description": {
+            "S": "A trendy leather jacket in black. Size: Medium. Gently used. Adds a cool and edgy vibe to any outfit. Perfect for creating a stylish and bold look."
+          },
+          "itemType": {
+            "S": "outerwear"
+          },
+          "exchanged": {
+            "BOOL": false
+          },
+          "email": {
+            "S": "elviscrestly@gmail.com"
+          },
+          "zipCode": {
+            "S": "98067"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "itemId": {
+            "S": "outerwear005"
+          },
+          "title": {
+            "S": "Hooded Sweatshirt"
+          },
+          "description": {
+            "S": "A cozy and comfortable hooded sweatshirt in gray. Size: Large. Excellent condition. Perfect for casual and sporty looks. Goes well with jeans or leggings."
+          },
+          "itemType": {
+            "S": "outerwear"
+          },
+          "exchanged": {
+            "BOOL": false
+          },
+          "email": {
+            "S": "harrylotter@gmail.com"
+          },
+          "zipCode": {
+            "S": "98067"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "itemId": {
+            "S": "outerwear006"
+          },
+          "title": {
+            "S": "Zip-Up Hoodie"
+          },
+          "description": {
+            "S": "A casual zip-up hoodie in navy blue. Size: Medium. Gently used. Offers a comfortable and laid-back look. Perfect for relaxed and casual outings."
+          },
+          "itemType": {
+            "S": "outerwear"
+          },
+          "exchanged": {
+            "BOOL": false
+          },
+          "email": {
+            "S": "harrylotter@gmail.com"
+          },
+          "zipCode": {
+            "S": "98067"
           }
         }
       }

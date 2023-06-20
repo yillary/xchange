@@ -15,22 +15,23 @@ export default class Table extends BindingClass {
       //Adding event listener for the toggle button. IF it's checked, it will loop through 
       //every third column to check if value is 'true'. if it is, it will add the class hidden
       //to the row. 
-      const toggleButton = document.getElementById('toggle-exchanged')
+      const exchangedFilter = document.getElementById('exchanged-filter')
       const tableRows = document.querySelectorAll('#table-container tbody tr')
 
-     
-      toggleButton.addEventListener('click', () => {
-        for (let i=0; i < tableRows.length; i++) {
-            const row = tableRows[i];
-            const exchangedCell = row.querySelector('td:nth-child(3)');
-            const isExchanged = exchangedCell.textContent == 'true';
+      exchangedFilter.addEventListener('change', function() {
+        const isChecked = this.checked;
+        const tableRows = document.querySelectorAll('#item-table tbody tr');
+        tableRows.forEach(function(row) {
+            const exchangedCell = row.cells[3];
+            if (exchangedCell.textContent === 'true' && isChecked) {
+                row.style.display = 'table-row'; // Show the row
+              } else {
+                row.style.display = 'none'; // Hide the row
+              }
+            });
+          });
+      }
 
-            if(isExchanged) {
-                row.classList.toggle('hidden');
-            }
-        }
-      })
-  }
 
   async addTableToPage() {
       console.log('Table.js building...');
@@ -42,9 +43,9 @@ export default class Table extends BindingClass {
         table.classList.add('table-container'); 
         container.appendChild(table);
        //begin creating toggle switch
-        const toggleExchanged = document.getElementById('toggle-exchanged');
-        toggleExchanged.classList.remove('hidden');
-        this.createToggleSlider();
+        // const toggleExchanged = document.getElementById('toggle-exchanged');
+        // toggleExchanged.classList.remove('hidden');
+        // this.createToggleSlider();
     } catch (error) {
         // const toggleExchanged = document.getElementById('toggle-exchanged');
         // toggleExchanged.classList.add('hidden');
@@ -82,6 +83,11 @@ export default class Table extends BindingClass {
           headerRow.appendChild(th);
       });
 
+      //Reveal the toggle button
+      const toggle = document.getElementById("exchanged-filter");
+      toggle.classList.remove("hidden");
+
+
       // Create the table body rows
       console.log("data received: " + data);
       data.forEach(item => {
@@ -92,18 +98,21 @@ export default class Table extends BindingClass {
         const editButton = this.createEditButton(item);
           const cells = [item.title, item.description, item.exchanged, editButton];
           cells.forEach(cell => { 
-            if (cell == item) {
-                if (item.exchanged === true) {
-                    const td = document.createElement('td');
-                    td.innerText = "Yep";
-                    row.classList.add('hidden');
-                    row.appendChild(td);
-                  } else {
-                    const td = document.createElement('td');
-                    td.innerText = "Nope";
-                    row.appendChild(td);
-                  }
-            }
+            //I wanted to change false to Nope and True to Yep but couodn't do it.
+                // if (item.exchanged === true) {
+                //     const changeThis = row.cells[3]; 
+                //     changeThis.innerText = "Yep";
+                //     // const td = document.createElement('td');
+                //     // td.innerText = "Yep";
+                //     // row.appendChild(td);
+                //     // row.
+                //   } 
+                //   else {
+                //     const td = document.createElement('td');
+                //     td.innerText = "Nope";
+                //     row.appendChild(td);
+                //   }
+            
             if (cell == editButton){
                 const itemLink = document.createElement('a');
                 itemLink.id = 'edit-button';
