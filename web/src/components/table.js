@@ -11,7 +11,54 @@ export default class Table extends BindingClass {
       const methodsToBind = ['addTableToPage', 'buildTable'];
       this.bindClassMethods(methodsToBind, this); 
       this.client = new XchangeClient();
-  }
+ 
+      //Stuff for exchanged filter.
+      //need to have js make the checkbox so it won't be hideous on the page when there are no items.
+    // const exchangedFilter = document.createElement('filter-button');
+    // exchangedFilter.setAttribute(type, checkbox);
+    // exchangedFilter.setAttribute(id, exchanged-filter);
+
+      //Behavior of data when box is checked:
+      const exchangedFilter = document.getElementById('exchanged-filter');
+
+      exchangedFilter.addEventListener('change', function() {
+        console.log("entering event change listener");
+        const isChecked = this.checked;
+        console.log("isChecked: " + isChecked);
+        var table = document.getElementById("table-id");
+        console.log("table is: " + table);
+        if(isChecked == true) {
+            for (var i =0, row; row = table.rows[i]; i++ ) {
+                console.log("current row is: " + row.innerText);
+                for(var j = 0, col; col = row.cells[j]; j++) {
+                    console.log("column currently on: " + col.innerText);
+                    if(col.innerText == 'true') {
+                        console.log("assigning hidden class.");
+                        row.classList.add('hidden');
+                    }
+                }
+            }
+        } else {
+            for (var i =0, row; row = table.rows[i]; i++ ) {
+                //iterate through rows
+                console.log("current row is: " + row);
+                for(var j = 0, col; col = row.cells[j]; j++) {
+                    //iterate through columns
+                    //columns will be accessed using the 'col' variable assign inthe for loop
+                    //if col.value == true add hidden class to the row. 
+                    console.log("column currently on: " + col.innerText);
+                    if(col.innerText == 'true') {
+                        console.log("removing hidden class.");
+                        row.classList.remove('hidden');
+                    }
+                }
+            }
+        }
+      });
+    }
+
+    
+
 
   async addTableToPage() {
       console.log('Table.js building...');
@@ -20,25 +67,28 @@ export default class Table extends BindingClass {
         const listings = await this.client.getMemberListings();
         const table = this.buildTable(listings);
         const container = document.getElementById('table-container');
-        table.classList.add('table-container'); // Add a class to style the table
+        table.classList.add('table-container'); 
         container.appendChild(table);
-        toggleExchanged.classList.remove('hidden');
-        this.createToggleSlider();
-        // const toggleExchanged = document.getElementById('toggle-exchanged');
-        // toggleExchanged.classList.remove('hidden');
-        // this.createToggleSlider();
+
+        //setup for table:
+        const exchangedFilter = document.getElementById('exchanged-filter-container');
+        exchangedFilter.classList.remove('hidden');
+        const welcome = document.getElementById('opening-line-existing')
+        welcome.classList.remove('hidden');
     } catch (error) {
-        // const toggleExchanged = document.getElementById('toggle-exchanged');
-        // toggleExchanged.classList.add('hidden');
-        toggleExchanged.classList.add('hidden');
-        const note = document.createElement('h3');
-        note.innerText = "Hmm . . . nothing's here yet. Let's get started!";
-        document.body.appendChild(note);
-        const itemLink = document.createElement('a');
-        itemLink.className = 'button';
-        itemLink.href = '/createItem.html';
-        itemLink.innerText = "Post a New Item"
-        document.body.appendChild(itemLink);
+        //make filter hidden if the table doesn't load.
+        const exchangedFilter = document.getElementById('exchanged-filter-container');
+        exchangedFilter.classList.add('hidden');
+        const welcome = document.getElementById('opening-line-new')
+        welcome.classList.remove('hidden');
+        // const note = document.createElement('h3');
+        // note.innerText = "Hmm . . . nothing's here yet. Let's get started!";
+        // document.body.appendChild(note);
+        // const itemLink = document.createElement('a');
+        // itemLink.className = 'button';
+        // itemLink.href = '/createItem.html';
+        // itemLink.innerText = "Post a New Item"
+        // document.body.appendChild(itemLink);
     }
   }
 
@@ -52,7 +102,8 @@ export default class Table extends BindingClass {
       }
       console.log("data length is: " + data.length);
       const table = document.createElement('table');
-      table.classList.add('table-container'); // Add a class to style the table
+      table.classList.add('table-container');
+      table.setAttribute('id', 'table-id');
 
       // Create the table header row
       console.log("going to create table now.");
@@ -64,16 +115,36 @@ export default class Table extends BindingClass {
           headerRow.appendChild(th);
       });
 
+      //Reveal the toggle button
+      const toggle = document.getElementById("exchanged-filter");
+      toggle.classList.remove("hidden");
+
+
       // Create the table body rows
       console.log("data received: " + data);
       data.forEach(item => {
             console.log("item: " + item);
           const row = table.insertRow();
-          row.classList.add('playlist-row'); // Add a class to style the row
+          row.classList.add('playlist-row'); 
        
         const editButton = this.createEditButton(item);
           const cells = [item.title, item.description, item.exchanged, editButton];
           cells.forEach(cell => { 
+            //I wanted to change false to Nope and True to Yep but couodn't do it.
+                // if (item.exchanged === true) {
+                //     const changeThis = row.cells[3]; 
+                //     changeThis.innerText = "Yep";
+                //     // const td = document.createElement('td');
+                //     // td.innerText = "Yep";
+                //     // row.appendChild(td);
+                //     // row.
+                //   } 
+                //   else {
+                //     const td = document.createElement('td');
+                //     td.innerText = "Nope";
+                //     row.appendChild(td);
+                //   }
+            
             if (cell == editButton){
                 const itemLink = document.createElement('a');
                 itemLink.id = 'edit-button';
@@ -113,5 +184,18 @@ createToggleSlider() {
     })
 
 }
+
+filterExchanged(item, command) {
+    if (command === 'hide') {
+      const cells = [item.exchanged];
+      cells.forEach(cell => {
+        if (cell === true) {
+          itemLink.classList.add('hide');
+        }
+      });
+    }
+  }
+  
+
 
 }

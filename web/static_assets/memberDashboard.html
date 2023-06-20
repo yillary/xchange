@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html>
-<title>xchange</title>
+
 <head>
+    
 <!--    <script type="text/javascript" src="assets/home.js"></script>-->
     <script type="text/javascript" src="assets/memberDashboard.js"></script>
     <script type="component" src="table.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>xchange</title>
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
 </head>
 
@@ -16,30 +22,30 @@
 <!-- FROM MIDSTONE PROJECT -->
 <body class="background"></body>
 <div class="card">
-<!--    <h1 style="color: #FFB563;">Inventory</h1>-->
-<!--    <hr class = "dashed">-->
-<!--    <h4>Warehouse No.01, Nashville, TN</h4>-->
-
-
-<!-- Rounded switch 3WSchools-->
-<div class="card hidden" id="toggle-exchanged" >
-    <label class="toggle">
-        <span class="onoff">OFF</span>
-        <input type="checkbox">
-        <span class="slider round"></span>
-      </label>
+    <h1 class="hidden" id="opening-line-existing">Mother Earth just said, 'Hell yeah!'</h1>
+    <h1 class="hidden" id="opening-line-new">Hmm . . . nothing&#39;s here yet. Let&#39;s get started!</h1>
 </div>
-
-
-
+    <div id="exchanged-filter-container">
+        <input class="hidden" type="checkbox" id="exchanged-filter">
+        <label for="exchanged-filter">Filter Exchanged</label>
+    </div>
+   
 
     <div id="table-container"></div>
-    <p class="button-group">
-        <a href="createListing.html">New Listing</a>
+    <p id="button-create-listing" class="button-group">
+        <!-- <button id="create" onclick="window.location.href='createListing.html';">New Listing</a> -->
+        <a class="button" id="new-listing" href="createListing.html">New Listing</a>
     </p>
-</div>
-</body>
-
+    <div class="footer-whitespace">
 
 </body>
+<footer>
+    <div class="footer-whitespace"></div>
+    <div class="footer-container">
+        <p>Hillary Martin<p>
+        <a id='footer-text' href="mailto:hillaryannettemartin@gmail.com">Email</a>
+        <a id='footer-text' href="https://www.linkedin.com/in/hillary-martin/" target="_blank">LinkedIn</a>
+        <a id='footer-text' href="https://github.com/yillary" target="_blank">GitHub</a></p>
+    </div>
+  </footer>
 </html>

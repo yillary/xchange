@@ -1,16 +1,19 @@
 :root {
     /* css variables: https://developer.mozilla.org/en-US/docs/Web/CSS/var */
-    --primary-color: #553566;
-    --secondary-color: #faefe6;
-    --tertiary-color: #d46bca;
-    --quaternary-color: #fd883d
+    --primary-color: #2b765f;
+    --secondary-color: #d46bca; 
+    --tertiary-color: #faf6f6;
+    --quaternary-color: #fd883d;
+    --quinernary-color: #82bc5c;
     --error-color: #EE3A23;
 }
+
+
 
 .background {
     margin: 0;
     counter-reset: section;
-    font-family: 'Space Mono', monospace;
+    font-family: 'Manrope', sans-serif;
 
 }
 
@@ -22,21 +25,26 @@
     background-color: var(--primary-color);
     color: var(--secondary-color);
     padding: 4px 20px;
+} 
+
+.header image {
+  justify-content: left;
 }
 
-.item-details {
-    alight-items: left;
-}
+/* .item-details {
+    aligh-items: left;
+} */
 
 .button {
   background-color: var(--tertiary-color);
   border: none;
   color: var(--secondary-color);
-  padding: 6px 8px 4px 8px;
+  padding: 8px 8px 4px 8px;
   text-align: center;
   font-weight: bold;
   text-decoration: none;
   cursor: pointer;
+  border-radius: 5px;
 }
 
 .button:hover {
@@ -44,37 +52,118 @@
 }
 
 .button-group {
-    display: flex-start;
+    display: flex;
     flex-direction: row;
-    justify: center;
+    justify-content: center;
+}
+
+.button-group label {
+  margin-right: 30px;
+}
+
+.button new-listing {
+  align-items: right;
+}
+
+.button email-button {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#button-create-listing {
+  padding-left: 20px;
+}
+
+.image-container {
+  background-image: url(Homepage-Banner.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.image-container {
+  margin: 120px;
+}
+
+.image-placeholder {
+  display: flex;
+  align-content: center;
+  justify-content: right;
+  padding-right: 50px;
+}
+
+.item-details-grid-container {
+  display: grid; 
+  grid-template-columns: auto auto;
+  background-color: none;
+  padding: 20px;
+}
+
+#item-description {
+  text-align: left;
+  -webkit-text-fill-color: var(--secondary-color);
+  font-size: medium;
+}
+
+.item-details {
+  grid-row: 1/3;
+  grid-column: 2/3;
+}
+
+#item-title {
+  -webkit-text-fill-color: var(--secondary-color);
+  font-weight: bold;
+  font-size:150%;
 }
 
 .header_home {
-    font-size: 36px;
-    line-height: 40px;
-    height: 100px;
-    text-decoration: none;
-    color: var(--secondary-color);
+  font-size: 36px;
+  line-height: 40px;
+  height: 100px;
+  text-decoration: none;
+  color: var(--tertiary-color);
+  font-family: 'Lilita One', cursive;
 }
 
 .card {
     color: var(--primary-color);
     margin: 0px;
-    padding: 50px 30px;
-    background-image: url("Homepage-Banner.png");
+    padding: 80px 30px;
 }
 
 .error {
     color: var(--error-color);
-    border: 1px solid var(--error-color);
+    /* border: 1px solid var(--error-color); */
     padding: 8px;
+}
+
+footer {
+  display: block;
+  background-color: var(--primary-color);
+  color: var(--tertiary-color);
+  font-size: small;
+}
+
+#footer-text {
+  -webkit-text-fill-color: var(--tertiary-color);
+  padding-right: 10px;
+}
+
+.footer-container {
+  flex-direction: column;
+  padding-left: 250px;
+  padding-bottom: 40px;
+}
+
+.footer-whitespace {
+  padding: 30px;
 }
 
 .form-field {
     border: none;
     outline: none;
-    padding-top: 80px;
+    padding-top: 50px;
     justify: center;
+    margin-bottom: 35px
 
 }
 
@@ -83,17 +172,28 @@
 
 }
 
+.form-field input:not(:last-child) {
+  margin-right: 10px;
+}
+
+.exchanged-label {
+  -webkit-text-fill-color: #82bc5c;
+  font-size: medium;
+  font-weight: 500;
+  
+}
+
 .validated-field {
     outline: transparent;
 }
 
-.validated-field:invalid {
+/* .validated-field:invalid {
     outline: 2px solid var(--error-color);
 }
 
 .validated-field:focus:invalid {
     color: var(--error-color);
-}
+} */
 
 .card-content {
     max-width: 500px;
@@ -105,7 +205,6 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background-image: Homepage-Banner.png;
     background-size: cover;
     background-position: center;
 }
@@ -123,6 +222,19 @@
     color: var(--secondary-color);
     position: relative;
     border-radius: 16px;
+}
+
+#toggle-exchanged {
+  padding-left: 50px;
+}
+
+.toggle .label-text {
+  margin-right: 10px;
+}
+
+#search-results-container {
+  padding-top: 0px;
+  overflow-y: hidden;
 }
 
 .song {
@@ -192,11 +304,19 @@ div.desc {
   clear: both;
 }
 
-h3 {
+h1 {
+    -webkit-text-fill-color: #82bc5c;
     text-align: center;
     padding-left: 50;
     padding-right: 50;
+    padding-top: 20;
 
+
+}
+
+h2 {
+  padding-left: 250px;
+  
 }
 
 /*NOT MY STUFF*/
@@ -221,14 +341,16 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Lists_and_Counters/Using_CS
 th, td {
     padding: 15px;
     text-align: left;
+    background: var(--tertiary-color);
 }
 
 th {
-    border-bottom: 1px solid var(--primary-color);
+    -webkit-text-fill-color: var(--tertiary-color);
+    background-color: #82bc5c;
 }
 
 a {
-    color: var(--tertiary-color);
+    color: var(--secondary-color);
     text-decoration: none;
 }
 .parent {
@@ -298,12 +420,12 @@ a {
 }
 
 input:checked + .slider {
-  background-color: #fd5d00;
-  box-shadow: 0 0 12px #fd5d00;
+  background-color: var(--quinernary-color);
+  box-shadow: 0 0 12px var(--);
 }
 
 input:checked + .slider:before {
-  transform: translateX(80px);/*how many pixels it slides from side to side*/
+  transform: translateX(20px);/*how many pixels it slides from side to side*/
 }
 
 .slider.round {

@@ -30,9 +30,16 @@ public class SearchTypeZipActivity {
 
         String[] formattedCriteria = this.formatSearchCriteria(searchTypeZipRequest.getCriteria());
 
-        String type = searchTypeZipRequest.getType();
+        String type = searchTypeZipRequest.getType().toLowerCase();
         String zipCode = searchTypeZipRequest.getZipCode();
         List<Item> searchResults = itemDao.searchItems(zipCode, type, formattedCriteria);
+
+        //filtering search results so if the item is exchanged it won't be included in the results
+        for(Item item: searchResults) {
+            if(item.getExchanged() == true) {
+                searchResults.remove(item);
+            }
+        }
 
         List<ItemModel> modelResults = new ArrayList<>();
         for(Item item : searchResults){

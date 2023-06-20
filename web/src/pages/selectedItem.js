@@ -3,6 +3,29 @@ import Header from '../components/header';
 import BindingClass from "../util/bindingClass";
 import DataStore from "../util/DataStore";
 
+/*
+The code below this comment is equivalent to...
+const EMPTY_DATASTORE_STATE = {
+    'search-criteria': '',
+    'search-results': [],
+};
+
+...but uses the "KEY" constants instead of "magic strings".
+The "KEY" constants will be reused a few times below.
+*/
+
+const SEARCH_CRITERIA_KEY = 'search-criteria';
+const SEARCH_RESULTS_KEY = 'search-results';
+const SEARCH_ZIP_CODE_KEY = 'search-zip-code';
+const SELECTED_TYPE_KEY = 'selected-type'; // Add a new constant for the selected type
+
+const EMPTY_DATASTORE_STATE = {
+  [SEARCH_CRITERIA_KEY]: '',
+  [SEARCH_RESULTS_KEY]: [],
+  [SEARCH_ZIP_CODE_KEY]: '',
+  [SELECTED_TYPE_KEY]: '', 
+};
+
 /**
  * Logic needed for the view playlist page of the website.
  */
@@ -10,7 +33,7 @@ class SelectedItem extends BindingClass {
     constructor() {
         super();
         this.bindClassMethods(['clientLoaded', 'mount'], this);
-        this.dataStore = new DataStore();
+        this.dataStore = new DataStore(EMPTY_DATASTORE_STATE);
         this.header = new Header(this.dataStore);
         console.log("selectedItem constructor");
     }

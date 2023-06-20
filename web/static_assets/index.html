@@ -9,49 +9,51 @@
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body class="background">
     <header class="header" id="header"></header>
-    <div class="card">
-        <h3>BE THE CHANGE. BE AN EXCHANGER. </h3>
+    <!-- <div class="image-container"> -->
+        <div class="card">
+            <h1>Be the change. Be an Exchanger. </h1>
+            <p class="error hidden" id="error-message"> </p>
 
-        <form class="card-content" id="search-listings-form">
-            <p class="form-field">
-                <input type="text" class="validated-field" id="search-criteria" placeholder="SEARCH" autofocus>
-                <input type="text" class="validated-field" id="search-zip-code" placeholder="ZIP CODE" autofocus>
-                <a href="#" class="button" id="search-btn">SEARCH</a>
-            </p>
-        </form>
+            <form class="card-content" id="search-listings-form">
+                <p class="form-field">
+                    <input type="text" class="validated-field" id="search-criteria" placeholder="SEARCH" autofocus>
+                    <input type="text" class="validated-field" id="search-zip-code" placeholder="ZIP CODE" autofocus>
+                    <a href="#" class="button" id="search-btn">SEARCH</a>
+                </p>
+            </form>
 
-            <!-- MENU OF TYPES -->
-        <form class="button-group">
-            <input checked type="radio" id="tops" name="type_selector" value="Top">
-            <label for="tops">TOPS</label><br>
-            <input type="radio" id="bottoms" name="type_selector" value="Bottom">
-            <label for="bottoms">BOTTOMS</label><br>
-            <input type="radio" id="outerwear" name="type_selector" value="Outerwear">
-            <label for="outerwear">OUTERWEAR</label>
-            <input type="radio" id="accessories" name="type_selector" value="Accessory">
-            <label for="accessories">ACCESSORIES</label>
-        </form>
-    </div>
-    <a href="selectedItem.html"> Select an Item</a>
-    <div id="table-container"></div>
-    </p>
+                <!-- MENU OF TYPES -->
+            <form class="button-group">
+                <input checked type="radio" id="tops" name="type_selector" value="top">
+                <label for="tops">TOPS</label><br>
+                <input type="radio" id="bottoms" name="type_selector" value="bottom">
+                <label for="bottoms">BOTTOMS</label><br>
+                <input type="radio" id="outerwear" name="type_selector" value="outerwear">
+                <label for="outerwear">OUTERWEAR</label>
+                <input type="radio" id="accessories" name="type_selector" value="accessories">
+                <label for="accessories">ACCESSORIES</label>
+            </form>
+        </div>
+    <!-- </div> -->
     <!-- Logic to provide an image gallery for the search results -->
 
-    <div class="card-content" id='search-results-container'>
+    <div class="card hidden" id='search-results-container'>
         <h5>RESULTS FOR <span id="search-criteria-display"></span></h5>
         <div id="search-results-display"></div>
     </div>
-
-<card id="experiment">
-
-</card>
-
 </body>
-
-
+<footer>
+    <div class="footer-whitespace"></div>
+    <div class="footer-container">
+        <p>Hillary Martin<p>
+        <a id='footer-text' href="mailto:hillaryannettemartin@gmail.com">Email</a>
+        <a id='footer-text' href="https://www.linkedin.com/in/hillary-martin/" target="_blank">LinkedIn</a>
+        <a id='footer-text' href="https://github.com/yillary" target="_blank">GitHub</a></p>
+    </div>
+  </footer>
 </html>

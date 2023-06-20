@@ -63,15 +63,13 @@ class SearchListings extends BindingClass {
     async search(evt) {
         evt.preventDefault();
 
+        const errorMessageDisplay = document.getElementById('error-message');
+        errorMessageDisplay.innerText = ``;
+        // errorMessageDisplay.classList.add('hidden');
+
         const searchCriteria = document.getElementById('search-criteria').value;
         const searchZipCode = document.getElementById('search-zip-code').value;
         const selectedType = document.querySelector('input[name="type_selector"]:checked');
-
-        // if (!selectedType) {
-        //     // Radio button not selected, handle the error or show a message to the user
-        //     // For now, let's just return without performing the search
-        //     return;
-        // }
 
         const selectedTypeValue = selectedType.value; // Retrieve the value of the selected type
         const previousSearchCriteria = this.dataStore.get(SEARCH_CRITERIA_KEY);
@@ -96,7 +94,10 @@ class SearchListings extends BindingClass {
                 [SEARCH_RESULTS_KEY]: results,
             });
             // Handle the response accordingly
-        } else {
+        } else if (searchCriteria && selectedTypeValue && !searchZipCode) {
+            createButton.innerText = origButtonText;
+            errorMessageDisplay.innerText = `Oops, you forgot to add a valid zip code.`;
+            // errorMessageDisplay.classList.remove('hidden');
             this.dataStore.setState(EMPTY_DATASTORE_STATE);
         }
     }

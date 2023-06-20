@@ -9,7 +9,7 @@
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body class="background">
@@ -17,18 +17,18 @@
 
 
 <div class="card">
-    <h3>BE THE CHANGE. BE AN EXCHANGER. </h3>
+    <h1>Xchanging looks good on you!</h1>
     <form class="card-content" id="search-listings-form">
         <p class="form-field">
-            <input type="text" class="validated-field" id="search-criteria" placeholder="SEARCH" autofocus>
-            <input type="text" class="validated-field" id="search-zip-code" placeholder="ZIP CODE" autofocus>
-            <a href="#" class="button" id="search-btn">SEARCH</a>
+            <!-- <input type="text" class="validated-field" id="search-criteria" placeholder="SEARCH" autofocus> -->
+            <!-- <input type="text" class="validated-field" id="search-zip-code" placeholder="ZIP CODE" autofocus> -->
+            <a href="" class="" id="search-btn"></a>
         </p>
     </form>
-    <p class="button-group">
+    <!-- <p class="button-group"> -->
 
         <!-- MENU OF TYPES -->
-    <form>
+    <!-- <form>
         <input checked type="radio" id="tops" name="type_selector" value="Top">
         <label for="tops">TOPS</label><br>
         <input type="radio" id="bottoms" name="type_selector" value="Bottom">
@@ -37,29 +37,35 @@
         <label for="outerwear">OUTERWEAR</label>
         <input type="radio" id="accessories" name="type_selector" value="Accessory">
         <label for="accessories">ACCESSORIES</label>
-    </form>
+    </form> -->
 </div>
 
 
 <div>
+    <div class="item-details-grid-container">
 
-    <section>
-
-        <img src="pink-shirt.png" alt="Image Goes Here" width="200" height="200" type="image/png">
-
-
-            <h2 class="item-details" id="item-title"></h2>
-            <h3 class="item-details" id="item-description"></h3>
-
-
-        <a class="item-details" id= "email-button" href="mailto:takeme@there.com?subject=Lovin' your item on Xchanged!" class="button">EMAIL XCHANGER</a>
-
-        <!-- Found email resource at: https://stackoverflow.com/questions/67152290/how-to-i-create-a-button-on-my-website-which-opens-email-client-on-mobile -->
-    </section>
-
+        <div class="image-placeholder">
+            <img id="selected-pink-shirt" src="pink-shirt.png" alt="Image Goes Here" width="200" height="200" type="image/png">
+        </div>
+        
+        <div class="item-details">
+                <div id="item-title"></div>
+                <div id="item-description"></div>
+        </div>
+</div>
+<a class="button" id="email-button" href="mailto:takeme@there.com?subject=Lovin' your item on Xchanged!" class="button">EMAIL XCHANGER</a>
+<div class="footer-whitespace"></div>
 </div>
 
-
+<footer>
+    <div class="footer-whitespace"></div>
+    <div class="footer-container">
+        <p>Hillary Martin<p>
+        <a id='footer-text' href="mailto:hillaryannettemartin@gmail.com">Email</a>
+        <a id='footer-text' href="https://www.linkedin.com/in/hillary-martin/" target="_blank">LinkedIn</a>
+        <a id='footer-text' href="https://github.com/yillary" target="_blank">GitHub</a></p>
+    </div>
+  </footer>
 
 </body>
 
