@@ -14,9 +14,12 @@ export default class Table extends BindingClass {
  
       //Stuff for exchanged filter.
       //need to have js make the checkbox so it won't be hideous on the page when there are no items.
+    // const exchangedFilter = document.createElement('filter-button');
+    // exchangedFilter.setAttribute(type, checkbox);
+    // exchangedFilter.setAttribute(id, exchanged-filter);
 
       //Behavior of data when box is checked:
-      const exchangedFilter = document.getElementById('exchanged-filter')
+      const exchangedFilter = document.getElementById('exchanged-filter');
 
       exchangedFilter.addEventListener('change', function() {
         console.log("entering event change listener");
@@ -66,14 +69,8 @@ export default class Table extends BindingClass {
         const container = document.getElementById('table-container');
         table.classList.add('table-container'); 
         container.appendChild(table);
-       //begin creating toggle switch
-        // const toggleExchanged = document.getElementById('toggle-exchanged');
-        // toggleExchanged.classList.remove('hidden');
-        // this.createToggleSlider();
     } catch (error) {
-        // const toggleExchanged = document.getElementById('toggle-exchanged');
         // toggleExchanged.classList.add('hidden');
-        toggleExchanged.classList.add('hidden');
         const note = document.createElement('h3');
         note.innerText = "Hmm . . . nothing's here yet. Let's get started!";
         document.body.appendChild(note);
